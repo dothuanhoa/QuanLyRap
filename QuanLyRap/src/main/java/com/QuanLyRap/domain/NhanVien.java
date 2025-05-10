@@ -2,6 +2,8 @@ package com.QuanLyRap.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import java.time.LocalDateTime;
@@ -21,6 +23,10 @@ public class NhanVien {
     private String gioiTinh;
     private LocalDateTime ngayBatDau;
     private int idCV;
+
+    @ManyToOne
+    @JoinColumn(name = "idCV")
+    private ChucVu chucVu;
 
     // Getters and Setters
     public int getId() {

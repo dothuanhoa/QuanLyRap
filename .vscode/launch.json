@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-QuanLyRapApplication<QuanLyRap>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.QuanLyRap.QuanLyRapApplication",
+            "projectName": "QuanLyRap",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
