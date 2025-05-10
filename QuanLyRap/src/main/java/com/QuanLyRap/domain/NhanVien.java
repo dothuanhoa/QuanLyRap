@@ -25,7 +25,7 @@ public class NhanVien {
     private int idCV;
 
     @ManyToOne
-    @JoinColumn(name = "idCV")
+    @JoinColumn(name = "idChucVu")
     private ChucVu chucVu;
 
     // Getters and Setters
