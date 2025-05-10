@@ -10,10 +10,10 @@ public class KhachHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String tenKhachHang;
+    private String tenkh;
     private String sdt;
     private String email;
-    private boolean gioiTinh;
+    private boolean giotinh;
 
     public int getId() {
         return id;
@@ -21,6 +21,14 @@ public class KhachHang {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTenkh() {
+        return tenkh;
+    }
+
+    public void setTenkh(String tenkh) {
+        this.tenkh = tenkh;
     }
 
     public String getSdt() {
@@ -39,26 +47,17 @@ public class KhachHang {
         this.email = email;
     }
 
-    public String getTenKhachHang() {
-        return tenKhachHang;
+    public boolean isGiotinh() {
+        return giotinh;
     }
 
-    public void setTenKhachHang(String tenKhachHang) {
-        this.tenKhachHang = tenKhachHang;
-    }
-
-    public boolean isGioiTinh() {
-        return gioiTinh;
-    }
-
-    public void setGioiTinh(boolean gioiTinh) {
-        this.gioiTinh = gioiTinh;
+    public void setGiotinh(boolean giotinh) {
+        this.giotinh = giotinh;
     }
 
     @Override
     public String toString() {
-        return "KhachHang [id=" + id + ", tenkh=" + tenKhachHang + ", sdt=" + sdt + ", email=" + email + ", giotinh="
-                + gioiTinh
+        return "KhachHang [id=" + id + ", tenkh=" + tenkh + ", sdt=" + sdt + ", email=" + email + ", giotinh=" + giotinh
                 + "]";
     }
 
