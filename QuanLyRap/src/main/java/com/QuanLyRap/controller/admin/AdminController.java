@@ -11,7 +11,7 @@ public class AdminController {
         return "admin/adminpage";
     }
 
-    @GetMapping("/movie-interface.jsp")
+    @GetMapping("/movie-interface")
     public String showMovieInterface() {
         return "admin/movie-interface";
     }
