@@ -51,7 +51,7 @@ window.addEventListener('load', function () {
             document.getElementById("description").textContent = movieData[i].description;
             document.getElementById("movie-screening-name").textContent = movieData[i].name;
             output += `
-                <img class="movie-img" src="./img/product-banner/${movieData[i].id}.png"></img>
+                <img class="movie-img" src="/img/product-banner/${movieData[i].id}.png"></img>
             `;
             const container = document.getElementById("movie-screening");
 
@@ -69,14 +69,14 @@ window.addEventListener('load', function () {
                         container.appendChild(langElem);
 
                         const vimg = document.createElement("img");
-                        vimg.src = "./img/v.png";
+                        vimg.src = "/img/v.png";
                         langElem.prepend(vimg);
 
                         const timeElem = document.createElement("div");
                         timeElem.className = "time";
                         show.time.forEach(t => {
                             const link = document.createElement("a");
-                            link.href = `./pick-chair.html?name=${movieData[i].name}&date=${encodeURIComponent(date)}&showtime=${t}`;
+                            link.href = `/pick-chair.html?name=${movieData[i].name}&date=${encodeURIComponent(date)}&showtime=${t}`;
                             link.textContent = t;
                             link.className = "time-link";
                             link.style.textDecoration = "none";

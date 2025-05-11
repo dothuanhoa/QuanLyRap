@@ -21,9 +21,9 @@
                     </div>
                 </div>
                 <div class="col-lg-10 right">
-                    <img src="./img/login.png">
+                    <img src="/img/login.png">
                 </div>
-                <div class="help"><img src="./img/circle-question-regular.png">&nbsp;Trợ giúp</div>
+                <div class="help"><img src="/img/circle-question-regular.png">&nbsp;Trợ giúp</div>
             </div>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
