@@ -27,6 +27,9 @@ public class LichChieu {
     @OneToMany(mappedBy = "lichChieu")
     private List<Ve> veList;
 
+    @OneToMany(mappedBy = "lichChieu")
+    private List<SuatChieu> suatChieuList;
+
     @ManyToOne
     @JoinColumn(name = "idPhongChieu") // idPhongChieu là khóa ngoại liên kết với PhongChieu
     private PhongChieu phongChieu;
@@ -80,8 +83,4 @@ public class LichChieu {
                 + veList + ", phongChieu=" + phongChieu + "]";
     }
 
-    
-    
-
-    
 }

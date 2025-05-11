@@ -4,10 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class NhanVien {
@@ -30,6 +32,17 @@ public class NhanVien {
     @ManyToOne
     @JoinColumn(name = "idtaikhoan")
     private TaiKhoan taiKhoan;
+
+    @OneToMany(mappedBy = "nhanVien")
+    private List<HoaDon> hoaDons;
+
+    public List<HoaDon> getHoaDons() {
+        return hoaDons;
+    }
+
+    public void setHoaDons(List<HoaDon> hoaDons) {
+        this.hoaDons = hoaDons;
+    }
 
     // Constructor không đối số
     public NhanVien() {
@@ -108,19 +121,10 @@ public class NhanVien {
         this.taiKhoan = taiKhoan;
     }
 
-    // toString
     @Override
     public String toString() {
-        return "NhanVien{" +
-                "idnv=" + idnv +
-                ", tennv='" + tennv + '\'' +
-                ", sdt='" + sdt + '\'' +
-                ", email='" + email + '\'' +
-                ", ngaysinh=" + ngaysinh +
-                ", gioitinh=" + gioitinh +
-                ", ngaybatdau=" + ngaybatdau +
-                ", chucVu=" + chucVu +
-                ", taiKhoan=" + taiKhoan +
-                '}';
+        return "NhanVien [idnv=" + idnv + ", tennv=" + tennv + ", sdt=" + sdt + ", email=" + email + ", ngaysinh="
+                + ngaysinh + ", gioitinh=" + gioitinh + ", ngaybatdau=" + ngaybatdau + ", chucVu=" + chucVu
+                + ", taiKhoan=" + taiKhoan + ", hoaDons=" + hoaDons + "]";
     }
 }

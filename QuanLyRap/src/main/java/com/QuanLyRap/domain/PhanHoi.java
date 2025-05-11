@@ -22,10 +22,6 @@ public class PhanHoi {
     @JoinColumn(name = "idkh") // idkh là khóa ngoại liên kết với KhachHang
     private KhachHang khachHang;
 
-    @OneToOne
-    @JoinColumn(name = "idPhim") // idPhim là khóa ngoại liên kết với Phim
-    private Phim phim;
-
     // Constructor không đối số
     public PhanHoi() {
     }
@@ -63,14 +59,6 @@ public class PhanHoi {
         this.khachHang = khachHang;
     }
 
-    public Phim getPhim() {
-        return phim;
-    }
-
-    public void setPhim(Phim phim) {
-        this.phim = phim;
-    }
-
     // toString
     @Override
     public String toString() {
@@ -79,7 +67,6 @@ public class PhanHoi {
                 ", noiDung='" + noiDung + '\'' +
                 ", email='" + email + '\'' +
                 ", khachHang=" + khachHang +
-                ", phim=" + phim +
-                '}';
+                +'}';
     }
 }

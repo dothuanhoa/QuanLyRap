@@ -24,9 +24,6 @@ public class Phim {
     private LocalDateTime ngayMua;
     private float giaMua;
 
-    @OneToOne(mappedBy = "phim")
-    private PhanHoi phanHoi;
-
     @OneToMany(mappedBy = "phim")
     private List<Ve> veList;
 
@@ -102,14 +99,6 @@ public class Phim {
         this.giaMua = giaMua;
     }
 
-    public PhanHoi getPhanHoi() {
-        return phanHoi;
-    }
-
-    public void setPhanHoi(PhanHoi phanHoi) {
-        this.phanHoi = phanHoi;
-    }
-
     public List<Ve> getVeList() {
         return veList;
     }
@@ -153,7 +142,6 @@ public class Phim {
                 ", danhGia='" + danhGia + '\'' +
                 ", ngayMua=" + ngayMua +
                 ", giaMua=" + giaMua +
-                ", phanHoi=" + phanHoi +
                 ", veList=" + veList +
                 ", theLoai=" + theLoai +
                 ", nhaCungCap=" + nhaCungCap +

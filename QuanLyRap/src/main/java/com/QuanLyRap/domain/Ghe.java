@@ -17,16 +17,13 @@ public class Ghe {
     private int idGhe;
     private String tenGhe;
     private boolean tinhTrang;
-    
+
     @OneToMany(mappedBy = "ghe")
     private List<Ve> veList;
 
     @ManyToOne
     @JoinColumn(name = "idPhongChieu") // idPhongChieu là khóa ngoại liên kết với PhongChieu
     private PhongChieu phongChieu;
-
-    @OneToMany(mappedBy = "phongChieu")
-    private List<Ghe> gheList;
 
     @ManyToOne
     @JoinColumn(name = "idLoaiGhe") // idLoaiGhe là khóa ngoại liên kết với LoaiGhe
@@ -75,14 +72,6 @@ public class Ghe {
         this.phongChieu = phongChieu;
     }
 
-    public List<Ghe> getGheList() {
-        return gheList;
-    }
-
-    public void setGheList(List<Ghe> gheList) {
-        this.gheList = gheList;
-    }
-
     public LoaiGhe getLoaiGhe() {
         return loaiGhe;
     }
@@ -94,9 +83,7 @@ public class Ghe {
     @Override
     public String toString() {
         return "Ghe [idGhe=" + idGhe + ", tenGhe=" + tenGhe + ", tinhTrang=" + tinhTrang + ", veList=" + veList
-                + ", phongChieu=" + phongChieu + ", gheList=" + gheList + ", loaiGhe=" + loaiGhe + "]";
+                + ", phongChieu=" + phongChieu + ", loaiGhe=" + loaiGhe + "]";
     }
-
-    
 
 }
