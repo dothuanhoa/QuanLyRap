@@ -6,58 +6,72 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class ChucVu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idChucVu;
-    private String tenCongViec;
-    private float luong;
-    private String moTa;
+    private Integer macv;
+
+    private String tencv;
+
+    private Double luong;
+
+    private String mota;
 
     @OneToMany(mappedBy = "chucVu")
-    private List<NhanVien> nhanVienList;
-
-    public int getIdChucVu() {
-        return idChucVu;
+    private List<NhanVien> nhanViens;
+    public ChucVu() {
     }
 
-    public void setIdChucVu(int idChucVu) {
-        this.idChucVu = idChucVu;
+    public Integer getMacv() {
+        return macv;
     }
 
-    public String getTenCongViec() {
-        return tenCongViec;
+    public void setMacv(Integer macv) {
+        this.macv = macv;
     }
 
-    public void setTenCongViec(String tenCongViec) {
-        this.tenCongViec = tenCongViec;
+    public String getTencv() {
+        return tencv;
     }
 
-    public float getLuong() {
+    public void setTencv(String tencv) {
+        this.tencv = tencv;
+    }
+
+    public Double getLuong() {
         return luong;
     }
 
-    public void setLuong(float luong) {
+    public void setLuong(Double luong) {
         this.luong = luong;
     }
 
-    public String getMoTa() {
-        return moTa;
+    public String getMota() {
+        return mota;
     }
 
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
+    public void setMota(String mota) {
+        this.mota = mota;
+    }
+
+    public List<NhanVien> getNhanViens() {
+        return nhanViens;
+    }
+
+    public void setNhanViens(List<NhanVien> nhanViens) {
+        this.nhanViens = nhanViens;
     }
 
     @Override
     public String toString() {
-        return "ChucVu [idChucVu=" + idChucVu + ", tenCongViec=" + tenCongViec + ", luong=" + luong + ", moTa=" + moTa
-                + "]";
+        return "ChucVu [macv=" + macv + ", tencv=" + tencv + ", luong=" + luong + ", mota=" + mota + ", nhanViens="
+                + nhanViens + "]";
     }
+
+    
+    
 
 }

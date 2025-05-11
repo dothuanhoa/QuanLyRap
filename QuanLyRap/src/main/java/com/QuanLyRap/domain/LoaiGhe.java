@@ -1,9 +1,12 @@
 package com.QuanLyRap.domain;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class LoaiGhe {
@@ -16,7 +19,14 @@ public class LoaiGhe {
     private int gia;
     private String moTa;
 
-    // Getters and Setters
+    @OneToMany(mappedBy = "loaiGhe")
+    private List<Ghe> gheList;
+
+    // Constructor không đối số
+    public LoaiGhe() {
+    }
+
+    // Getter và Setter cho các thuộc tính khác
     public int getIdLoaiGhe() {
         return idLoaiGhe;
     }
@@ -49,10 +59,24 @@ public class LoaiGhe {
         this.moTa = moTa;
     }
 
-    // toString method
+    // Getter và Setter cho gheList
+    public List<Ghe> getGheList() {
+        return gheList;
+    }
+
+    public void setGheList(List<Ghe> gheList) {
+        this.gheList = gheList;
+    }
+
+    // toString
     @Override
     public String toString() {
-        return "LoaiGhe [idLoaiGhe=" + idLoaiGhe + ", tenLoaiGhe=" + tenLoaiGhe + ", gia=" + gia + ", moTa=" + moTa
-                + "]";
+        return "LoaiGhe{" +
+                "idLoaiGhe=" + idLoaiGhe +
+                ", tenLoaiGhe='" + tenLoaiGhe + '\'' +
+                ", gia=" + gia +
+                ", moTa='" + moTa + '\'' +
+                ", gheList=" + gheList +
+                '}';
     }
 }

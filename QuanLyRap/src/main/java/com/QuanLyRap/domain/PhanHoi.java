@@ -4,16 +4,33 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class PhanHoi {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPhanHoi;
+
     private String noiDung;
-    private String id;
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name = "idkh") // idkh là khóa ngoại liên kết với KhachHang
+    private KhachHang khachHang;
+
+    @OneToOne
+    @JoinColumn(name = "idPhim") // idPhim là khóa ngoại liên kết với Phim
+    private Phim phim;
+
+    // Constructor không đối số
+    public PhanHoi() {
+    }
+
+    // Getters và Setters
     public int getIdPhanHoi() {
         return idPhanHoi;
     }
@@ -30,14 +47,6 @@ public class PhanHoi {
         this.noiDung = noiDung;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -46,9 +55,31 @@ public class PhanHoi {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "PhanHoi [idPhanHoi=" + idPhanHoi + ", noiDung=" + noiDung + ", id=" + id + ", email=" + email + "]";
+    public KhachHang getKhachHang() {
+        return khachHang;
     }
 
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
+
+    public Phim getPhim() {
+        return phim;
+    }
+
+    public void setPhim(Phim phim) {
+        this.phim = phim;
+    }
+
+    // toString
+    @Override
+    public String toString() {
+        return "PhanHoi{" +
+                "idPhanHoi=" + idPhanHoi +
+                ", noiDung='" + noiDung + '\'' +
+                ", email='" + email + '\'' +
+                ", khachHang=" + khachHang +
+                ", phim=" + phim +
+                '}';
+    }
 }

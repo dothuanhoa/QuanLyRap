@@ -2,11 +2,12 @@ package com.QuanLyRap.domain;
 
 import java.time.LocalDateTime;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Ve {
@@ -16,80 +17,131 @@ public class Ve {
     private int idVe;
     private LocalDateTime thoiGianMua;
     private float giaVe;
-    private int idPhim;
-    private int id;
-    private int idLichChieu;
-    private int idHoaDon;
-    private int idLoaiVe;
-    private int idGhe;
     private String ghiChu;
+
+    @ManyToOne
+    @JoinColumn(name = "idkh") // idkh là khóa ngoại liên kết với KhachHang
+    private KhachHang khachHang;
+
+    @ManyToOne
+    @JoinColumn(name = "idHoaDon") // idHoaDon là khóa ngoại liên kết với HoaDon
+    private HoaDon hoaDon;
+
+    @ManyToOne
+    @JoinColumn(name = "idLoaiVe") // idLoaiVe là khóa ngoại liên kết với LoaiVe
+    private LoaiVe loaiVe;
+
+    @ManyToOne
+    @JoinColumn(name = "idPhim") // idPhim là khóa ngoại liên kết với Phim
+    private Phim phim;
+
+    @ManyToOne
+    @JoinColumn(name = "idLichChieu") // idLichChieu là khóa ngoại liên kết với LichChieu
+    private LichChieu lichChieu;
+
+    @ManyToOne
+    @JoinColumn(name = "idGhe") // idGhe là khóa ngoại liên kết với Ghe
+    private Ghe ghe;
+
+    // Constructor không đối số
+    public Ve() {
+    }
+
+    // Getters và Setters
     public int getIdVe() {
         return idVe;
     }
-    public float getGiaVe() {
-        return giaVe;
-    }
-    public int getIdPhim() {
-        return idPhim;
-    }
-    public int getId() {
-        return id;
-    }
-    public int getIdLichChieu() {
-        return idLichChieu;
-    }
-    public int getIdHoaDon() {
-        return idHoaDon;
-    }
-    public int getIdLoaiVe() {
-        return idLoaiVe;
-    }
-    public int getIdGhe() {
-        return idGhe;
-    }
-    public String getGhiChu() {
-        return ghiChu;
-    }
+
     public void setIdVe(int idVe) {
         this.idVe = idVe;
     }
-    public void setGiaVe(float giaVe) {
-        this.giaVe = giaVe;
-    }
-    public void setIdPhim(int idPhim) {
-        this.idPhim = idPhim;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public void setIdLichChieu(int idLichChieu) {
-        this.idLichChieu = idLichChieu;
-    }
-    public void setIdHoaDon(int idHoaDon) {
-        this.idHoaDon = idHoaDon;
-    }
-    public void setIdLoaiVe(int idLoaiVe) {
-        this.idLoaiVe = idLoaiVe;
-    }
-    public void setIdGhe(int idGhe) {
-        this.idGhe = idGhe;
-    }
-    public void setGhiChu(String ghiChu) {
-        this.ghiChu = ghiChu;
-    }
-    
-     public LocalDateTime getThoiGianMua() {
+
+    public LocalDateTime getThoiGianMua() {
         return thoiGianMua;
     }
+
     public void setThoiGianMua(LocalDateTime thoiGianMua) {
         this.thoiGianMua = thoiGianMua;
     }
+
+    public float getGiaVe() {
+        return giaVe;
+    }
+
+    public void setGiaVe(float giaVe) {
+        this.giaVe = giaVe;
+    }
+
+    public String getGhiChu() {
+        return ghiChu;
+    }
+
+    public void setGhiChu(String ghiChu) {
+        this.ghiChu = ghiChu;
+    }
+
+    public KhachHang getKhachHang() {
+        return khachHang;
+    }
+
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
+
+    public HoaDon getHoaDon() {
+        return hoaDon;
+    }
+
+    public void setHoaDon(HoaDon hoaDon) {
+        this.hoaDon = hoaDon;
+    }
+
+    public LoaiVe getLoaiVe() {
+        return loaiVe;
+    }
+
+    public void setLoaiVe(LoaiVe loaiVe) {
+        this.loaiVe = loaiVe;
+    }
+
+    public Phim getPhim() {
+        return phim;
+    }
+
+    public void setPhim(Phim phim) {
+        this.phim = phim;
+    }
+
+    public LichChieu getLichChieu() {
+        return lichChieu;
+    }
+
+    public void setLichChieu(LichChieu lichChieu) {
+        this.lichChieu = lichChieu;
+    }
+
+    public Ghe getGhe() {
+        return ghe;
+    }
+
+    public void setGhe(Ghe ghe) {
+        this.ghe = ghe;
+    }
+
+    // toString
     @Override
     public String toString() {
-        return "Ve [idVe=" + idVe + ", giaVe=" + giaVe + ", idPhim=" + idPhim + ", id=" + id + ", idLichChieu="
-                + idLichChieu + ", idHoaDon=" + idHoaDon + ", idLoaiVe=" + idLoaiVe + ", idGhe=" + idGhe + ", ghiChu="
-                + ghiChu + "]";
+        return "Ve{" +
+                "idVe=" + idVe +
+                ", thoiGianMua=" + thoiGianMua +
+                ", giaVe=" + giaVe +
+                ", ghiChu='" + ghiChu + '\'' +
+                ", khachHang=" + khachHang +
+                ", hoaDon=" + hoaDon +
+                ", loaiVe=" + loaiVe +
+                ", phim=" + phim +
+                ", lichChieu=" + lichChieu +
+                ", ghe=" + ghe +
+                '}';
     }
-    
-
 }

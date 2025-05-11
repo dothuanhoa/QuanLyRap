@@ -4,21 +4,35 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class TaiKhoan {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long idtaikhoan;
+
     private String tentk;
     private String matkhau;
+    private Boolean trangthai;
 
-    public int getId() {
-        return id;
+    @OneToOne(mappedBy = "taiKhoan")
+    private NhanVien nhanVien;
+
+    @OneToOne(mappedBy = "taiKhoan")
+    private KhachHang khachHang;
+
+    // Constructor không đối số
+    public TaiKhoan() {}
+
+    // Getters và Setters
+    public Long getIdtaikhoan() {
+        return idtaikhoan;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdtaikhoan(Long idtaikhoan) {
+        this.idtaikhoan = idtaikhoan;
     }
 
     public String getTentk() {
@@ -37,9 +51,40 @@ public class TaiKhoan {
         this.matkhau = matkhau;
     }
 
-    @Override
-    public String toString() {
-        return "TaiKhoan [id=" + id + ", tentk=" + tentk + ", matkhau=" + matkhau + "]";
+    public Boolean getTrangthai() {
+        return trangthai;
     }
 
+    public void setTrangthai(Boolean trangthai) {
+        this.trangthai = trangthai;
+    }
+
+    public NhanVien getNhanVien() {
+        return nhanVien;
+    }
+
+    public void setNhanVien(NhanVien nhanVien) {
+        this.nhanVien = nhanVien;
+    }
+
+    public KhachHang getKhachHang() {
+        return khachHang;
+    }
+
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
+
+    // toString
+    @Override
+    public String toString() {
+        return "TaiKhoan{" +
+                "idtaikhoan=" + idtaikhoan +
+                ", tentk='" + tentk + '\'' +
+                ", matkhau='" + matkhau + '\'' +
+                ", trangthai=" + trangthai +
+                ", nhanVien=" + nhanVien +
+                ", khachHang=" + khachHang +
+                '}';
+    }
 }

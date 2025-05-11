@@ -1,52 +1,53 @@
 package com.QuanLyRap.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class HoaDon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idHoaDon;
-    private LocalDateTime ngaylapHD;
-    private int id;
-    private String idNV;
+    private Long idhoadon;
+
+    private LocalDate ngaylaphd;
     private String loaiThanhToan;
 
-    public int getIdHoaDon() {
-        return idHoaDon;
+    @ManyToOne
+    @JoinColumn(name = "idnv")
+    private NhanVien nhanVien;
+
+    @ManyToOne
+    @JoinColumn(name = "idkh")
+    private KhachHang khachHang;
+
+    @OneToMany(mappedBy = "hoaDon")
+    private List<Ve> veList;
+
+    public HoaDon() {
     }
 
-    public void setIdHoaDon(int idHoaDon) {
-        this.idHoaDon = idHoaDon;
+    public Long getIdhoadon() {
+        return idhoadon;
     }
 
-    public LocalDateTime getNgaylapHD() {
-        return ngaylapHD;
+    public void setIdhoadon(Long idhoadon) {
+        this.idhoadon = idhoadon;
     }
 
-    public void setNgaylapHD(LocalDateTime ngaylapHD) {
-        this.ngaylapHD = ngaylapHD;
+    public LocalDate getNgaylaphd() {
+        return ngaylaphd;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getIdNV() {
-        return idNV;
-    }
-
-    public void setIdNV(String idNV) {
-        this.idNV = idNV;
+    public void setNgaylaphd(LocalDate ngaylaphd) {
+        this.ngaylaphd = ngaylaphd;
     }
 
     public String getLoaiThanhToan() {
@@ -57,9 +58,36 @@ public class HoaDon {
         this.loaiThanhToan = loaiThanhToan;
     }
 
+    public NhanVien getNhanVien() {
+        return nhanVien;
+    }
+
+    public void setNhanVien(NhanVien nhanVien) {
+        this.nhanVien = nhanVien;
+    }
+
+    public KhachHang getKhachHang() {
+        return khachHang;
+    }
+
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
+
+    public List<Ve> getVeList() {
+        return veList;
+    }
+
+    public void setVeList(List<Ve> veList) {
+        this.veList = veList;
+    }
+
     @Override
     public String toString() {
-        return "HoaDon [idHoaDon=" + idHoaDon + ", ngaylapHD=" + ngaylapHD + ", id=" + id + ", idNV=" + idNV
-                + ", loaiThanhToan=" + loaiThanhToan + "]";
+        return "HoaDon [idhoadon=" + idhoadon + ", ngaylaphd=" + ngaylaphd + ", loaiThanhToan=" + loaiThanhToan
+                + ", nhanVien=" + nhanVien + ", khachHang=" + khachHang + ", veList=" + veList + "]";
     }
+
+    
+
 }

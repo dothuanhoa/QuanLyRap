@@ -1,9 +1,14 @@
 package com.QuanLyRap.domain;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Ghe {
@@ -12,8 +17,23 @@ public class Ghe {
     private int idGhe;
     private String tenGhe;
     private boolean tinhTrang;
-    private String idPhong;
-    private String idLoaiGhe;
+    
+    @OneToMany(mappedBy = "ghe")
+    private List<Ve> veList;
+
+    @ManyToOne
+    @JoinColumn(name = "idPhongChieu") // idPhongChieu là khóa ngoại liên kết với PhongChieu
+    private PhongChieu phongChieu;
+
+    @OneToMany(mappedBy = "phongChieu")
+    private List<Ghe> gheList;
+
+    @ManyToOne
+    @JoinColumn(name = "idLoaiGhe") // idLoaiGhe là khóa ngoại liên kết với LoaiGhe
+    private LoaiGhe loaiGhe;
+
+    public Ghe() {
+    }
 
     public int getIdGhe() {
         return idGhe;
@@ -39,26 +59,44 @@ public class Ghe {
         this.tinhTrang = tinhTrang;
     }
 
-    public String getIdPhong() {
-        return idPhong;
+    public List<Ve> getVeList() {
+        return veList;
     }
 
-    public void setIdPhong(String idPhong) {
-        this.idPhong = idPhong;
+    public void setVeList(List<Ve> veList) {
+        this.veList = veList;
     }
 
-    public String getIdLoaiGhe() {
-        return idLoaiGhe;
+    public PhongChieu getPhongChieu() {
+        return phongChieu;
     }
 
-    public void setIdLoaiGhe(String idLoaiGhe) {
-        this.idLoaiGhe = idLoaiGhe;
+    public void setPhongChieu(PhongChieu phongChieu) {
+        this.phongChieu = phongChieu;
+    }
+
+    public List<Ghe> getGheList() {
+        return gheList;
+    }
+
+    public void setGheList(List<Ghe> gheList) {
+        this.gheList = gheList;
+    }
+
+    public LoaiGhe getLoaiGhe() {
+        return loaiGhe;
+    }
+
+    public void setLoaiGhe(LoaiGhe loaiGhe) {
+        this.loaiGhe = loaiGhe;
     }
 
     @Override
     public String toString() {
-        return "Ghe [idGhe=" + idGhe + ", tenGhe=" + tenGhe + ", tinhTrang=" + tinhTrang + ", idPhong=" + idPhong
-                + ", idLoaiGhe=" + idLoaiGhe + "]";
+        return "Ghe [idGhe=" + idGhe + ", tenGhe=" + tenGhe + ", tinhTrang=" + tinhTrang + ", veList=" + veList
+                + ", phongChieu=" + phongChieu + ", gheList=" + gheList + ", loaiGhe=" + loaiGhe + "]";
     }
+
+    
 
 }

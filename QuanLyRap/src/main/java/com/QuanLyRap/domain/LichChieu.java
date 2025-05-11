@@ -4,7 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class LichChieu {
@@ -14,11 +19,21 @@ public class LichChieu {
     private int idLichChieu;
 
     private LocalDateTime ngayChieu;
-    private int idPhim;
-    private int idSuatChieu;
-    private int idPhong;
 
-    // Getters and Setters
+    @ManyToOne
+    @JoinColumn(name = "idPhim") // idPhim là khóa ngoại liên kết với Phim
+    private Phim phim;
+
+    @OneToMany(mappedBy = "lichChieu")
+    private List<Ve> veList;
+
+    @ManyToOne
+    @JoinColumn(name = "idPhongChieu") // idPhongChieu là khóa ngoại liên kết với PhongChieu
+    private PhongChieu phongChieu;
+
+    public LichChieu() {
+    }
+
     public int getIdLichChieu() {
         return idLichChieu;
     }
@@ -35,34 +50,38 @@ public class LichChieu {
         this.ngayChieu = ngayChieu;
     }
 
-    public int getIdPhim() {
-        return idPhim;
+    public Phim getPhim() {
+        return phim;
     }
 
-    public void setIdPhim(int idPhim) {
-        this.idPhim = idPhim;
+    public void setPhim(Phim phim) {
+        this.phim = phim;
     }
 
-    public int getIdSuatChieu() {
-        return idSuatChieu;
+    public List<Ve> getVeList() {
+        return veList;
     }
 
-    public void setIdSuatChieu(int idSuatChieu) {
-        this.idSuatChieu = idSuatChieu;
+    public void setVeList(List<Ve> veList) {
+        this.veList = veList;
     }
 
-    public int getIdPhong() {
-        return idPhong;
+    public PhongChieu getPhongChieu() {
+        return phongChieu;
     }
 
-    public void setIdPhong(int idPhong) {
-        this.idPhong = idPhong;
+    public void setPhongChieu(PhongChieu phongChieu) {
+        this.phongChieu = phongChieu;
     }
 
-    // toString method
     @Override
     public String toString() {
-        return "LichChieu [idLichChieu=" + idLichChieu + ", ngayChieu=" + ngayChieu + ", idPhim=" + idPhim
-                + ", idSuatChieu=" + idSuatChieu + ", idPhong=" + idPhong + "]";
+        return "LichChieu [idLichChieu=" + idLichChieu + ", ngayChieu=" + ngayChieu + ", phim=" + phim + ", veList="
+                + veList + ", phongChieu=" + phongChieu + "]";
     }
+
+    
+    
+
+    
 }

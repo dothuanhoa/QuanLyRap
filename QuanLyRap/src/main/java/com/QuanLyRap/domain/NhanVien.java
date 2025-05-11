@@ -6,51 +6,50 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
 
 @Entity
 public class NhanVien {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long idnv;
 
-    private String idNV;
-    private String tenNV;
+    private String tennv;
     private String sdt;
     private String email;
-    private LocalDateTime ngaySinh;
-    private String gioiTinh;
-    private LocalDateTime ngayBatDau;
-    private int idCV;
+    private LocalDate ngaysinh;
+    private Boolean gioitinh;
+    private LocalDate ngaybatdau;
 
     @ManyToOne
-    @JoinColumn(name = "idChucVu")
+    @JoinColumn(name = "macv")
     private ChucVu chucVu;
 
-    // Getters and Setters
-    public int getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name = "idtaikhoan")
+    private TaiKhoan taiKhoan;
+
+    // Constructor không đối số
+    public NhanVien() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    // Getters và Setters
+    public Long getIdnv() {
+        return idnv;
     }
 
-    public String getIdNV() {
-        return idNV;
+    public void setIdnv(Long idnv) {
+        this.idnv = idnv;
     }
 
-    public void setIdNV(String idNV) {
-        this.idNV = idNV;
+    public String getTennv() {
+        return tennv;
     }
 
-    public String getTenNV() {
-        return tenNV;
-    }
-
-    public void setTenNV(String tenNV) {
-        this.tenNV = tenNV;
+    public void setTennv(String tennv) {
+        this.tennv = tennv;
     }
 
     public String getSdt() {
@@ -69,43 +68,59 @@ public class NhanVien {
         this.email = email;
     }
 
-    public LocalDateTime getNgaySinh() {
-        return ngaySinh;
+    public LocalDate getNgaysinh() {
+        return ngaysinh;
     }
 
-    public void setNgaySinh(LocalDateTime ngaySinh) {
-        this.ngaySinh = ngaySinh;
+    public void setNgaysinh(LocalDate ngaysinh) {
+        this.ngaysinh = ngaysinh;
     }
 
-    public String getGioiTinh() {
-        return gioiTinh;
+    public Boolean getGioitinh() {
+        return gioitinh;
     }
 
-    public void setGioiTinh(String gioiTinh) {
-        this.gioiTinh = gioiTinh;
+    public void setGioitinh(Boolean gioitinh) {
+        this.gioitinh = gioitinh;
     }
 
-    public LocalDateTime getNgayBatDau() {
-        return ngayBatDau;
+    public LocalDate getNgaybatdau() {
+        return ngaybatdau;
     }
 
-    public void setNgayBatDau(LocalDateTime ngayBatDau) {
-        this.ngayBatDau = ngayBatDau;
+    public void setNgaybatdau(LocalDate ngaybatdau) {
+        this.ngaybatdau = ngaybatdau;
     }
 
-    public int getIdCV() {
-        return idCV;
+    public ChucVu getChucVu() {
+        return chucVu;
     }
 
-    public void setIdCV(int idCV) {
-        this.idCV = idCV;
+    public void setChucVu(ChucVu chucVu) {
+        this.chucVu = chucVu;
     }
 
-    // toString method
+    public TaiKhoan getTaiKhoan() {
+        return taiKhoan;
+    }
+
+    public void setTaiKhoan(TaiKhoan taiKhoan) {
+        this.taiKhoan = taiKhoan;
+    }
+
+    // toString
     @Override
     public String toString() {
-        return "NhanVien [id=" + id + ", idNV=" + idNV + ", tenNV=" + tenNV + ", sdt=" + sdt + ", email=" + email
-                + ", ngaySinh=" + ngaySinh + ", gioiTinh=" + gioiTinh + ", ngayBatDau=" + ngayBatDau + ", idCV=" + idCV
-                + "]";
+        return "NhanVien{" +
+                "idnv=" + idnv +
+                ", tennv='" + tennv + '\'' +
+                ", sdt='" + sdt + '\'' +
+                ", email='" + email + '\'' +
+                ", ngaysinh=" + ngaysinh +
+                ", gioitinh=" + gioitinh +
+                ", ngaybatdau=" + ngaybatdau +
+                ", chucVu=" + chucVu +
+                ", taiKhoan=" + taiKhoan +
+                '}';
     }
 }
