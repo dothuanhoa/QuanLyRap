@@ -16,6 +16,9 @@
 
         <body>
             hello from jsp
+            <h1>
+                admin page
+            </h1>
             <button>submit</button>
         </body>
 

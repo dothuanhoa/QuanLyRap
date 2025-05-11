@@ -1,0 +1,145 @@
+.main {
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+}
+#name{
+  color: #fba300;
+}
+.seat {
+  width: 40px;
+  height: 40px;
+  font-size: 0.75rem;
+}
+.pick-chair-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.row-left {
+  padding-right: 20%;
+}
+.row-right {
+  padding-left: 20%;
+}
+.session {
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  padding-left: 2vh;
+  padding-bottom: 3vh;
+}
+.session h1 {
+  width: fit-content;
+  background-color: #ff9603;
+  color: #d5f122;
+  font-size: 6vh;
+  padding: 1vh 3vh;
+
+  border-radius: 50%;
+}
+.session span {
+  font-size: 6vh;
+  color: white;
+}
+.chair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+.chair-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4vh;
+  color: #1f5421;
+  font-weight: bold;
+}
+.bottom-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 4vh 10%;
+  font-weight: bold;
+}
+.input[type="fullname"],
+input[type="fullname"],
+input[type="email"],
+input[type="phone"] {
+  background-color: #ffffff;
+  width: 70%;
+  padding: 10px;
+  margin: 2vh 10%;
+  border: none;
+  box-sizing: border-box;
+}
+.cash-out-right {
+  color: white;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3vh;
+}
+
+.payment-title {
+  font-weight: bold;
+  font-size: 24px;
+}
+.payment-option {
+  display: flex;
+  align-items: center;
+}
+.payment-option input[type="radio"] {
+  transform: scale(1.5);
+  margin-right: 10px;
+  border: none;
+}
+.payment-option img {
+  height: 50px;
+  margin-right: 10px;
+}
+.terms {
+  display: flex;
+  align-items: center;
+}
+.terms input {
+  margin-right: 10px;
+}
+.note {
+  font-size: 12px;
+  color: #fba300;
+  margin-top: 10px;
+}
+.last-step {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.last-step h1 {
+  font-size: 2.5vh;
+  color: #fba300;
+  margin-top: 2vh;
+}
+.button-container {
+  font-size: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
+  color:white;
+}
+.button-container .buy{
+    color:black;
+    background-color: #5AC5FF;
+    padding:0.7vh 4vh;
+    font-weight: bolder;
+}
+.price{
+  color:#FBA300;
+  font-size: 3vh;
+  padding-left: 10%;
+}
+#price{
+  color:red;
+}

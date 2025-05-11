@@ -1,0 +1,121 @@
+.main {
+  padding-bottom: 10vh;
+}
+input[type="text"] {
+    background-color: #d9d9d9;
+    width: 100%;
+    padding: 10px;
+    margin: 2vh 0;
+    border: none;
+    box-sizing: border-box;
+}
+.dangnhap {
+  width: 100%;
+  color: white;
+  background-color: #4e4949;
+  padding: 2vh 0;
+  text-align: center;
+  font-size: 5vh;
+  font-weight: bold;
+  margin: 7vh 0;
+}
+.registeredContainer {
+  display: flex;
+  gap: 10%;
+  width: 100%;
+  color: white;
+}
+.registeredContainer h2 {
+  color: white;
+}
+input[type="email"],
+input[type="password"],
+input[type="repassword"] {
+  background-color: #d9d9d9;
+  width: 100%;
+  padding: 10px;
+  margin: 2vh 0;
+  border: none;
+  box-sizing: border-box;
+}
+.remember {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.remember input {
+  margin-right: 5px;
+}
+
+.self-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5%;
+}
+input[type="name"],
+input[type="lastname"] {
+  background-color: #d9d9d9;
+  width: 47.5%;
+  padding: 10px;
+  margin: 2vh 0;
+  border: none;
+  box-sizing: border-box;
+}
+input[type="date"] {
+  background-color: #d9d9d9;
+  width: 100%;
+  padding: 10px;
+  margin: 2vh 0;
+  border: none;
+  box-sizing: border-box;
+}
+input[type="sex"],
+input[type="cccd"],
+input[type="phone"],
+input[type="address"],
+input[type="city"],
+input[type="district"] {
+  background-color: #d9d9d9;
+  width: 100%;
+  padding: 10px;
+  margin: 2vh 0;
+  border: none;
+  box-sizing: border-box;
+}
+.register {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.register a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.registered-bottom {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.accept {
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+  padding: 3vh 0;
+}
+.registered-btn {
+  width: 30%;
+  padding: 10px;
+  background-color: #0ad2ff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+.custom-date::placeholder {
+  color: #999;
+}
+.custom-date {
+  font-size: 16px;
+  border: 1px solid #ddd;
+}

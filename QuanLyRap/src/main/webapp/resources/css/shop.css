@@ -1,0 +1,110 @@
+.product-picture {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    height: 600px;
+}
+
+.shop {
+    padding-top: 50px;
+    padding-bottom: 55px;
+}
+
+.shop .right {
+    padding-top: 20px;
+    position: relative;
+}
+
+.shop div h4 {
+    font-weight: bolder;
+    color: red;
+    padding-bottom: 20px;
+}
+
+.shop div h4 span {
+    font-weight: bolder;
+    color: black;
+    position: absolute;
+    right: 5%;
+}
+
+.shop div h3 {
+    font-weight: bolder;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.shop-rating {
+    font-size: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.color {
+    font-size: 60px;
+    border-bottom: 1px solid gray;
+}
+
+.right .input-group {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.right .input-group span {
+    position: relative;
+    top: 5px;
+    padding-right: 10px;
+}
+
+.shop .right button {
+    top: 50px;
+    position: relative;
+    left: 100px;
+}
+
+.shop .shop-cost {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+    font-weight: 700;
+}
+
+.shop .shop-total {
+    color: red;
+}
+
+.blue-radio .form-check-input {
+    background-color: blue;
+    border-color: black;
+}
+
+.blue-radio .form-check-input:checked {
+    background-color: blue;
+    border-color: black;
+}
+
+.green-radio .form-check-input {
+    background-color: green;
+    border-color: black;
+}
+
+.green-radio .form-check-input:checked {
+    background-color: green;
+    border-color: black;
+}
+
+.yellow-radio .form-check-input {
+    background-color: yellow;
+    border-color: black;
+}
+
+.yellow-radio .form-check-input:checked {
+    background-color: yellow;
+    border-color: black;
+}
+
+@media only screen and (max-width: 768px) {
+    .product-picture {
+        height: 300px;
+    }
+}

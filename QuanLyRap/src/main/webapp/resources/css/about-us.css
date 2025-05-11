@@ -1,0 +1,33 @@
+.main{
+    padding-bottom: 30vh;
+}
+.about-us{
+    width: 100%;
+    color: white;
+    background-color: #4E4949;
+    padding: 2vh 0;
+    text-align: center;
+    font-size: 5vh;
+    font-weight: bold;
+    margin: 5vh 0;
+}
+.hero {
+    width: 100%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+}
+.hero img{
+    width: 95%;
+}
+.about-us-text{
+    background-color: #16253A;
+    text-align: center;
+    height: max-content ;
+    padding: 2vh;
+}
+.about-us-text p{
+    color:white;
+    font-size: 3vh;
+    font-family: "Ubuntu", sans-serif;
+    line-height: 4vh;
+}

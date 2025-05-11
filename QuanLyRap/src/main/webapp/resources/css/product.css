@@ -1,0 +1,85 @@
+.main {
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+}
+
+#movie {
+    color: white;
+    font-size: 4vh;
+    padding: 0 2vh 2vh 2vh;
+}
+
+.movie-info {
+    background-color: #353333;
+    color: white;
+    font-size: 3vh;
+}
+
+.movie-info span {
+    font-weight: 100;
+}
+
+.short-info {
+    padding: 3vh 3vh 0 3vh;
+    line-height: 8vh;
+    color: #5AC5FF;
+    font-weight: bolder;
+}
+
+.long-info {
+    padding: 0 3vh;
+    line-height: 8vh;
+    font-weight: bolder;
+}
+
+#description {
+    padding-top: 4.5vh;
+    line-height: 3.5vh;
+    font-weight: 100;
+}
+
+.movie-img {
+    width: 100%;
+    height: 100%;
+}
+
+.container-fscren {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-screening {
+    background-color: #353333;
+    color: white;
+    font-size: 3vh;
+    width: 90%;
+    padding: 1% 3%;
+}
+
+.movie-screening-name {
+    border-bottom: 2px solid grey;
+}
+
+.date {
+    font-size: 1.2em;
+    margin-top: 10vh;
+    color: white
+}
+
+.screenLang {
+    color: white;
+    font-weight: bold;
+}
+
+.time {
+    margin-left: 20px;
+}
+
+.time a span{
+    display: inline-block;
+    margin: 2px 15px;
+    padding: 4px 12px;
+    background: #5AC5FF;
+    color:black;
+}

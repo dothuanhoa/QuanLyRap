@@ -1,0 +1,803 @@
+.rapChoice {
+    background: #A69B9B;
+    text-align: center;
+    color: white;
+    font-size: 3vh;
+}
+
+.rapChoice span {
+    color: #FD1111;
+}
+
+.rapOption {
+    padding-bottom: 2vh;
+}
+
+.form-select {
+    background-color: #D9D9D9;
+    border-radius: 0;
+}
+
+.phimButton {
+    padding-top: 5vh;
+    padding-bottom: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+}
+
+.phimButton a:first-child {
+    background-color: #5AC5FF;
+    color: black;
+    padding: 1vh;
+}
+
+.phimButton a:last-child {
+    background-color: black;
+    padding: 1vh;
+}
+
+.nowMovie {
+    color: black;
+    font-weight: bold;
+    transition: font-size 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.nowMovie:hover {
+    color: white;
+    font-size: 4vh;
+}
+
+.newMovie {
+    color: white;
+    font-weight: bold;
+    transition: font-size 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.newMovie:hover {
+    color: red;
+    font-size: 4vh;
+}
+
+.product-item {
+    overflow: hidden;
+    display: flex;
+    gap: 12.5%;
+}
+.movie-card{
+    position: relative;
+    height: 580px;
+}
+.movie-card h4 {
+    color: #5AC5FF;
+}
+.movie-card img{
+    width:100%;
+    transition: width 0.5s ease-in-out;
+}
+.movie-card img:hover{
+    width: 101%;
+}
+.movie-category {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    color: white;
+}
+
+.movie-category span {
+    color: #F3DC5A
+}
+
+.dot-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    padding: 5vh 0vh;
+    display: none;
+}
+
+.dot-group input[type="radio"] {
+    display: none;
+}
+
+.dot-label {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #cfcfcf;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.dot-group input[type="radio"]:checked+.dot-label {
+    background-color: #f2dd5d;
+}
+
+.view-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vh;
+}
+
+
+
+.view-all a {
+    background-color: #5AC5FF;
+    color: white;
+    padding: 0.5vh 4vh;
+    font-size: 4vh;
+    border-radius: 12px;
+    transition: font-size 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.view-all a:hover {
+    color: yellow;
+    font-size: 4.1vh;
+}
+
+.oceanday {
+    padding: 15vh 0vh;
+}
+
+.product-tag {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product-tag .row div button {
+    text-decoration: none;
+    color: gray;
+    font-size: 25px;
+    border: none;
+    background-color: white;
+}
+
+.product-tag .row div button:first-child {
+    text-align: right;
+}
+
+.product-tag .row div button:last-child {
+    text-align: left;
+}
+
+.product-tag .row div button.product-active {
+    color: black;
+}
+
+.tag {
+    position: relative;
+    left: -17px;
+    top: 5%;
+    background: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: smaller;
+    padding-top: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 5px;
+}
+
+.card-hover {
+    position: relative;
+    text-align: right;
+    list-style: none;
+}
+
+.card-hover li {
+    margin: 10px 0;
+    left: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all, 0.8s;
+    width: fit-content;
+    padding: 10px 0 0 10px;
+    position: relative;
+}
+
+.card-hover li a {
+    text-align: center;
+    background: white;
+    padding: 7px 7px 7px 7px;
+    line-height: 1.5;
+}
+
+.card-hover li a span {
+    position: absolute;
+    right: 52px;
+    top: 53px;
+    width: 60px;
+    visibility: hidden;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 5px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.card-hover .bi-caret-right-fill {
+    position: absolute;
+    right: 41px;
+    top: 53px;
+    color: black;
+    visibility: hidden;
+    text-decoration: none;
+}
+
+.product {
+    padding-bottom: 30px;
+}
+
+.product-text {
+    position: relative;
+}
+
+.product-text a {
+    font-size: 15px;
+    color: #e53637;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    text-decoration: none;
+    transition: all, 0.3s;
+}
+
+.product-text h6 {
+    padding-top: 22px;
+}
+
+.bi-star-fill {
+    color: orange;
+}
+
+.bi-star {
+    color: lightgray;
+}
+
+.rating {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+}
+
+.product-color {
+    position: absolute;
+    right: 5%;
+    bottom: 6%;
+    opacity: 0;
+    padding: none;
+    visibility: hidden;
+    transition: all, 0.3s;
+}
+
+.product-color .blue-radio {
+    position: relative;
+    left: 53%;
+}
+
+.product-color .green-radio {
+    position: relative;
+    left: 50%;
+}
+
+.blue-radio .form-check-input {
+    background-color: blue;
+    border-color: black;
+}
+
+.blue-radio .form-check-input:checked {
+    background-color: blue;
+    border-color: black;
+}
+
+.green-radio .form-check-input {
+    background-color: green;
+    border-color: black;
+}
+
+.green-radio .form-check-input:checked {
+    background-color: green;
+    border-color: black;
+}
+
+.yellow-radio .form-check-input {
+    background-color: yellow;
+    border-color: black;
+}
+
+.yellow-radio .form-check-input:checked {
+    background-color: yellow;
+    border-color: black;
+}
+
+.product {
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+
+.product:hover .card .card-hover li {
+    opacity: 1;
+    visibility: visible;
+    left: 230px;
+}
+
+.card-body h5 {
+    font-weight: bolder;
+}
+
+.product:hover .card-body .product-text a {
+    opacity: 1;
+    visibility: visible;
+    top: 22px;
+}
+
+.product:hover .card-body .product-text h6 {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.product:hover .card-body .product-color {
+    opacity: 1;
+    visibility: visible;
+}
+
+.product .card .card-hover li:hover span {
+    opacity: 1;
+    visibility: visible;
+    top: 8px;
+    right: 52px;
+}
+
+.product .card .card-hover li:hover .bi-caret-right-fill {
+    opacity: 1;
+    visibility: visible;
+    top: 8px;
+    right: 41px;
+}
+
+.product-show {
+    display: block;
+}
+
+.hotDeal {
+    position: relative;
+    padding-bottom: 200px;
+    background-color: #f3f2ee;
+    z-index: -2;
+}
+
+.hotDeal-text {
+    padding-top: 200px;
+}
+
+.hotDeal-text h3 {
+    padding-top: 20px;
+    color: lightgray;
+    z-index: 1;
+}
+
+.hotDeal-text .hotDeal-text-mid {
+    color: black;
+}
+
+.hotDealWhite {
+    width: 370px;
+    height: 250px;
+    position: absolute;
+    border: none;
+    background-color: white;
+    z-index: -1;
+    top: 27%;
+    left: 0%;
+}
+
+.tag-price {
+    background: black;
+    color: white;
+    width: fit-content;
+    padding: 20px 15px 20px 15px;
+    text-align: center;
+    position: relative;
+    left: 250px;
+    top: 75px;
+    z-index: 1;
+}
+
+.tag-price h4,
+.tag-price h6 {
+    color: white;
+}
+
+.hotDeal-dt {
+    position: relative;
+    padding-top: 50px;
+}
+
+.hotDeal-pic {
+    position: absolute;
+    align-items: center;
+}
+
+.hotDeal-info {
+    padding-top: 125px;
+}
+
+.hotDeal-info .btn {
+    padding: 15px 35px 15px 35px;
+}
+
+.hotDeal-info h6 {
+    color: red;
+}
+
+.hotDeal-countdown {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.hotDeal-countdown h2 {
+    font-weight: bold;
+}
+
+.hotDeal-info h2 {
+    font-weight: bold;
+}
+
+.hotDeal-countdown-dot h2::after {
+    content: ":";
+    font-size: 30px;
+    position: relative;
+    left: 15px;
+    top: -5px;
+}
+
+.instargram {
+    padding-top: 100px;
+    padding-bottom: 80px;
+}
+
+.instargram .row {
+    align-items: center;
+}
+
+.instargram-pic {
+    padding-left: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex-basis: 33.33%;
+    padding: 0;
+    margin: 0;
+}
+
+.col img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.ins-text {
+    text-align: left;
+}
+
+.ins-text p {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+    .carousel-caption {
+        top: 15%;
+        left: 1%;
+        right: 0%;
+        text-align: left;
+    }
+
+    .carousel-caption h1 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 40px;
+    }
+
+    .carousel-control-prev .bi-arrow-left {
+        position: relative;
+        top: 35%;
+    }
+
+    .carousel-control-next .bi-arrow-right {
+        position: relative;
+        top: 35%;
+    }
+
+    .banner-1 {
+        position: relative;
+    }
+
+    .banner-1 .banner-text1 .a:after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30%;
+        height: 2px;
+        background: black;
+        content: "";
+        transition: all, 0.5s;
+        transform: scale(1);
+    }
+
+    .banner-1:hover .banner-text1 a:after {
+        transform: scale(0.5);
+        background: #e53637;
+    }
+
+    .banner-text1 {
+        padding-top: 20px;
+        position: relative;
+        left: 0;
+        text-align: left;
+        color: black;
+        text-decoration: none;
+        font-weight: 900;
+    }
+
+    .banner-text1 h2 {
+        padding-top: 15px;
+    }
+
+    .banner-text1 a {
+        padding-top: 20px;
+        color: black;
+        text-decoration: none;
+        letter-spacing: 5px;
+        font-weight: 100;
+        font-size: small;
+    }
+
+    .banner-text2 {
+        position: relative;
+        text-align: left;
+        left: 0;
+        color: black;
+        text-decoration: none;
+        font-weight: 900;
+    }
+
+    .banner-text2 h2 {
+        padding-top: 15px;
+    }
+
+    .banner-text2 a {
+        padding-top: 20px;
+        color: black;
+        text-decoration: none;
+        letter-spacing: 5px;
+        font-weight: 100;
+        font-size: small;
+    }
+
+    .banner-text3 {
+        position: relative;
+        text-align: left;
+        color: black;
+        text-decoration: none;
+        font-weight: 900;
+        left: 0px;
+    }
+
+    .banner-text3 h2 {
+        padding-top: 15px;
+        color: black;
+    }
+
+    .banner-text3 a {
+        padding-top: 20px;
+        color: black;
+        text-decoration: none;
+        letter-spacing: 5px;
+        font-weight: 100;
+        font-size: small;
+    }
+
+    .banner-2 {
+        position: relative;
+        margin-top: 30px;
+    }
+
+    .banner-2 .banner-text2 a:after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 35%;
+        height: 2px;
+        background: black;
+        content: "";
+        transition: all, 0.5s;
+        transform: scale(1);
+    }
+
+    .banner-2:hover .banner-text2 a:after {
+        transform: scale(0.5);
+        background: #e53637;
+    }
+
+    .banner-3 {
+        position: relative;
+        margin-top: 30px;
+    }
+
+    .banner-3 .banner-text3 a:after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 35%;
+        height: 2px;
+        background: black;
+        content: "";
+        transition: all, 0.5s;
+        transform: scale(1);
+    }
+
+    .banner-3:hover .banner-text3 a:after {
+        transform: scale(0.5);
+        background: #e53637;
+    }
+
+    .img-fluid {
+        width: 750px;
+        height: 390px;
+    }
+
+    .card-img-top {
+        max-width: 400px;
+        max-height: 300px;
+        width: auto;
+        height: auto;
+    }
+
+    .product-show {
+        margin-bottom: 20px;
+    }
+
+    .product-tag {
+        text-align: left;
+    }
+
+    .product-tag .row div:first-child {
+        color: black;
+        text-align: right;
+    }
+
+    .product-tag .row div:last-child {
+        text-align: center;
+    }
+
+    .product-tag .row div a {
+        font-size: 20px;
+    }
+
+    .card-hover {
+        position: relative;
+        text-align: right;
+        list-style: none;
+    }
+
+    .card-hover li {
+        margin: 10px 0;
+        left: 300px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all, 0.8s;
+        width: fit-content;
+        padding: 10px 0 0 10px;
+        position: relative;
+    }
+
+    .card-hover li a {
+        text-align: center;
+        background: white;
+        padding: 7px 7px 7px 7px;
+        line-height: 1.5;
+    }
+
+    .card-hover li a span {
+        position: absolute;
+        right: 102px;
+        top: 53px;
+        width: 60px;
+        visibility: hidden;
+        text-decoration: none;
+        color: white;
+        background-color: black;
+        padding: 5px;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .card-hover .bi-caret-right-fill {
+        position: absolute;
+        right: 91px;
+        top: 53px;
+        color: black;
+        visibility: hidden;
+        text-decoration: none;
+    }
+
+    .product:hover .card .card-hover li {
+        opacity: 1;
+        visibility: visible;
+        left: 280px;
+    }
+
+    .product .card .card-hover li:hover span {
+        opacity: 1;
+        visibility: visible;
+        top: 8px;
+        right: 102px;
+    }
+
+    .product .card .card-hover li:hover .bi-caret-right-fill {
+        opacity: 1;
+        visibility: visible;
+        top: 8px;
+        right: 91px;
+    }
+
+    .hotDeal-dt {
+        padding-top: 0;
+    }
+
+    .hotDeal-last {
+        padding-top: 100px;
+    }
+
+    .hotDeal-info {
+        padding-top: 250px;
+    }
+
+    .hotDeal-countdown-dot h2::after {
+        content: ":";
+        font-size: 30px;
+        position: relative;
+        left: 30px;
+        top: -5px;
+    }
+
+    .hotDealWhite {
+        width: 120px;
+        height: 250px;
+        position: absolute;
+        border: none;
+        background-color: white;
+        z-index: -1;
+        top: 13%;
+        right: 50%;
+    }
+
+    .instargram-pic {
+        padding-right: 30px;
+    }
+
+    .col {
+        flex-basis: 100%;
+    }
+
+    .ins-text {
+        padding-bottom: 50px;
+    }
+
+}

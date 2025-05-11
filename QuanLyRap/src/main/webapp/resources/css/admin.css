@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh; 
+}
+a{
+    text-decoration: none;
+    color:#5AC5FF;
+}
+.row{ 
+    position: relative;
+}
+.left{
+    background-color: #000000;
+    font-size: 4vh;
+    padding: 0;
+    margin: 0;
+    width:20.17%;
+}
+.oceancinema{
+    background-color: #5AC5FF;
+    color:black;
+    text-align: center;
+    padding: 2vh 0;
+}
+.movie{
+    padding:3vh 2vh;
+    line-height: 10vh;
+    color:#5AC5FF;
+}
+.movie img{
+    width:20%;
+    margin-top: -1vh;
+}
+.banner{
+    min-width: 100%;
+    max-width: 100%;
+    width:100%;
+    margin: 10vh 0;
+}
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:79.83%;
+    min-height: 100vh;
+    background-color: #B8DEF8;
+}
+.help{
+    position: absolute;
+    top:1%;
+    left:93%;
+}

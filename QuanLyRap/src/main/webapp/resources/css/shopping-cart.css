@@ -1,0 +1,144 @@
+.cart-container .row .table thead tr th {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-size: larger;
+}
+
+.cart-container .row .table .show-cart tr td {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+
+.cart-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.cart-container h6 {
+    font-weight: bolder;
+}
+
+.coupon button[type="submit"] {
+    background-color: black;
+    color: white;
+    border: none;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    margin-left: -10px;
+    height: 46px;
+}
+
+.cp-co h6 {
+    font-weight: 550;
+}
+
+.cp-co {
+    padding-top: 35px;
+    position: relative;
+}
+
+.coupon {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.coupon input[type="text"] {
+    background-color: white;
+    color: gray;
+    padding: 10px;
+    border: 1px solid gray;
+    width: 250px;
+}
+
+.checkout-box {
+    position: relative;
+    background-color: #f3f2ee;
+    padding: 30px 30px 30px 30px;
+    width: 62%;
+    color: gray;
+    width: 70%;
+}
+
+.checkout-box h6 {
+    color: gray;
+    padding-bottom: 20px;
+    padding-top: 0px;
+}
+
+.checkout-box p {
+    color: gray;
+}
+
+.checkout-box .btn {
+    padding: 10px 40px 10px 40px;
+}
+
+.checkout-money {
+    position: absolute;
+    right: 10%;
+    text-align: right;
+    color: red;
+}
+
+
+.ctn-upd {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.update {
+    position: absolute;
+    right: 2%;
+    padding: 10px 25px 10px 25px;
+}
+
+.ctn {
+    padding: 10px 25px 10px 25px;
+}
+
+.ctn a {
+    color: black;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .table {
+        position: relative;
+        width: 96%;
+        left: 2%;
+    }
+
+    .ctn {
+        position: relative;
+        left: 20%;
+        padding: 10px 25px 10px 25px;
+    }
+
+    .update {
+        position: relative;
+        left: 27%;
+        padding: 10px 25px 10px 25px;
+    }
+
+    .cp-co {
+        position: relative;
+    }
+
+    .coupon {
+        position: relative;
+        left: 8%;
+    }
+
+    .checkout-box {
+        position: relative;
+        left: 10%;
+        width: 80%
+    }
+
+    .cp-co h6 {
+        position: relative;
+        left: 5%;
+    }
+}
