@@ -24,7 +24,7 @@ public class NhanVien {
     private LocalDate ngaybatdau;
 
     @ManyToOne
-    @JoinColumn(name = "macv")
+    @JoinColumn(name = "idcv")
     private ChucVu chucVu;
 
     @ManyToOne

@@ -12,7 +12,7 @@ import jakarta.persistence.OneToMany;
 public class ChucVu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer macv;
+    private Integer idcv;
 
     private String tencv;
 
@@ -22,15 +22,16 @@ public class ChucVu {
 
     @OneToMany(mappedBy = "chucVu")
     private List<NhanVien> nhanViens;
+
     public ChucVu() {
     }
 
-    public Integer getMacv() {
-        return macv;
+    public Integer getIdcv() {
+        return idcv;
     }
 
-    public void setMacv(Integer macv) {
-        this.macv = macv;
+    public void setIdcv(Integer idcv) {
+        this.idcv = idcv;
     }
 
     public String getTencv() {
@@ -67,11 +68,8 @@ public class ChucVu {
 
     @Override
     public String toString() {
-        return "ChucVu [macv=" + macv + ", tencv=" + tencv + ", luong=" + luong + ", mota=" + mota + ", nhanViens="
+        return "ChucVu [macv=" + idcv + ", tencv=" + tencv + ", luong=" + luong + ", mota=" + mota + ", nhanViens="
                 + nhanViens + "]";
     }
-
-    
-    
 
 }
