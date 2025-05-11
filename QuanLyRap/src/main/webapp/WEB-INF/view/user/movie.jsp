@@ -28,27 +28,27 @@
                 <div class="offcanvas-body">
                     <div class="col-12 buy">
                         <a href="#" class="search"><img src="img/icon/search.png" class="icon"></a>
-                        <a href=""><img src="img/icon/heart.png" class="icon"></a>
+                        <a href="#"><img src="img/icon/heart.png" class="icon"></a>
                         <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img
                                 src="img/icon/cart.png" class="icon"><span class="count">0</span></a>
                         <p class="price">$0.00</p>
                     </div>
                     <div class="container-fluid">
                         <h6><a href="#">Home</a></h6>
-                        <h6><a href="shopping-cart.html">Shop</a></h6>
+                        <h6><a href="/shopping-cart">Shop</a></h6>
                         <h6><a class="collapsible" data-bs-toggle="collapse" href="#collapse">Pages
                                 <i class="bi bi-caret-down-fill"></i></a>
                         </h6>
                         <div id="collapse" class="collapse">
                             <div class="list-style">
-                                <li><a href="">About Us</a></li>
-                                <li><a href="">Shop Details</a></li>
-                                <li><a href="">Check out</a></li>
-                                <li><a href="">Blog Details</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Shop Details</a></li>
+                                <li><a href="#">Check out</a></li>
+                                <li><a href="#">Blog Details</a></li>
                             </div>
                         </div>
-                        <h6><a href="">Blog</a></h6>
-                        <h6><a href="">Contacts</a></h6>
+                        <h6><a href="#">Blog</a></h6>
+                        <h6><a href="#">Contacts</a></h6>
                         <p>Free shipping, 30-day return or refund guarantee.</p>
                     </div>
                 </div>
@@ -58,45 +58,45 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2">
-                            <a href=""><img src="/img/header-logo.png" alt="" class="logo"></a>
+                            <a href="#"><img src="/img/header-logo.png" alt="" class="logo"></a>
                         </div>
                         <div class="col-lg-10">
                             <div class="row header-top">
                                 <div class="col-lg-1 offset-lg-2">
-                                    <a href="about-us.html">Giới thiệu</a>
+                                    <a href="/about-us">Giới thiệu</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Sự kiện</a>
+                                    <a href="#">Sự kiện</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Dịch vụ</a>
+                                    <a href="#">Dịch vụ</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Tuyển dụng</a>
+                                    <a href="#">Tuyển dụng</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Liên hệ</a>
+                                    <a href="#">Liên hệ</a>
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
-                                    <a href="registered.html">Đăng ký</a>
-                                    <a class="login" href="login.html">Đăng nhập</a>
+                                    <a href="/registered">Đăng ký</a>
+                                    <a class="login" href="login">Đăng nhập</a>
                                 </div>
                             </div>
                             <div class="row header-bottom">
                                 <div class="col-lg-2 offset-lg-1">
-                                    <a href="index.html">Trang chủ</a>
+                                    <a href="/">Trang chủ</a>
                                 </div>
                                 <div class="col-lg-2" style="width:18%">
-                                    <a href="">Lịch chiếu</a>
+                                    <a href="#">Lịch chiếu</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Phim</a>
+                                    <a href="#">Phim</a>
                                 </div>
                                 <div class="col-lg-1" style="width:12%">
-                                    <a href="">Ưu đãi</a>
+                                    <a href="#">Ưu đãi</a>
                                 </div>
                                 <div class="col-lg-2">
-                                    <a href="">Rạp & Vé</a>
+                                    <a href="#">Rạp & Vé</a>
                                 </div>
                             </div>
                         </div>
@@ -121,27 +121,27 @@
                 <div class="container-fluid col-lg-8">
                     <div class="row">
                         <div class="col-lg-10 offset-lg-2 footer-top">
-                            <a href="">LỊCH CHIẾU</a>
-                            <a href="">PHIM </a>
-                            <a href="">RẠP & GIÁ VÉ </a>
-                            <a href="">ƯU ĐÃI </a>
+                            <a href="#">LỊCH CHIẾU</a>
+                            <a href="#">PHIM </a>
+                            <a href="#">RẠP & GIÁ VÉ </a>
+                            <a href="#">ƯU ĐÃI </a>
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col-lg-10 offset-lg-2 footer-mid">
-                            <a href="about-us.html">GIỚI THIỆU </a>
+                            <a href="/about-us">GIỚI THIỆU </a>
 
 
-                            <a href="">SỰ KIỆN </a>
+                            <a href="#">SỰ KIỆN </a>
 
 
-                            <a href="">DỊCH VỤ </a>
+                            <a href="#">DỊCH VỤ </a>
 
-                            <a href="">TUYỂN DỤNG </a>
+                            <a href="#">TUYỂN DỤNG </a>
 
-                            <a href="">ĐIỀU KHOẢN CHUNG </a>
+                            <a href="#">ĐIỀU KHOẢN CHUNG </a>
 
-                            <a href="">LIÊN HỆ</a>
+                            <a href="#">LIÊN HỆ</a>
                         </div>
                     </div>
                     <div class="footer-bottom">

@@ -1,14 +1,18 @@
 package com.QuanLyRap.controller.admin;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminController {
 
-    @RequestMapping("/admin")
+    @GetMapping("/admin")
     public String showAdminPage() {
         return "admin/adminpage";
+    }
+
+    @GetMapping("/movie-interface.jsp")
+    public String showMovieInterface() {
+        return "admin/movie-interface";
     }
 }

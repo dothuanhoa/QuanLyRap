@@ -9,15 +9,15 @@ function login() {
     console.log(validAccounts[0].username);
     console.log(validAccounts[0].password);
     if (!username || !password) {
-            document.getElementById("errorMessage").textContent ="Vui lòng nhập đầy đủ email và mật khẩu.";
+        document.getElementById("errorMessage").textContent = "Vui lòng nhập đầy đủ email và mật khẩu.";
         return;
     }
 
     if (username == validAccounts[0].username && password == validAccounts[0].password) {
         alert("Đăng nhập thành công!");
-        window.location.href = "index.html";
+        window.location.href = "/";
     } else {
-            document.getElementById("errorMessage").textContent ="Email hoặc mật khẩu không đúng.";
+        document.getElementById("errorMessage").textContent = "Email hoặc mật khẩu không đúng.";
     }
 
 }

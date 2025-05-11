@@ -23,7 +23,7 @@
                         <div class="col-lg-10">
                             <div class="row header-top">
                                 <div class="col-lg-1 offset-lg-2">
-                                    <a href="about-us.html">Giới thiệu</a>
+                                    <a href="/about-us">Giới thiệu</a>
                                 </div>
                                 <div class="col-lg-1">
                                     <a href="">Sự kiện</a>
@@ -38,8 +38,8 @@
                                     <a href="">Liên hệ</a>
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
-                                    <a href="registered.html">Đăng ký</a>
-                                    <a class="login" href="login.html">Đăng nhập</a>
+                                    <a href="/registered">Đăng ký</a>
+                                    <a class="login" href="/login">Đăng nhập</a>
                                 </div>
                             </div>
                             <div class="row header-bottom">
@@ -47,7 +47,7 @@
                                     <a href="">Trang chủ</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="movie.html">Phim</a>
+                                    <a href="/movie">Phim</a>
                                 </div>
                                 <div class="col-lg-1" style="width:12%">
                                     <a href="">Ưu đãi</a>
@@ -91,10 +91,10 @@
                 </div>
                 <div class="container">
                     <div class="phimButton">
-                        <a href="movie.html">
+                        <a href="/movie">
                             <h2 class="nowMovie">Phim Đang Chiếu</h2>
                         </a>
-                        <a href="movie.html">
+                        <a href="/movie">
                             <h2 class="newMovie">Phim Sắp chiếu</h2>
                         </a>
                     </div>
@@ -102,7 +102,7 @@
                         <!-- Phim 1 -->
                         <div class="col-lg-3">
                             <div class="movie-card">
-                                <a href="product.html?movie=1"><img src="/img/product/movie1.png"></a>
+                                <a href="/product?movie=1"><img src="/img/product/movie1.png"></a>
                                 <div class="movie-tags my-2">
                                     <span class="badge bg-danger">T16</span>
                                     <span class="badge bg-warning text-dark">Phụ đề</span>
@@ -172,15 +172,15 @@
                 <div class="container-fluid col-lg-8">
                     <div class="row">
                         <div class="col-lg-10 offset-lg-2 footer-top">
-                            <a href="movie.html">LỊCH CHIẾU</a>
-                            <a href="movie.html">PHIM </a>
+                            <a href="/movie">LỊCH CHIẾU</a>
+                            <a href="/movie">PHIM </a>
                             <a href="">RẠP & GIÁ VÉ </a>
                             <a href="">ƯU ĐÃI </a>
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col-lg-10 offset-lg-2 footer-mid">
-                            <a href="about-us.html">GIỚI THIỆU </a>
+                            <a href="/about-us">GIỚI THIỆU </a>
                             <a href="">SỰ KIỆN </a>
                             <a href="">DỊCH VỤ </a>
                             <a href="">TUYỂN DỤNG </a>

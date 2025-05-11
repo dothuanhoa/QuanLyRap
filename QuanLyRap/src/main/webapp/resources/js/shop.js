@@ -14,7 +14,7 @@ window.addEventListener('load', function () {
     }
 
     async function fetchProducts() {
-        let apiUrl = 'http://localhost:3000/shop';
+        let apiUrl = 'http://localhost:3306/shop';
         const response = await fetch(apiUrl)
         shop = await response.json();
         displayProducts();
@@ -170,7 +170,7 @@ window.addEventListener('load', function () {
             }
         })
     });
-    
+
     document.querySelectorAll('.show-cart').forEach(element => {
         element.addEventListener('click', function (event) {
             if (event.target.classList.contains('delete-item')) {

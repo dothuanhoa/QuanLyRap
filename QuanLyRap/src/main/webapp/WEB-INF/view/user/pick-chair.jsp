@@ -18,45 +18,45 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2">
-                            <a href=""><img src="/img/header-logo.png" alt="" class="logo"></a>
+                            <a href="#"><img src="/img/header-logo.png" alt="" class="logo"></a>
                         </div>
                         <div class="col-lg-10">
                             <div class="row header-top">
                                 <div class="col-lg-1 offset-lg-2">
-                                    <a href="about-us.html">Giới thiệu</a>
+                                    <a href="/about-us">Giới thiệu</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Sự kiện</a>
+                                    <a href="#">Sự kiện</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Dịch vụ</a>
+                                    <a href="#">Dịch vụ</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Tuyển dụng</a>
+                                    <a href="#">Tuyển dụng</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Liên hệ</a>
+                                    <a href="#">Liên hệ</a>
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
-                                    <a href="registered.html">Đăng ký</a>
-                                    <a class="login" href="login.html">Đăng nhập</a>
+                                    <a href="/registered">Đăng ký</a>
+                                    <a class="login" href="login">Đăng nhập</a>
                                 </div>
                             </div>
                             <div class="row header-bottom">
                                 <div class="col-lg-2 offset-lg-1">
-                                    <a href="index.html">Trang chủ</a>
+                                    <a href="/">Trang chủ</a>
                                 </div>
                                 <div class="col-lg-2" style="width:18%">
-                                    <a href="movie.html">Lịch chiếu</a>
+                                    <a href="/movie">Lịch chiếu</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="">Phim</a>
+                                    <a href="#">Phim</a>
                                 </div>
                                 <div class="col-lg-1" style="width:12%">
-                                    <a href="">Ưu đãi</a>
+                                    <a href="#">Ưu đãi</a>
                                 </div>
                                 <div class="col-lg-2">
-                                    <a href="">Rạp & Vé</a>
+                                    <a href="#">Rạp & Vé</a>
                                 </div>
                             </div>
                         </div>
@@ -141,20 +141,20 @@
                 <div class="container-fluid col-lg-8">
                     <div class="row">
                         <div class="col-lg-10 offset-lg-2 footer-top">
-                            <a href="movie.html">LỊCH CHIẾU</a>
-                            <a href="">PHIM </a>
-                            <a href="">RẠP & GIÁ VÉ </a>
-                            <a href="">ƯU ĐÃI </a>
+                            <a href="/movie">LỊCH CHIẾU</a>
+                            <a href="#">PHIM </a>
+                            <a href="#">RẠP & GIÁ VÉ </a>
+                            <a href="#">ƯU ĐÃI </a>
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col-lg-10 offset-lg-2 footer-mid">
-                            <a href="about-us.html">GIỚI THIỆU </a>
-                            <a href="">SỰ KIỆN </a>
-                            <a href="">DỊCH VỤ </a>
-                            <a href="">TUYỂN DỤNG </a>
-                            <a href="">ĐIỀU KHOẢN CHUNG </a>
-                            <a href="">LIÊN HỆ</a>
+                            <a href="/about-us">GIỚI THIỆU </a>
+                            <a href="#">SỰ KIỆN </a>
+                            <a href="#">DỊCH VỤ </a>
+                            <a href="#">TUYỂN DỤNG </a>
+                            <a href="#">ĐIỀU KHOẢN CHUNG </a>
+                            <a href="#">LIÊN HỆ</a>
                         </div>
                     </div>
                     <div class="footer-bottom">

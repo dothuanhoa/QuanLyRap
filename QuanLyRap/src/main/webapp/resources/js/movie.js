@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
             genre: "Thriller",
             showtime: "10h00"
         },
-        
+
     ];
     function displayProducts(product) {
         let output = "";
@@ -40,7 +40,7 @@ window.addEventListener('load', function () {
             output += `
                 <div class="col-lg-3 pb-4">
                     <div class="movie-card" data-id="${product[i].id}">
-                        <a href="product.html?movie=${product[i].id}"><img src="/img/product/movie${Number(product[i].id)}.png"></a>
+                        <a href="/product?movie=${product[i].id}"><img src="/img/product/movie${Number(product[i].id)}.png"></a>
                         <div class="movie-tags my-2">
                             <span class="badge bg-danger">T16</span>
                             <span class="badge bg-warning text-dark">Phụ đề</span>
@@ -52,7 +52,7 @@ window.addEventListener('load', function () {
                         <div class="movie-category">Thể loại phim: <span>${product[i].genre}</span></div>
                     </div>
                     <div class="buy-now">
-                        <a href="pick-chair.html?phim=${product[i].id}&showtime=${product[i].showtime}"><img src=/img/ticket.png>&nbsp;&nbsp;MUA VÉ NGAY</a>
+                        <a href="/pick-chair?phim=${product[i].id}&showtime=${product[i].showtime}"><img src=/img/ticket.png>&nbsp;&nbsp;MUA VÉ NGAY</a>
                     </div>
                 </div>
             `;
