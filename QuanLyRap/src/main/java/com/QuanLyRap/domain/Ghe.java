@@ -22,8 +22,8 @@ public class Ghe {
     private List<Ve> veList;
 
     @ManyToOne
-    @JoinColumn(name = "idPhongChieu") // idPhongChieu là khóa ngoại liên kết với PhongChieu
-    private PhongChieu phongChieu;
+    @JoinColumn(name = "idLichChieu") // idPhongChieu là khóa ngoại liên kết với PhongChieu
+    private LichChieu lichChieu;
 
     @ManyToOne
     @JoinColumn(name = "idLoaiGhe") // idLoaiGhe là khóa ngoại liên kết với LoaiGhe
@@ -64,14 +64,6 @@ public class Ghe {
         this.veList = veList;
     }
 
-    public PhongChieu getPhongChieu() {
-        return phongChieu;
-    }
-
-    public void setPhongChieu(PhongChieu phongChieu) {
-        this.phongChieu = phongChieu;
-    }
-
     public LoaiGhe getLoaiGhe() {
         return loaiGhe;
     }
@@ -83,7 +75,7 @@ public class Ghe {
     @Override
     public String toString() {
         return "Ghe [idGhe=" + idGhe + ", tenGhe=" + tenGhe + ", tinhTrang=" + tinhTrang + ", veList=" + veList
-                + ", phongChieu=" + phongChieu + ", loaiGhe=" + loaiGhe + "]";
+                + ", phongChieu=" + ", loaiGhe=" + loaiGhe + "]";
     }
 
 }

@@ -30,11 +30,30 @@ public class LichChieu {
     @OneToMany(mappedBy = "lichChieu")
     private List<SuatChieu> suatChieuList;
 
+    @OneToMany(mappedBy = "lichChieu")
+    private List<Ghe> gheList;
+
     @ManyToOne
     @JoinColumn(name = "idPhongChieu") // idPhongChieu là khóa ngoại liên kết với PhongChieu
     private PhongChieu phongChieu;
 
     public LichChieu() {
+    }
+
+    public List<SuatChieu> getSuatChieuList() {
+        return suatChieuList;
+    }
+
+    public void setSuatChieuList(List<SuatChieu> suatChieuList) {
+        this.suatChieuList = suatChieuList;
+    }
+
+    public List<Ghe> getGheList() {
+        return gheList;
+    }
+
+    public void setGheList(List<Ghe> gheList) {
+        this.gheList = gheList;
     }
 
     public int getIdLichChieu() {

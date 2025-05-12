@@ -22,9 +22,6 @@ public class PhongChieu {
     @OneToMany(mappedBy = "phongChieu")
     private List<LichChieu> lichChieuList;
 
-    @OneToMany(mappedBy = "phongChieu")
-    private List<Ghe> gheList;
-
     @ManyToOne
     @JoinColumn(name = "idRap") // idRap là khóa ngoại liên kết với Rap
     private Rap rap;
@@ -66,14 +63,6 @@ public class PhongChieu {
         this.lichChieuList = lichChieuList;
     }
 
-    public List<Ghe> getGheList() {
-        return gheList;
-    }
-
-    public void setGheList(List<Ghe> gheList) {
-        this.gheList = gheList;
-    }
-
     public Rap getRap() {
         return rap;
     }
@@ -90,7 +79,6 @@ public class PhongChieu {
                 ", tenPhongChieu='" + tenPhongChieu + '\'' +
                 ", soGhe=" + soGhe +
                 ", lichChieuList=" + lichChieuList +
-                ", gheList=" + gheList +
                 ", rap=" + rap +
                 '}';
     }

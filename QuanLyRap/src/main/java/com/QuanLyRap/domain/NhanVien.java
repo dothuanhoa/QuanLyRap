@@ -29,10 +29,6 @@ public class NhanVien {
     @JoinColumn(name = "idcv")
     private ChucVu chucVu;
 
-    @ManyToOne
-    @JoinColumn(name = "idtaikhoan")
-    private TaiKhoan taiKhoan;
-
     @OneToMany(mappedBy = "nhanVien")
     private List<HoaDon> hoaDons;
 
@@ -113,18 +109,10 @@ public class NhanVien {
         this.chucVu = chucVu;
     }
 
-    public TaiKhoan getTaiKhoan() {
-        return taiKhoan;
-    }
-
-    public void setTaiKhoan(TaiKhoan taiKhoan) {
-        this.taiKhoan = taiKhoan;
-    }
-
     @Override
     public String toString() {
         return "NhanVien [idnv=" + idnv + ", tennv=" + tennv + ", sdt=" + sdt + ", email=" + email + ", ngaysinh="
                 + ngaysinh + ", gioitinh=" + gioitinh + ", ngaybatdau=" + ngaybatdau + ", chucVu=" + chucVu
-                + ", taiKhoan=" + taiKhoan + ", hoaDons=" + hoaDons + "]";
+                + ", hoaDons=" + hoaDons + "]";
     }
 }

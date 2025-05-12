@@ -1,10 +1,10 @@
-package com.QuanLyRap.controller.user;
+package com.QuanLyRap.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class UserController {
+public class AllUserController {
     @GetMapping("/")
     public String getHomePage() {
         return "user/index";
@@ -36,7 +36,8 @@ public class UserController {
     }
 
     @GetMapping("/registered")
-    public String showRegistered() {
+    public String showRegister() {
         return "user/registered";
     }
+
 }

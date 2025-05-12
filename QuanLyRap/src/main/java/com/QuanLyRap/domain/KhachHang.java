@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class KhachHang {
@@ -17,15 +19,31 @@ public class KhachHang {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idkh;
 
+    @NotNull
     private String tenkh;
+
+    @NotNull
+    private String ho;
+
+    @NotNull
     private String sdt;
+
+    @NotNull
+    @Email
     private String email;
+
+    @NotNull
     private LocalDate ngaysinh;
+
+    @NotNull
     private Boolean gioitinh;
 
+    @NotNull
+    private String matkhau;
+
     @ManyToOne
-    @JoinColumn(name = "idtaikhoan")
-    private TaiKhoan taiKhoan;
+    @JoinColumn(name = "idRole")
+    private Role role;
 
     @OneToMany(mappedBy = "khachHang")
     private List<HoaDon> hoaDons;
@@ -37,6 +55,10 @@ public class KhachHang {
     private List<PhanHoi> phanHoiList;
 
     public KhachHang() {
+        // Gán mặc định vai trò là "user"
+        this.role = new Role();
+        this.role.setRolename("user");
+        ; // Đảm bảo Role có setter cho roleName
     }
 
     public Long getIdkh() {
@@ -87,14 +109,6 @@ public class KhachHang {
         this.gioitinh = gioitinh;
     }
 
-    public TaiKhoan getTaiKhoan() {
-        return taiKhoan;
-    }
-
-    public void setTaiKhoan(TaiKhoan taiKhoan) {
-        this.taiKhoan = taiKhoan;
-    }
-
     public List<HoaDon> getHoaDons() {
         return hoaDons;
     }
@@ -122,7 +136,7 @@ public class KhachHang {
     @Override
     public String toString() {
         return "KhachHang [idkh=" + idkh + ", tenkh=" + tenkh + ", sdt=" + sdt + ", email=" + email + ", ngaysinh="
-                + ngaysinh + ", gioitinh=" + gioitinh + ", taiKhoan=" + taiKhoan + ", hoaDons=" + hoaDons + ", veList="
+                + ngaysinh + ", gioitinh=" + gioitinh + ", hoaDons=" + hoaDons + ", veList="
                 + veList + ", phanHoiList=" + phanHoiList + "]";
     }
 

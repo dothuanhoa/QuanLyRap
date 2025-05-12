@@ -1,4 +1,4 @@
-package com.QuanLyRap.controller.admin;
+package com.QuanLyRap.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

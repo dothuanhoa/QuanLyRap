@@ -63,49 +63,44 @@
                 </div>
 
             </div>
-            <div class="main">
-                <div class="dangnhap">
-                    ĐĂNG KÝ
-                </div>
-                <div class="container">
-                    <div class="registeredContainer">
-                        <div class="account-info">
-                            <h2>THÔNG TIN ĐĂNG NHẬP</h2>
-                            <input type="email" id="username" placeholder="Email"><br />
-                            <input type="password" id="password" placeholder="Mật khẩu">
-                            <input type="repassword" id="repassword" placeholder="Nhập lại mật khẩu">
-                            <div id="errorMessage" style="color: red;"></div>
-                            <div class="img-container">
-                                <img src="/img/resigtered.png">
+            <form action="">
+                <div class="main">
+                    <div class="dangnhap">
+                        ĐĂNG KÝ
+                    </div>
+                    <div class="container">
+                        <div class="registeredContainer">
+                            <div class="account-info">
+                                <h2>THÔNG TIN ĐĂNG NHẬP</h2>
+                                <input type="email" id="username" placeholder="Email"><br />
+                                <input type="password" id="password" placeholder="Mật khẩu">
+                                <div class="img-container">
+                                    <img src="/img/resigtered.png">
+                                </div>
+                            </div>
+                            <div>
+                                <h2>THÔNG TIN CÁ NHÂN</h2>
+                                <div class="self-info">
+                                    <input type="name" id="name" placeholder="Tên">
+                                    <input type="lastname" id="lastname" placeholder="Họ">
+                                    <input type="sex" placeholder="DD/MM/YYYY" onfocus="(this.type='date')"
+                                        onclick="(this.type='date')" onblur="if(!this.value)this.type='text'"
+                                        class="custom-date">
+                                    <input type="sex" id="sex" placeholder="Giới tính">
+                                    <input type="phone" id="phone" placeholder="Số điện thoại">
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <h2>THÔNG TIN CÁ NHÂN</h2>
-                            <div class="self-info">
-                                <input type="name" id="name" placeholder="Tên">
-                                <input type="lastname" id="lastname" placeholder="Họ">
-                                <input type="sex" placeholder="DD/MM/YYYY" onfocus="(this.type='date')"
-                                    onclick="(this.type='date')" onblur="if(!this.value)this.type='text'"
-                                    class="custom-date">
-                                <input type="sex" id="sex" placeholder="Giới tính">
-                                <input type="cccd" id="cccd" placeholder="CMND/CCCD">
-                                <input type="phone" id="phone" placeholder="Số điện thoại">
-                                <input type="address" id="address" placeholder="Địa chỉ">
-                                <input type="city" id="city" placeholder="Tỉnh/Thành phố">
-                                <input type="district" id="district" placeholder="Quận/Huyện">
+                        <div class="registered-bottom">
+                            <div class="accept">
+                                <input type="checkbox" id="accept" required>
+                                <label for="accept">Tôi đồng ý với Điều khoản & Điều kiện của chương trình</label>
                             </div>
+                            <button class="registered-btn" id="registered">ĐĂNG KÝ</button>
                         </div>
-                    </div>
-                    <div class="registered-bottom">
-                        <div class="accept">
-                            <input type="checkbox" id="accept">
-                            <label for="accept">Tôi đồng ý với Điều khoản & Điều kiện của chương trình</label>
-                        </div>
-                        <button class="registered-btn" id="registered">ĐĂNG KÝ</button>
                     </div>
                 </div>
-            </div>
-
+            </form>
             <footer class="footer row">
                 <div class="container-fluid col-lg-8">
                     <div class="row">
@@ -151,9 +146,46 @@
                     <img src="/img/footer-logo.png" class="footer-logo">
                 </div>
             </footer>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
             <script src="/js/registered.js" defer></script>
+            <script>
+                document.getElementById("registered").addEventListener("click", function (event) {
+                    event.preventDefault(); // Ngăn chặn hành vi mặc định của nút submit
+
+                    // Thu thập dữ liệu từ các trường nhập liệu
+                    const data = {
+                        email: document.getElementById("username").value,
+                        matkhau: document.getElementById("password").value,
+                        tenkh: document.getElementById("name").value,
+                        ho: document.getElementById("lastname").value,
+                        ngaysinh: document.querySelector(".custom-date").value,
+                        gioitinh: document.getElementById("sex").value,
+                        sdt: document.getElementById("phone").value
+                    };
+
+                    // Gửi dữ liệu đến server bằng AJAX
+                    fetch("/registered", { // Sử dụng endpoint POST mới
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                alert("Đăng ký thành công!");
+                                window.location.href = "/"; // Chuyển hướng về trang chủ
+                            } else {
+                                alert("Đăng ký thất bại. Vui lòng thử lại.");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Lỗi:", error);
+                            alert("Đã xảy ra lỗi. Vui lòng thử lại sau.");
+                        });
+                });
+            </script> -->
         </body>
 
         </html>
