@@ -18,6 +18,25 @@ public class Role {
     @OneToMany(mappedBy = "role")
     private List<KhachHang> khachHangList;
 
+    @OneToMany(mappedBy = "role")
+    private List<NhanVien> NhanVienList;
+
+    public List<KhachHang> getKhachHangList() {
+        return khachHangList;
+    }
+
+    public void setKhachHangList(List<KhachHang> khachHangList) {
+        this.khachHangList = khachHangList;
+    }
+
+    public List<NhanVien> getNhanVienList() {
+        return NhanVienList;
+    }
+
+    public void setNhanVienList(List<NhanVien> nhanVienList) {
+        NhanVienList = nhanVienList;
+    }
+
     public int getIdRole() {
         return idRole;
     }

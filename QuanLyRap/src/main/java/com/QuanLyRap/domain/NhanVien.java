@@ -37,12 +37,18 @@ public class NhanVien {
         return hoaDons;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "idRole")
+    private Role role;
+
     public void setHoaDons(List<HoaDon> hoaDons) {
         this.hoaDons = hoaDons;
     }
 
     // Constructor không đối số
     public NhanVien() {
+        this.role = new Role();
+        this.role.setRolename("employee");
     }
 
     // Getters và Setters
@@ -123,5 +129,13 @@ public class NhanVien {
 
     public void setMatkhau(String matkhau) {
         this.matkhau = matkhau;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
