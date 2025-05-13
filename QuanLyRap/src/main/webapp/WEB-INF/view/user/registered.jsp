@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
                                     <a href="/registered">Đăng ký</a>
-                                    <a class="login" href="login">Đăng nhập</a>
+                                    <a class="login" href="/login">Đăng nhập</a>
                                 </div>
                             </div>
                             <div class="row header-bottom">

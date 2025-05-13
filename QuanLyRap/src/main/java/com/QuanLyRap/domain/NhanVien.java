@@ -24,6 +24,7 @@ public class NhanVien {
     private LocalDate ngaysinh;
     private Boolean gioitinh;
     private LocalDate ngaybatdau;
+    private String matkhau;
 
     @ManyToOne
     @JoinColumn(name = "idcv")
@@ -114,5 +115,13 @@ public class NhanVien {
         return "NhanVien [idnv=" + idnv + ", tennv=" + tennv + ", sdt=" + sdt + ", email=" + email + ", ngaysinh="
                 + ngaysinh + ", gioitinh=" + gioitinh + ", ngaybatdau=" + ngaybatdau + ", chucVu=" + chucVu
                 + ", hoaDons=" + hoaDons + "]";
+    }
+
+    public String getMatkhau() {
+        return matkhau;
+    }
+
+    public void setMatkhau(String matkhau) {
+        this.matkhau = matkhau;
     }
 }
