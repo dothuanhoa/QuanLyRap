@@ -103,7 +103,7 @@ input[type="district"] {
   font-weight: bold;
   padding: 3vh 0;
 }
-.registered-btn {
+.registered-btn[type="submit"] {
   width: 30%;
   padding: 10px;
   background-color: #0ad2ff;

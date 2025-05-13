@@ -16,4 +16,8 @@ public class KhachHangService {
     public KhachHang saveKhachHang(KhachHang khachHang) {
         return this.khachHangRepository.save(khachHang);
     }
+
+    public KhachHang findByEmailAndPassword(String email, String matkhau) {
+        return khachHangRepository.findByEmailAndMatkhau(email, matkhau);
+    }
 }

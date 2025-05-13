@@ -19,9 +19,10 @@ public class Phim {
     private String tenPhim;
     private String noiDung;
     private int thoiLuong;
-    private String danhGia;
-    private LocalDateTime ngayMua;
-    private float giaMua;
+    private LocalDateTime ngayChieu;
+    private String daoDien;
+    private String dienVien;
+    private String ngonNgu;
 
     @OneToMany(mappedBy = "phim")
     private List<Ve> veList;
@@ -42,6 +43,30 @@ public class Phim {
     }
 
     // Getters và Setters
+    public String getDaoDien() {
+        return daoDien;
+    }
+
+    public void setDaoDien(String daoDien) {
+        this.daoDien = daoDien;
+    }
+
+    public String getDienVien() {
+        return dienVien;
+    }
+
+    public void setDienVien(String dienVien) {
+        this.dienVien = dienVien;
+    }
+
+    public String getNgonNgu() {
+        return ngonNgu;
+    }
+
+    public void setNgonNgu(String ngonNgu) {
+        this.ngonNgu = ngonNgu;
+    }
+
     public int getIdPhim() {
         return idPhim;
     }
@@ -72,30 +97,6 @@ public class Phim {
 
     public void setThoiLuong(int thoiLuong) {
         this.thoiLuong = thoiLuong;
-    }
-
-    public String getDanhGia() {
-        return danhGia;
-    }
-
-    public void setDanhGia(String danhGia) {
-        this.danhGia = danhGia;
-    }
-
-    public LocalDateTime getNgayMua() {
-        return ngayMua;
-    }
-
-    public void setNgayMua(LocalDateTime ngayMua) {
-        this.ngayMua = ngayMua;
-    }
-
-    public float getGiaMua() {
-        return giaMua;
-    }
-
-    public void setGiaMua(float giaMua) {
-        this.giaMua = giaMua;
     }
 
     public List<Ve> getVeList() {
@@ -138,13 +139,20 @@ public class Phim {
                 ", tenPhim='" + tenPhim + '\'' +
                 ", noiDung='" + noiDung + '\'' +
                 ", thoiLuong=" + thoiLuong +
-                ", danhGia='" + danhGia + '\'' +
-                ", ngayMua=" + ngayMua +
-                ", giaMua=" + giaMua +
+                ", ngayChieu=" + ngayChieu +
+
                 ", veList=" + veList +
                 ", theLoai=" + theLoai +
                 ", nhaCungCap=" + nhaCungCap +
                 ", lichChieuList=" + lichChieuList +
                 '}';
+    }
+
+    public LocalDateTime getNgayChieu() {
+        return ngayChieu;
+    }
+
+    public void setNgayChieu(LocalDateTime ngayChieu) {
+        this.ngayChieu = ngayChieu;
     }
 }

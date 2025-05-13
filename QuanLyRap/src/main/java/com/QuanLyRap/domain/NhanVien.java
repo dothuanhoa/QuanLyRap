@@ -26,10 +26,6 @@ public class NhanVien {
     private LocalDate ngaybatdau;
     private String matkhau;
 
-    @ManyToOne
-    @JoinColumn(name = "idcv")
-    private ChucVu chucVu;
-
     @OneToMany(mappedBy = "nhanVien")
     private List<HoaDon> hoaDons;
 
@@ -108,18 +104,10 @@ public class NhanVien {
         this.ngaybatdau = ngaybatdau;
     }
 
-    public ChucVu getChucVu() {
-        return chucVu;
-    }
-
-    public void setChucVu(ChucVu chucVu) {
-        this.chucVu = chucVu;
-    }
-
     @Override
     public String toString() {
         return "NhanVien [idnv=" + idnv + ", tennv=" + tennv + ", sdt=" + sdt + ", email=" + email + ", ngaysinh="
-                + ngaysinh + ", gioitinh=" + gioitinh + ", ngaybatdau=" + ngaybatdau + ", chucVu=" + chucVu
+                + ngaysinh + ", gioitinh=" + gioitinh + ", ngaybatdau=" + ngaybatdau
                 + ", hoaDons=" + hoaDons + "]";
     }
 

@@ -8,4 +8,7 @@ import com.QuanLyRap.domain.KhachHang;
 @Repository
 public interface KhachHangRepository extends JpaRepository<KhachHang, Long> {
     KhachHang save(KhachHang khachHang);
+
+    KhachHang findByEmailAndMatkhau(String email, String matkhau);
+
 }

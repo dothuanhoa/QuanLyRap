@@ -38,7 +38,7 @@ input[type="password"] {
 .remember input {
   margin-right: 5px;
 }
-.login-btn {
+.login-btn[type="submit"] {
   width: 100%;
   padding: 10px;
   background-color: #eee;

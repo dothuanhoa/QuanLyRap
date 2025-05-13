@@ -27,11 +27,6 @@ public class AllUserController {
         return "user/about-us";
     }
 
-    @RequestMapping("/login")
-    public String showLogin() {
-        return "user/login";
-    }
-
     @RequestMapping("/movie")
     public String showMovie() {
         return "user/movie";

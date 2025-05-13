@@ -45,13 +45,13 @@
                                 </div>
                                 <div class="row header-bottom">
                                     <div class="col-lg-2 offset-lg-1">
-                                        <a href="#">Trang chủ</a>
+                                        <a href="/">Trang chủ</a>
                                     </div>
                                     <div class="col-lg-2" style="width:18%">
                                         <a href="/movie">Lịch chiếu</a>
                                     </div>
                                     <div class="col-lg-1">
-                                        <a href="#">Phim</a>
+                                        <a href="/movie">Phim</a>
                                     </div>
                                     <div class="col-lg-1" style="width:12%">
                                         <a href="#">Ưu đãi</a>
@@ -103,6 +103,9 @@
                                 </div>
                                 <button type="submit" class="registered-btn" id="registered"
                                     style="background-color: aqua;">ĐĂNG KÝ</button>
+                                <!-- css inline cho cái nút dưới checkbox -->
+
+
                             </div>
                         </div>
                     </div>
