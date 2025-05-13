@@ -31,10 +31,6 @@ public class Phim {
     @JoinColumn(name = "idTheLoai") // idTheLoai là khóa ngoại liên kết với TheLoai
     private TheLoai theLoai;
 
-    @ManyToOne
-    @JoinColumn(name = "idNcc") // idNcc là khóa ngoại liên kết với NhaCungCap
-    private NhaCungCap nhaCungCap;
-
     @OneToMany(mappedBy = "phim")
     private List<LichChieu> lichChieuList;
 
@@ -115,14 +111,6 @@ public class Phim {
         this.theLoai = theLoai;
     }
 
-    public NhaCungCap getNhaCungCap() {
-        return nhaCungCap;
-    }
-
-    public void setNhaCungCap(NhaCungCap nhaCungCap) {
-        this.nhaCungCap = nhaCungCap;
-    }
-
     public List<LichChieu> getLichChieuList() {
         return lichChieuList;
     }
@@ -143,7 +131,6 @@ public class Phim {
 
                 ", veList=" + veList +
                 ", theLoai=" + theLoai +
-                ", nhaCungCap=" + nhaCungCap +
                 ", lichChieuList=" + lichChieuList +
                 '}';
     }
