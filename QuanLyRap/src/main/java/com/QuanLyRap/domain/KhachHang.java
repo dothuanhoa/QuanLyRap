@@ -57,8 +57,7 @@ public class KhachHang {
     public KhachHang() {
         // Gán mặc định vai trò là "user"
         this.role = new Role();
-        this.role.setRolename("user");
-        ; // Đảm bảo Role có setter cho roleName
+        this.role.setIdRole(2);
     }
 
     public Long getIdkh() {

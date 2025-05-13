@@ -48,7 +48,7 @@ public class NhanVien {
     // Constructor không đối số
     public NhanVien() {
         this.role = new Role();
-        this.role.setRolename("employee");
+        this.role.setIdRole(3);
     }
 
     // Getters và Setters
