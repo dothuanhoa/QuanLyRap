@@ -1,0 +1,41 @@
+.list-phim {
+    position: relative;
+}
+
+.list-phim a {
+    padding: 8px 20px;
+    background-color: black;
+    color: white;
+    border-radius: none;
+    transition: padding 0.5s ease-in-out, color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+
+.list-phim a:hover {
+    padding: 9px 21px;
+    background-color: white;
+    color: black;
+    border-radius: none;
+}
+.end a:last-of-type {
+    padding: 8px 20px;
+    background-color: white;
+    color: black;
+    border-radius: none;
+    transition: padding 0.5s ease-in-out, color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+.end a:last-of-type:hover {
+    padding: 9px 21px;
+    background-color: black;
+    color: white;
+}
+table {
+    min-width: 50vh;
+    border: 2px solid black;
+}
+
+td,
+th {
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}

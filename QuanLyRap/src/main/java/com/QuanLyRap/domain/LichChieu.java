@@ -7,8 +7,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -18,44 +19,16 @@ public class LichChieu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idLichChieu;
 
-    private LocalDateTime ngayChieu;
+    private LocalDate ngayChieu;
 
     @ManyToOne
-    @JoinColumn(name = "idPhim") // idPhim là khóa ngoại liên kết với Phim
+    @JoinColumn(name = "idPhim") // Liên kết với Phim
     private Phim phim;
 
-    @OneToMany(mappedBy = "lichChieu")
-    private List<Ve> veList;
-
-    @OneToMany(mappedBy = "lichChieu")
+    @OneToMany(mappedBy = "lichChieu", cascade = CascadeType.ALL)
     private List<SuatChieu> suatChieuList;
 
-    @OneToMany(mappedBy = "lichChieu")
-    private List<Ghe> gheList;
-
-    @ManyToOne
-    @JoinColumn(name = "idPhongChieu") // idPhongChieu là khóa ngoại liên kết với PhongChieu
-    private PhongChieu phongChieu;
-
-    public LichChieu() {
-    }
-
-    public List<SuatChieu> getSuatChieuList() {
-        return suatChieuList;
-    }
-
-    public void setSuatChieuList(List<SuatChieu> suatChieuList) {
-        this.suatChieuList = suatChieuList;
-    }
-
-    public List<Ghe> getGheList() {
-        return gheList;
-    }
-
-    public void setGheList(List<Ghe> gheList) {
-        this.gheList = gheList;
-    }
-
+    // Getters và Setters
     public int getIdLichChieu() {
         return idLichChieu;
     }
@@ -64,11 +37,11 @@ public class LichChieu {
         this.idLichChieu = idLichChieu;
     }
 
-    public LocalDateTime getNgayChieu() {
+    public LocalDate getNgayChieu() {
         return ngayChieu;
     }
 
-    public void setNgayChieu(LocalDateTime ngayChieu) {
+    public void setNgayChieu(LocalDate ngayChieu) {
         this.ngayChieu = ngayChieu;
     }
 
@@ -80,26 +53,11 @@ public class LichChieu {
         this.phim = phim;
     }
 
-    public List<Ve> getVeList() {
-        return veList;
+    public List<SuatChieu> getSuatChieuList() {
+        return suatChieuList;
     }
 
-    public void setVeList(List<Ve> veList) {
-        this.veList = veList;
+    public void setSuatChieuList(List<SuatChieu> suatChieuList) {
+        this.suatChieuList = suatChieuList;
     }
-
-    public PhongChieu getPhongChieu() {
-        return phongChieu;
-    }
-
-    public void setPhongChieu(PhongChieu phongChieu) {
-        this.phongChieu = phongChieu;
-    }
-
-    @Override
-    public String toString() {
-        return "LichChieu [idLichChieu=" + idLichChieu + ", ngayChieu=" + ngayChieu + ", phim=" + phim + ", veList="
-                + veList + ", phongChieu=" + phongChieu + "]";
-    }
-
 }

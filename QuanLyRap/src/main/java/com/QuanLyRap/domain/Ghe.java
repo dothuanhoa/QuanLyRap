@@ -15,23 +15,18 @@ public class Ghe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idGhe;
+
     private String tenGhe;
-    private boolean tinhTrang;
-
-    @OneToMany(mappedBy = "ghe")
-    private List<Ve> veList;
 
     @ManyToOne
-    @JoinColumn(name = "idLichChieu") // idPhongChieu là khóa ngoại liên kết với PhongChieu
-    private LichChieu lichChieu;
+    @JoinColumn(name = "idSuatChieu") // Liên kết với SuatChieu
+    private SuatChieu suatChieu;
 
     @ManyToOne
-    @JoinColumn(name = "idLoaiGhe") // idLoaiGhe là khóa ngoại liên kết với LoaiGhe
+    @JoinColumn(name = "idLoaiGhe") // Liên kết với LoaiGhe
     private LoaiGhe loaiGhe;
 
-    public Ghe() {
-    }
-
+    // Getters và Setters
     public int getIdGhe() {
         return idGhe;
     }
@@ -48,20 +43,12 @@ public class Ghe {
         this.tenGhe = tenGhe;
     }
 
-    public boolean isTinhTrang() {
-        return tinhTrang;
+    public SuatChieu getSuatChieu() {
+        return suatChieu;
     }
 
-    public void setTinhTrang(boolean tinhTrang) {
-        this.tinhTrang = tinhTrang;
-    }
-
-    public List<Ve> getVeList() {
-        return veList;
-    }
-
-    public void setVeList(List<Ve> veList) {
-        this.veList = veList;
+    public void setSuatChieu(SuatChieu suatChieu) {
+        this.suatChieu = suatChieu;
     }
 
     public LoaiGhe getLoaiGhe() {
@@ -71,11 +58,4 @@ public class Ghe {
     public void setLoaiGhe(LoaiGhe loaiGhe) {
         this.loaiGhe = loaiGhe;
     }
-
-    @Override
-    public String toString() {
-        return "Ghe [idGhe=" + idGhe + ", tenGhe=" + tenGhe + ", tinhTrang=" + tinhTrang + ", veList=" + veList
-                + ", phongChieu=" + ", loaiGhe=" + loaiGhe + "]";
-    }
-
 }

@@ -3,6 +3,7 @@ package com.QuanLyRap.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Phim {
@@ -31,8 +33,12 @@ public class Phim {
     @JoinColumn(name = "idTheLoai") // idTheLoai là khóa ngoại liên kết với TheLoai
     private TheLoai theLoai;
 
-    @OneToMany(mappedBy = "phim")
+    @OneToMany(mappedBy = "phim", cascade = CascadeType.ALL)
     private List<LichChieu> lichChieuList;
+
+    @OneToOne
+    @JoinColumn(name = "idPhongChieu") // Liên kết với PhongChieu
+    private PhongChieu phongChieu;
 
     // Constructor không đối số
     public Phim() {

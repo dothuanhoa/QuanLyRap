@@ -6,6 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import java.util.List;
 
 @Entity
 public class SuatChieu {
@@ -14,11 +17,13 @@ public class SuatChieu {
     private int idSuatChieu;
 
     private String thoiGianBatDau;
-    private String thoiGianKetThuc;
 
     @ManyToOne
-    @JoinColumn(name = "idLichChieu") // Tên cột khóa ngoại trong bảng SuatChieu
+    @JoinColumn(name = "idLichChieu") // Liên kết với LichChieu
     private LichChieu lichChieu;
+
+    @OneToMany(mappedBy = "suatChieu", cascade = CascadeType.ALL)
+    private List<Ghe> gheList;
 
     // Getters và Setters
     public int getIdSuatChieu() {
@@ -37,19 +42,19 @@ public class SuatChieu {
         this.thoiGianBatDau = thoiGianBatDau;
     }
 
-    public String getThoiGianKetThuc() {
-        return thoiGianKetThuc;
-    }
-
-    public void setThoiGianKetThuc(String thoiGianKetThuc) {
-        this.thoiGianKetThuc = thoiGianKetThuc;
-    }
-
     public LichChieu getLichChieu() {
         return lichChieu;
     }
 
     public void setLichChieu(LichChieu lichChieu) {
         this.lichChieu = lichChieu;
+    }
+
+    public List<Ghe> getGheList() {
+        return gheList;
+    }
+
+    public void setGheList(List<Ghe> gheList) {
+        this.gheList = gheList;
     }
 }

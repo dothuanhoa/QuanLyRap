@@ -2,6 +2,7 @@ package com.QuanLyRap.domain;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class PhongChieu {
@@ -17,10 +19,9 @@ public class PhongChieu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPhongChieu;
     private String tenPhongChieu;
-    private int soGhe;
 
-    @OneToMany(mappedBy = "phongChieu")
-    private List<LichChieu> lichChieuList;
+    @OneToOne(mappedBy = "phongChieu", cascade = CascadeType.ALL)
+    private Phim phim;
 
     @ManyToOne
     @JoinColumn(name = "idRap") // idRap là khóa ngoại liên kết với Rap
@@ -47,22 +48,6 @@ public class PhongChieu {
         this.tenPhongChieu = tenPhongChieu;
     }
 
-    public int getSoGhe() {
-        return soGhe;
-    }
-
-    public void setSoGhe(int soGhe) {
-        this.soGhe = soGhe;
-    }
-
-    public List<LichChieu> getLichChieuList() {
-        return lichChieuList;
-    }
-
-    public void setLichChieuList(List<LichChieu> lichChieuList) {
-        this.lichChieuList = lichChieuList;
-    }
-
     public Rap getRap() {
         return rap;
     }
@@ -77,9 +62,17 @@ public class PhongChieu {
         return "PhongChieu{" +
                 "idPhongChieu=" + idPhongChieu +
                 ", tenPhongChieu='" + tenPhongChieu + '\'' +
-                ", soGhe=" + soGhe +
-                ", lichChieuList=" + lichChieuList +
+
                 ", rap=" + rap +
                 '}';
     }
+
+    public Phim getPhim() {
+        return phim;
+    }
+
+    public void setPhim(Phim phim) {
+        this.phim = phim;
+    }
+
 }

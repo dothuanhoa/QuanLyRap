@@ -3,11 +3,15 @@ package com.QuanLyRap.controller;
 import com.QuanLyRap.domain.Phim;
 import com.QuanLyRap.service.PhimService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class MovieController {
 
     private final PhimService phimService;
@@ -16,8 +20,14 @@ public class MovieController {
         this.phimService = phimService;
     }
 
-    @GetMapping("/api/movies")
+    @GetMapping("/movies")
     public List<Phim> getAllMovies() {
         return phimService.getAllMovies();
+    }
+
+    @PostMapping("/phim")
+    public String createPhim(@RequestBody Phim phim) {
+        phimService.createPhimWithDefaults(phim);
+        return "Phim và các lịch chiếu, suất chiếu, ghế đã được tạo thành công!";
     }
 }
