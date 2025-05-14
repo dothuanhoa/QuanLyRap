@@ -28,10 +28,6 @@ public class Ve {
     private HoaDon hoaDon;
 
     @ManyToOne
-    @JoinColumn(name = "idLoaiVe") // idLoaiVe là khóa ngoại liên kết với LoaiVe
-    private LoaiVe loaiVe;
-
-    @ManyToOne
     @JoinColumn(name = "idPhim") // idPhim là khóa ngoại liên kết với Phim
     private Phim phim;
 
@@ -96,14 +92,6 @@ public class Ve {
         this.hoaDon = hoaDon;
     }
 
-    public LoaiVe getLoaiVe() {
-        return loaiVe;
-    }
-
-    public void setLoaiVe(LoaiVe loaiVe) {
-        this.loaiVe = loaiVe;
-    }
-
     public Phim getPhim() {
         return phim;
     }
@@ -138,7 +126,6 @@ public class Ve {
                 ", ghiChu='" + ghiChu + '\'' +
                 ", khachHang=" + khachHang +
                 ", hoaDon=" + hoaDon +
-                ", loaiVe=" + loaiVe +
                 ", phim=" + phim +
                 ", lichChieu=" + lichChieu +
                 ", ghe=" + ghe +
