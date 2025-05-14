@@ -88,7 +88,7 @@
                                             <input type="checkbox" id="remember">
                                             <label for="remember">Lưu mật khẩu đăng nhập</label>
                                         </div>
-                                        <button type="submit" class="login-btn" style="color: aliceblue;">ĐĂNG
+                                        <button type="submit" class="login-btn">ĐĂNG
                                             NHẬP</button>
                                         <!-- css inline cho cai nay duoi luu mat khau -->
 

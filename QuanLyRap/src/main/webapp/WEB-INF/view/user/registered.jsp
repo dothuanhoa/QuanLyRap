@@ -73,19 +73,20 @@
                         <div class="container">
                             <div class="registeredContainer">
                                 <div class="account-info">
-                                    <h2>THÔNG TIN ĐĂNG NHẬP</h2>
-                                    <form:input type="email" id="username" placeholder="Email" path="email" /><br />
-                                    <form:input type="password" id="password" placeholder="Mật khẩu" path="matkhau" />
+
                                     <div class="img-container">
                                         <img src="/img/resigtered.png">
                                     </div>
                                 </div>
                                 <div>
+                                    <h2>THÔNG TIN ĐĂNG NHẬP</h2>
+                                    <form:input type="email" id="username" placeholder="Email" path="email" /><br />
+                                    <form:input type="password" id="password" placeholder="Mật khẩu" path="matkhau" />
                                     <h2>THÔNG TIN CÁ NHÂN</h2>
                                     <div class="self-info">
                                         <form:input type="name" id="name" placeholder="Tên" path="tenkh" />
                                         <form:input type="lastname" id="lastname" placeholder="Họ" path="ho" />
-                                        <form:input type="sex" placeholder="DD/MM/YYYY" onfocus="(this.type='date')"
+                                        <form:input type="phone" placeholder="DD/MM/YYYY" onfocus="(this.type='date')"
                                             onclick="(this.type='date')" onblur="if(!this.value)this.type='text'"
                                             class="custom-date" path="ngaysinh" />
                                         <form:select id="sex" placeholder="Giới tính" path="gioitinh">

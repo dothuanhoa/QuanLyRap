@@ -70,12 +70,9 @@ input[type="date"] {
   border: none;
   box-sizing: border-box;
 }
-input[type="sex"],
-input[type="cccd"],
-input[type="phone"],
-input[type="address"],
-input[type="city"],
-input[type="district"] {
+#sex,
+input[type="phone"]
+{
   background-color: #d9d9d9;
   width: 100%;
   padding: 10px;
@@ -104,7 +101,7 @@ input[type="district"] {
   padding: 3vh 0;
 }
 .registered-btn[type="submit"] {
-  width: 30%;
+  width: 100%;
   padding: 10px;
   background-color: #0ad2ff;
   border: none;
