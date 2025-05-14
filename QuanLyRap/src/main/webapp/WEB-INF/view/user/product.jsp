@@ -63,30 +63,47 @@
                 </div>
             </div>
             <div class="main">
-                <div id="movie"></div>
+                <div id="movie">${phim.tenPhim}</div>
                 <div class="movie-info row">
                     <div class="col-lg-9">
                         <div class="short-info">
-                            <div>Thời lượng:&nbsp;<span id="time"></span><span
+                            <div>Thời lượng:&nbsp;<span id="time">${phim.thoiLuong} phút</span><span
                                     style="padding-left: 30%; font-weight: bold;">Thể
-                                    loại:&nbsp;<span id="genre" style="font-weight: 100;"></span></span></div>
+                                    loại:&nbsp;<span id="genre"
+                                        style="font-weight: 100;"></span>${phim.theLoai.tenTheLoai}</span></div>
 
-                            <div>Khởi chiếu:&nbsp;<span id="start"></span></div>
+                            <div>Khởi chiếu:&nbsp;<span id="start">${phim.ngayChieu}</span></div>
                         </div>
                         <div class="long-info">
-                            <div>Đạo diễn:&nbsp;<span id="director"></span></div>
-                            <div>Diễn viên:&nbsp;<span id="actor"></span></div>
-                            <div>Ngôn ngữ:&nbsp;<span id="lang"></span></div>
-                            <div id="description"></div>
+                            <div>Đạo diễn:&nbsp;<span id="director">${phim.daoDien}</span></div>
+                            <div>Diễn viên:&nbsp;<span id="actor">${phim.dienVien}</span></div>
+                            <div>Ngôn ngữ:&nbsp;<span id="lang"></span>${phim.ngonNgu}</div>
+                            <div id="description">>${phim.noiDung}</div>
                         </div>
                     </div>
-                    <div class="col-lg-3" id="movie-img"></div>
+                    <div class="col-lg-3" id="movie-img"><img src="/img/product-banner/${phim.idPhim}.png"
+                            alt="${phim.tenPhim}" class="movie-img"></div>
                 </div>
             </div>
             <div class="container-fluid container-fscren">
                 <div class="movie-screening">
-                    <div class="movie-screening-name">Lịch chiếu -&nbsp;<span id="movie-screening-name"></span></div>
-                    <div class="movie-screening-container" id="movie-screening"></div>
+                    <div class="movie-screening-name"><strong>Lịch chiếu -&nbsp;</strong><span
+                            id="movie-screening-name"><Strong>${phim.tenPhim}</Strong></span></div>
+                    <div class="movie-screening-container" id="movie-screening">
+                        <c:forEach var="lichChieu" items="${phim.lichChieuList}">
+                            <div class="date">Ngày ${lichChieu.ngayChieu}</div>
+                            <span class="format">2D PHỤ ĐỀ / SUB</span>
+
+                            <c:forEach var="suatChieu" items="${lichChieu.suatChieuList}">
+                                <div class="time">
+                                    <a
+                                        href="/pick-chair?phim=${phim.idPhim}&date=${lichChieu.ngayChieu}&showtime=${suatChieu.thoiGianBatDau}">
+                                        ${suatChieu.thoiGianBatDau}
+                                    </a>
+                                </div>
+                            </c:forEach>
+                        </c:forEach>
+                    </div>
                 </div>
             </div>
             <footer class="footer row">

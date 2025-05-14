@@ -83,3 +83,51 @@
     background: #5AC5FF;
     color:black;
 }
+/* Định dạng ngày chiếu và định dạng phim */
+.screening-date {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.screening-date .date {
+    margin-right: 15px;
+    color: #00bcd4; /* Màu xanh nhạt */
+}
+
+.screening-date .format {
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+    background-color: #333333;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Định dạng các suất chiếu */
+.screening-times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time-slot {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #00bcd4; /* Màu xanh nhạt */
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.time-slot:hover {
+    background-color: #0288d1; /* Màu xanh đậm hơn khi hover */
+}

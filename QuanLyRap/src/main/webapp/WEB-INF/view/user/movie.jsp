@@ -10,50 +10,10 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
             <link rel="stylesheet" href="/css/style.css" type="text/css">
             <link rel="stylesheet" href="/css/movie.css" type="text/css">
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/product.css">
         </head>
 
         <body>
-            <div class="offcanvas offcanvas-start w-75" id="offcanvas">
-                <div class="offcanvas-header">
-                    <div class="col-4">
-                        <h5>SIGN IN</h5>
-                    </div>
-                    <div class="col-4 ps-2">
-                        <h5>FAQS</h5>
-                    </div>
-                    <div class="col-4">
-                        <h5>USD<i class="bi bi-caret-down-fill"></i></h5>
-                    </div>
-                </div>
-                <div class="offcanvas-body">
-                    <div class="col-12 buy">
-                        <a href="#" class="search"><img src="img/icon/search.png" class="icon"></a>
-                        <a href="#"><img src="img/icon/heart.png" class="icon"></a>
-                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img
-                                src="img/icon/cart.png" class="icon"><span class="count">0</span></a>
-                        <p class="price">$0.00</p>
-                    </div>
-                    <div class="container-fluid">
-                        <h6><a href="#">Home</a></h6>
-                        <h6><a href="/shopping-cart">Shop</a></h6>
-                        <h6><a class="collapsible" data-bs-toggle="collapse" href="#collapse">Pages
-                                <i class="bi bi-caret-down-fill"></i></a>
-                        </h6>
-                        <div id="collapse" class="collapse">
-                            <div class="list-style">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Shop Details</a></li>
-                                <li><a href="#">Check out</a></li>
-                                <li><a href="#">Blog Details</a></li>
-                            </div>
-                        </div>
-                        <h6><a href="#">Blog</a></h6>
-                        <h6><a href="#">Contacts</a></h6>
-                        <p>Free shipping, 30-day return or refund guarantee.</p>
-                    </div>
-                </div>
-            </div>
-
             <div class="header">
                 <div class="container-fluid">
                     <div class="row">

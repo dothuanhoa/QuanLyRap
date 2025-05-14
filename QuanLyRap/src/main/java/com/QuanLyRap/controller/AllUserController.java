@@ -2,19 +2,26 @@ package com.QuanLyRap.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.QuanLyRap.domain.KhachHang;
+import com.QuanLyRap.domain.Phim;
 import com.QuanLyRap.service.KhachHangService;
+import com.QuanLyRap.service.PhimService;
 
 @Controller
 public class AllUserController {
     private final KhachHangService khachHangService;
+    private final PhimService phimService;
 
-    public AllUserController(KhachHangService khachHangService) {
+    public AllUserController(KhachHangService khachHangService, PhimService phimService) {
         this.khachHangService = khachHangService;
+        this.phimService = phimService;
+
     }
 
     @RequestMapping("/")
@@ -37,8 +44,18 @@ public class AllUserController {
         return "user/pick-chair";
     }
 
-    @RequestMapping("/product")
-    public String showProduct() {
+    // @RequestMapping("/product")
+    // public String showProduct() {
+    // return "user/product";
+    // }
+
+    @GetMapping("/product")
+    public String getMovieByQuery(@RequestParam("movie") int movieId, Model model) {
+        Phim phim = phimService.getPhimById(movieId);
+        if (phim == null) {
+            return "error/404"; // Hoặc tạo trang lỗi riêng nếu muốn
+        }
+        model.addAttribute("phim", phim);
         return "user/product";
     }
 
