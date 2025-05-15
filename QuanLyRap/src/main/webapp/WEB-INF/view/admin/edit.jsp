@@ -58,15 +58,15 @@
                 </div>
                 <div class="col-lg-10 right">
                     <div class="create-phim">
-                        <h2>Tạo Phim Mới</h2>
-                        <form:form action="/admin/phim/save" modelAttribute="phim" method="post">
+                        <h2>Chỉnh sửa Phim</h2>
+                        <form:form action="/admin/phim/update" modelAttribute="phim" method="post">
                             <form:hidden path="idPhim" />
                             <span>Tên phim:</span>
                             <form:input path="tenPhim" /><br />
                             <span>Nội dung:</span>
-                            <form:input path="noiDung" /><br />
+                            <form:textarea path="noiDung" /><br />
                             <span>Thời lượng (phút):</span>
-                            <form:input path="thoiLuong" /><br />
+                            <form:input path="thoiLuong" type="number" /><br />
                             <span>Ngày chiếu:</span>
                             <form:input path="ngayChieu" type="date" /><br />
                             <span>Đạo diễn:</span>
@@ -76,7 +76,7 @@
                             <span>Ngôn ngữ:</span>
                             <form:input path="ngonNgu" /><br />
                             <span>Thể Loại:</span>
-                            <input type="text" name="tenTheLoai" /><br />
+                            <input type="text" name="tenTheLoai" value="${phim.theLoai.tenTheLoai}" /><br />
                             <input type="submit" value="Lưu" />
                         </form:form>
                         <a href="/admin/phim">Về danh sách</a>

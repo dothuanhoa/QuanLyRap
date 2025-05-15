@@ -7,6 +7,7 @@ import com.QuanLyRap.service.TheLoaiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -32,6 +33,7 @@ public class PhimController {
         return "admin/create-phim";
     }
 
+    // Phương thức thêm mới phim
     @PostMapping("/save")
     public String savePhim(@ModelAttribute("phim") Phim phim, @RequestParam("tenTheLoai") String tenTheLoai) {
         // Tìm TheLoai theo tên
@@ -49,12 +51,37 @@ public class PhimController {
         return "redirect:/admin/phim";
     }
 
+    // Phương thức cập nhật phim
+    @PostMapping("/update")
+    public String updatePhim(@ModelAttribute("phim") Phim phim, BindingResult result,
+            @RequestParam("tenTheLoai") String tenTheLoai) {
+        if (result.hasErrors()) {
+            return "admin/edit"; // Trả về form nếu có lỗi
+        }
+
+        // Xử lý thể loại
+        TheLoai theLoai = theLoaiService.findByTenTheLoai(tenTheLoai);
+        if (theLoai == null) {
+            theLoai = new TheLoai();
+            theLoai.setTenTheLoai(tenTheLoai);
+            theLoaiService.save(theLoai);
+        }
+        phim.setTheLoai(theLoai);
+
+        // Cập nhật phim
+        phimService.updatePhim(phim);
+
+        return "redirect:/admin/phim";
+    }
+
     @GetMapping("/edit/{id}")
-    public String editPhim(@PathVariable int id, Model model) {
+    public String editPhim(@PathVariable("id") int id, Model model) {
         Phim phim = phimService.getPhimById(id);
+        if (phim == null) {
+            return "error/404"; // Nếu không tìm thấy phim, chuyển đến trang lỗi
+        }
         model.addAttribute("phim", phim);
-        model.addAttribute("theLoaiList", theLoaiService.findAll()); // Truyền danh sách thể loại vào form
-        return "admin/create";
+        return "admin/edit"; // Trả về trang chỉnh sửa
     }
 
     @GetMapping("/delete/{id}")

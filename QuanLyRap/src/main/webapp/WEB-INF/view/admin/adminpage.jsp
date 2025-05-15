@@ -16,8 +16,9 @@
                 <div class="col-lg-2 left">
                     <div class="oceancinema">OCEAN CINEMA</div>
                     <div class="movie">
-                        <div class=""><img src="/img/movie-icon.png">&nbsp;PHIM</div>
-                        <div class=""><img src="/img/percent-icon.png">&nbsp;KHUYẾN MÃI</div>
+                        <div><a href="/admin/phim" style="color:#5AC5FF;"><img src="/img/movie-icon.png">&nbsp;PHIM
+                        </div></a>
+                        <div><img src="/img/percent-icon.png">&nbsp;KHUYẾN MÃI</div>
                     </div>
                 </div>
                 <div class="col-lg-10 right">

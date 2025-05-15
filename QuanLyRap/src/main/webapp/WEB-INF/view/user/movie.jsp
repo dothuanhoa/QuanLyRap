@@ -18,7 +18,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2">
-                            <a href="#"><img src="/img/header-logo.png" alt="" class="logo"></a>
+                            <a href=""><img src="/img/header-logo.png" alt="" class="logo"></a>
                         </div>
                         <div class="col-lg-10">
                             <div class="row header-top">
@@ -26,44 +26,39 @@
                                     <a href="/about-us">Giới thiệu</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Sự kiện</a>
+                                    <a href="">Sự kiện</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Dịch vụ</a>
+                                    <a href="">Dịch vụ</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Tuyển dụng</a>
+                                    <a href="">Tuyển dụng</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Liên hệ</a>
+                                    <a href="">Liên hệ</a>
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
                                     <a href="/registered">Đăng ký</a>
-                                    <a class="login" href="login">Đăng nhập</a>
+                                    <a class="login" href="/login">Đăng nhập</a>
                                 </div>
                             </div>
                             <div class="row header-bottom">
                                 <div class="col-lg-2 offset-lg-1">
                                     <a href="/">Trang chủ</a>
                                 </div>
-                                <div class="col-lg-2" style="width:18%">
-                                    <a href="#">Lịch chiếu</a>
-                                </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Phim</a>
+                                    <a href="/movie">Phim</a>
                                 </div>
                                 <div class="col-lg-1" style="width:12%">
-                                    <a href="#">Ưu đãi</a>
+                                    <a href="">Ưu đãi</a>
                                 </div>
                                 <div class="col-lg-2">
-                                    <a href="#">Rạp & Vé</a>
+                                    <a href="">Rạp & Vé</a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
 
             <div class="main">
@@ -72,7 +67,30 @@
                 </div>
                 <div class="container">
                     <div class="row product-item" id="product-container">
-
+                        <c:forEach var="movie" items="${movies}">
+                            <div class="col-lg-3 pb-4">
+                                <div class="movie-card" data-id="${movie.idPhim}">
+                                    <a href="/product?movie=${movie.idPhim}">
+                                        <img src="/img/product/movie${movie.idPhim}.png" alt="${movie.tenPhim}">
+                                    </a>
+                                    <div class="movie-tags my-2">
+                                        <span class="badge bg-danger">T16</span>
+                                        <span class="badge bg-warning text-dark">Phụ đề</span>
+                                        <span class="badge bg-info">2D</span>
+                                    </div>
+                                    <a href="#">
+                                        <h4 id="movie-name">${movie.tenPhim}</h4>
+                                    </a>
+                                    <div class="movie-category">Thể loại phim: <span>${movie.theLoai.tenTheLoai}</span>
+                                    </div>
+                                </div>
+                                <div class="buy-now">
+                                    <a href="/product?movie=${movie.idPhim}">
+                                        <img src="/img/ticket.png">&nbsp;&nbsp;MUA VÉ NGAY
+                                    </a>
+                                </div>
+                            </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

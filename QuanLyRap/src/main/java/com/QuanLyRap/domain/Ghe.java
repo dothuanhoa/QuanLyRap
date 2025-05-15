@@ -1,14 +1,11 @@
 package com.QuanLyRap.domain;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Ghe {
@@ -24,7 +21,9 @@ public class Ghe {
 
     @ManyToOne
     @JoinColumn(name = "idLoaiGhe") // Liên kết với LoaiGhe
-    private LoaiGhe loaiGhe;
+    private LoaiGhe loaiGhe = new LoaiGhe(1); // Mặc định là ghế thường với giá 50000
+
+    private boolean trangThai = false; // Trạng thái ghế, mặc định là false (chưa đặt)
 
     // Getters và Setters
     public int getIdGhe() {
@@ -57,5 +56,13 @@ public class Ghe {
 
     public void setLoaiGhe(LoaiGhe loaiGhe) {
         this.loaiGhe = loaiGhe;
+    }
+
+    public boolean isTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(boolean trangThai) {
+        this.trangThai = trangThai;
     }
 }

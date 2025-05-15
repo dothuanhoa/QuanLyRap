@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2">
-                            <a href="#"><img src="/img/header-logo.png" alt="" class="logo"></a>
+                            <a href=""><img src="/img/header-logo.png" alt="" class="logo"></a>
                         </div>
                         <div class="col-lg-10">
                             <div class="row header-top">
@@ -25,37 +25,34 @@
                                     <a href="/about-us">Giới thiệu</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Sự kiện</a>
+                                    <a href="">Sự kiện</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Dịch vụ</a>
+                                    <a href="">Dịch vụ</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Tuyển dụng</a>
+                                    <a href="">Tuyển dụng</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Liên hệ</a>
+                                    <a href="">Liên hệ</a>
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
                                     <a href="/registered">Đăng ký</a>
-                                    <a class="login" href="login">Đăng nhập</a>
+                                    <a class="login" href="/login">Đăng nhập</a>
                                 </div>
                             </div>
                             <div class="row header-bottom">
                                 <div class="col-lg-2 offset-lg-1">
                                     <a href="/">Trang chủ</a>
                                 </div>
-                                <div class="col-lg-2" style="width:18%">
-                                    <a href="/movie">Lịch chiếu</a>
-                                </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Phim</a>
+                                    <a href="/movie">Phim</a>
                                 </div>
                                 <div class="col-lg-1" style="width:12%">
-                                    <a href="#">Ưu đãi</a>
+                                    <a href="">Ưu đãi</a>
                                 </div>
                                 <div class="col-lg-2">
-                                    <a href="#">Rạp & Vé</a>
+                                    <a href="">Rạp & Vé</a>
                                 </div>
                             </div>
                         </div>

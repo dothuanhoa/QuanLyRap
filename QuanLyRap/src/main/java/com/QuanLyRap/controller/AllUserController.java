@@ -1,5 +1,7 @@
 package com.QuanLyRap.controller;
 
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,8 +36,14 @@ public class AllUserController {
         return "user/about-us";
     }
 
+    // @RequestMapping("/movie")
+    // public String showMovie() {
+    // return "user/movie";
+    // }
+
     @RequestMapping("/movie")
-    public String showMovie() {
+    public String showMovie(Model model) {
+        model.addAttribute("movies", phimService.getAllMovies());
         return "user/movie";
     }
 
@@ -54,6 +62,9 @@ public class AllUserController {
         Phim phim = phimService.getPhimById(movieId);
         if (phim == null) {
             return "error/404"; // Hoặc tạo trang lỗi riêng nếu muốn
+        }
+        if (phim != null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         }
         model.addAttribute("phim", phim);
         return "user/product";

@@ -1,7 +1,9 @@
 package com.QuanLyRap.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -17,11 +19,13 @@ import jakarta.persistence.OneToOne;
 public class Phim {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPhim;
+    private Integer idPhim;
     private String tenPhim;
     private String noiDung;
     private int thoiLuong;
-    private LocalDateTime ngayChieu;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // Định dạng ngày
+    private LocalDate ngayChieu;
     private String daoDien;
     private String dienVien;
     private String ngonNgu;
@@ -69,12 +73,20 @@ public class Phim {
         this.ngonNgu = ngonNgu;
     }
 
-    public int getIdPhim() {
+    public Integer getIdPhim() {
         return idPhim;
     }
 
-    public void setIdPhim(int idPhim) {
+    public void setIdPhim(Integer idPhim) {
         this.idPhim = idPhim;
+    }
+
+    public PhongChieu getPhongChieu() {
+        return phongChieu;
+    }
+
+    public void setPhongChieu(PhongChieu phongChieu) {
+        this.phongChieu = phongChieu;
     }
 
     public String getTenPhim() {
@@ -141,11 +153,11 @@ public class Phim {
                 '}';
     }
 
-    public LocalDateTime getNgayChieu() {
+    public LocalDate getNgayChieu() {
         return ngayChieu;
     }
 
-    public void setNgayChieu(LocalDateTime ngayChieu) {
+    public void setNgayChieu(LocalDate ngayChieu) {
         this.ngayChieu = ngayChieu;
     }
 }

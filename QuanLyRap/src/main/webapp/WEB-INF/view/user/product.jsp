@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2">
-                            <a href="#"><img src="/img/header-logo.png" alt="" class="logo"></a>
+                            <a href=""><img src="/img/header-logo.png" alt="" class="logo"></a>
                         </div>
                         <div class="col-lg-10">
                             <div class="row header-top">
@@ -25,16 +25,16 @@
                                     <a href="/about-us">Giới thiệu</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Sự kiện</a>
+                                    <a href="">Sự kiện</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Dịch vụ</a>
+                                    <a href="">Dịch vụ</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Tuyển dụng</a>
+                                    <a href="">Tuyển dụng</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Liên hệ</a>
+                                    <a href="">Liên hệ</a>
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
                                     <a href="/registered">Đăng ký</a>
@@ -45,17 +45,14 @@
                                 <div class="col-lg-2 offset-lg-1">
                                     <a href="/">Trang chủ</a>
                                 </div>
-                                <div class="col-lg-2" style="width:18%">
-                                    <a href="/movie">Lịch chiếu</a>
-                                </div>
                                 <div class="col-lg-1">
-                                    <a href="#">Phim</a>
+                                    <a href="/movie">Phim</a>
                                 </div>
                                 <div class="col-lg-1" style="width:12%">
-                                    <a href="#">Ưu đãi</a>
+                                    <a href="">Ưu đãi</a>
                                 </div>
                                 <div class="col-lg-2">
-                                    <a href="#">Rạp & Vé</a>
+                                    <a href="">Rạp & Vé</a>
                                 </div>
                             </div>
                         </div>
@@ -93,10 +90,11 @@
                         <c:forEach var="lichChieu" items="${phim.lichChieuList}">
                             <div class="date">Ngày ${lichChieu.ngayChieu}</div>
                             <span class="format">2D PHỤ ĐỀ / SUB</span>
+                            <br />
 
                             <c:forEach var="suatChieu" items="${lichChieu.suatChieuList}">
-                                <div class="time">
-                                    <a
+                                <div class="time" style="display: inline-block;margin-top: 20px;">
+                                    <a style="background-color: 5AC5FF; color: black; border: none;padding: 5px 10px;"
                                         href="/pick-chair?phim=${phim.idPhim}&date=${lichChieu.ngayChieu}&showtime=${suatChieu.thoiGianBatDau}">
                                         ${suatChieu.thoiGianBatDau}
                                     </a>

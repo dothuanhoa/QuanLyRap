@@ -71,4 +71,12 @@ public class PhimService {
             }
         }
     }
+
+    public void updatePhim(Phim phim) {
+        if (phimRepository.existsById(phim.getIdPhim())) {
+            phimRepository.save(phim); // Cập nhật phim
+        } else {
+            throw new IllegalArgumentException("Phim không tồn tại để cập nhật.");
+        }
+    }
 }

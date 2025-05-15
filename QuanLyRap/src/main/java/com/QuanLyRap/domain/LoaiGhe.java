@@ -26,6 +26,10 @@ public class LoaiGhe {
     public LoaiGhe() {
     }
 
+    public LoaiGhe(int idLoaiGhe) {
+        this.idLoaiGhe = idLoaiGhe;
+    }
+
     // Getter và Setter cho các thuộc tính khác
     public int getIdLoaiGhe() {
         return idLoaiGhe;

@@ -16,6 +16,10 @@
                     align-items: start;
                     justify-content: left;
                 }
+
+                td {
+                    padding: 15px;
+                }
             </style>
         </head>
 
@@ -24,35 +28,40 @@
                 <div class="col-lg-2 left">
                     <div class="oceancinema">OCEAN CINEMA</div>
                     <div class="movie">
-                        <div><a href="movie-interface.html" style="color:#5AC5FF;"><img
-                                    src="./img/movie-icon.png">&nbsp;PHIM</div></a>
-                        <div><img src="./img/percent-icon.png">&nbsp;KHUYẾN MÃI</div>
+                        <div><a href="/admin/phim" style="color:#5AC5FF;"><img src="/img/movie-icon.png">&nbsp;PHIM
+                        </div></a>
+                        <div><img src="/img/percent-icon.png">&nbsp;KHUYẾN MÃI</div>
                     </div>
                 </div>
                 <div class="col-lg-10 right">
                     <div class="list-phim">
                         <h1 style="margin: 5vh 0;">Danh sách phim</h1>
+
                         <a href="/admin/phim/create">Tạo phim mới</a>
-                        <table border="1" style="margin: 2vh 0 0.7vh 0;">
+                        <p style="font-size: 15px; margin-top: 15px;">Với hình ảnh của phim quản lý hãy tự thêm vào thư
+                            mục
+                            img/product với tên là movie+id phim (ví dụ: movie1.png) và
+                            img/product-banner với tên là id phim (ví dụ: 1.png)</p>
+                        <table border="1" style="margin: 2vh 0 0.7vh 0; text-align: center;">
                             <tr>
                                 <th>ID</th>
                                 <th>Tên phim</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
                             </tr>
                             <c:forEach var="phim" items="${phims}">
                                 <tr>
                                     <td>${phim.idPhim}</td>
                                     <td>${phim.tenPhim}</td>
+                                    <td><a href="/admin/phim/edit/${phim.idPhim}">Sửa</a></td>
+                                    <td><a href="/admin/phim/delete/${phim.idPhim}"
+                                            onclick="return confirm('Xóa phim này?')">Xóa</a></td>
                                 </tr>
                             </c:forEach>
                         </table>
-                        <div class="end">
-                            <a href="/admin/phim/edit/${phim.idPhim}">Sửa</a>
-                            <a href="/admin/phim/delete/${phim.idPhim}"
-                                onclick="return confirm('Xóa phim này?')">Xóa</a>
-                        </div>
                     </div>
                 </div>
-                <div class="help"><img src="./img/circle-question-regular.png">&nbsp;Trợ giúp</div>
+                <div class="help"><img src="/img/circle-question-regular.png">&nbsp;Trợ giúp</div>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
