@@ -4,31 +4,26 @@ window.addEventListener('load', function () {
             id: 1,
             name: "THÁM TỬ KIÊN: KỲ ÁN KHÔNG ĐẦU",
             genre: "Thriller",
-            showtime: "10h00"
         },
         {
             id: 2,
             name: "TÌM XÁC: MA KHÔNG ĐẦU",
             genre: "Thriller",
-            showtime: "10h00"
         },
         {
             id: 3,
             name: "ĐỊA ĐẠO: MẶT TRỜI TRONG BÓNG TỐI",
             genre: "Thriller",
-            showtime: "10h00"
         },
         {
             id: 3,
             name: "ĐỊA ĐẠO: MẶT TRỜI TRONG BÓNG TỐI",
             genre: "Thriller",
-            showtime: "10h00"
         },
         {
             id: 3,
             name: "ĐỊA ĐẠO: MẶT TRỜI TRONG BÓNG TỐI",
             genre: "Thriller",
-            showtime: "10h00"
         },
 
     ];
@@ -52,7 +47,8 @@ window.addEventListener('load', function () {
                         <div class="movie-category">Thể loại phim: <span>${product[i].genre}</span></div>
                     </div>
                     <div class="buy-now">
-                        <a href="/pick-chair?phim=${product[i].id}&showtime=${product[i].showtime}"><img src=/img/ticket.png>&nbsp;&nbsp;MUA VÉ NGAY</a>
+                        <a href="/product?movie=${product[i].id}"><img src=/img/ticket.png>&nbsp;&nbsp;MUA VÉ NGAY</a>
+
                     </div>
                 </div>
             `;
