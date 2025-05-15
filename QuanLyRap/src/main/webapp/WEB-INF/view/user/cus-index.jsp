@@ -38,16 +38,16 @@
                                     <a href="">Liên hệ</a>
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
-                                    <a href="">Đăng xuất</a>
+                                    <a href="/customer/${khachHang.idkh}/logout">Đăng xuất</a>
                                     <a class="login" href="">Tài Khoản</a>
                                 </div>
                             </div>
                             <div class="row header-bottom">
                                 <div class="col-lg-2 offset-lg-1">
-                                    <a href="">Trang chủ</a>
+                                    <a href="/customer/${khachHang.idkh}">Trang chủ</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="/cus-movie">Phim</a>
+                                    <a href="/customer/${khachHang.idkh}/cus-movie">Phim</a>
                                 </div>
                                 <div class="col-lg-1" style="width:12%">
                                     <a href="">Ưu đãi</a>
@@ -91,10 +91,10 @@
                 </div>
                 <div class="container">
                     <div class="phimButton">
-                        <a href="/cus-movie">
+                        <a href="/customer/${khachHang.idkh}/cus-movie">
                             <h2 class="nowMovie">Phim Đang Chiếu</h2>
                         </a>
-                        <a href="/cus-movie">
+                        <a href="/customer/${khachHang.idkh}/cus-movie">
                             <h2 class="newMovie">Phim Sắp chiếu</h2>
                         </a>
                     </div>
@@ -102,7 +102,7 @@
                         <!-- Phim 1 -->
                         <div class="col-lg-3">
                             <div class="movie-card">
-                                <a href="/cus-product?movie=1"><img src="/img/product/movie1.png"></a>
+                                <a href="#"><img src="/img/product/movie1.png"></a>
                                 <div class="movie-tags my-2">
                                     <span class="badge bg-danger">T16</span>
                                     <span class="badge bg-warning text-dark">Phụ đề</span>
@@ -117,7 +117,7 @@
                         <!-- Phim 2 -->
                         <div class="col-lg-3">
                             <div class="movie-card">
-                                <a href=""><img src="/img/product/movie2.png"></a>
+                                <a href="#"><img src="/img/product/movie2.png"></a>
                                 <div class="movie-tags my-2">
                                     <span class="badge bg-danger">T16</span>
                                     <span class="badge bg-warning text-dark">Phụ đề</span>
@@ -160,7 +160,7 @@
                         </label>
                     </div>
                     <div class="container view-all">
-                        <a href="#" class="">Xem Tất Cả</a>
+                        <a href="/customer/${khachHang.idkh}/cus-movie" class="">Xem Tất Cả</a>
                     </div>
                 </div>
                 <div class="container-fluid oceanday">
@@ -172,15 +172,15 @@
                 <div class="container-fluid col-lg-8">
                     <div class="row">
                         <div class="col-lg-10 offset-lg-2 footer-top">
-                            <a href="/cus-movie">LỊCH CHIẾU</a>
-                            <a href="/cus-movie">PHIM </a>
+                            <a href="/customer/${khachHang.idkh}/cus-movie">LỊCH CHIẾU</a>
+                            <a href="/customer/${khachHang.idkh}/cus-movie">PHIM </a>
                             <a href="">RẠP & GIÁ VÉ </a>
                             <a href="">ƯU ĐÃI </a>
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col-lg-10 offset-lg-2 footer-mid">
-                            <a href="/cus-about-us">GIỚI THIỆU </a>
+                            <a href="/customer/${khachHang.idkh}/cus-about-us">GIỚI THIỆU </a>
                             <a href="">SỰ KIỆN </a>
                             <a href="">DỊCH VỤ </a>
                             <a href="">TUYỂN DỤNG </a>
