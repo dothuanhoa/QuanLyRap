@@ -22,7 +22,7 @@ public class SuatChieu {
     @JoinColumn(name = "idLichChieu") // Liên kết với LichChieu
     private LichChieu lichChieu;
 
-    @OneToMany(mappedBy = "suatChieu", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "suatChieu", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ghe> gheList;
 
     // Getters và Setters

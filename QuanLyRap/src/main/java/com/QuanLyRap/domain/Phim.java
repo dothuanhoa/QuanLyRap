@@ -37,7 +37,7 @@ public class Phim {
     @JoinColumn(name = "idTheLoai") // idTheLoai là khóa ngoại liên kết với TheLoai
     private TheLoai theLoai;
 
-    @OneToMany(mappedBy = "phim", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "phim", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LichChieu> lichChieuList;
 
     @OneToOne

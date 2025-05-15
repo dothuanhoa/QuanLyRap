@@ -13,6 +13,10 @@ public class KhachHangService {
         this.khachHangRepository = khachHangRepository;
     }
 
+    public KhachHang findById(long id) {
+        return this.khachHangRepository.findById(id).orElse(null);
+    }
+
     public KhachHang saveKhachHang(KhachHang khachHang) {
         return this.khachHangRepository.save(khachHang);
     }

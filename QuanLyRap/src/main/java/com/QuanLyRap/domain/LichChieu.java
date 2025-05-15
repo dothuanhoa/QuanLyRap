@@ -25,7 +25,7 @@ public class LichChieu {
     @JoinColumn(name = "idPhim") // Liên kết với Phim
     private Phim phim;
 
-    @OneToMany(mappedBy = "lichChieu", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "lichChieu", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SuatChieu> suatChieuList;
 
     // Getters và Setters
