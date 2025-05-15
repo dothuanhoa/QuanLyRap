@@ -65,7 +65,7 @@ function displayMovies(movieData) {
                         timeElem.className = "time";
                         show.time.forEach(t => {
                             const link = document.createElement("a");
-                            link.href = `/pick-chair?name=${movieData[i].name}&date=${encodeURIComponent(date)}&showtime=${t}`;
+                            link.href = `/customer/${khachHang.idkh}/cus-pick-chair?name=${movieData[i].name}&date=${encodeURIComponent(date)}&showtime=${t}`;
                             link.textContent = t;
                             link.className = "time-link";
                             link.style.textDecoration = "none";
