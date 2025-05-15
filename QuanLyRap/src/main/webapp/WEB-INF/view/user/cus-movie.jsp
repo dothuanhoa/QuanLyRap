@@ -70,7 +70,7 @@
                         <c:forEach var="movie" items="${movies}">
                             <div class="col-lg-3 pb-4">
                                 <div class="movie-card" data-id="${movie.idPhim}">
-                                    <a href="/cus-product?movie=${movie.idPhim}">
+                                    <a href="/customer/${khachHang.idkh}/cus-product?movie=${movie.idPhim}">
                                         <img src="/img/product/movie${movie.idPhim}.png" alt="${movie.tenPhim}">
                                     </a>
                                     <div class="movie-tags my-2">
@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="buy-now">
-                                    <a href="/cus-product?movie=${movie.idPhim}">
+                                    <a href="/customer/${khachHang.idkh}/cus-product?movie=${movie.idPhim}">
                                         <img src="/img/ticket.png">&nbsp;&nbsp;MUA VÉ NGAY
                                     </a>
                                 </div>
