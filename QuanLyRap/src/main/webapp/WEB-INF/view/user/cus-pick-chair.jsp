@@ -23,7 +23,7 @@
                         <div class="col-lg-10">
                             <div class="row header-top">
                                 <div class="col-lg-1 offset-lg-2">
-                                    <a href="/cus-about-us">Giới thiệu</a>
+                                    <a href="/customer/${khachHang.idkh}/cus-about-us">Giới thiệu</a>
                                 </div>
                                 <div class="col-lg-1">
                                     <a href="">Sự kiện</a>
@@ -38,16 +38,16 @@
                                     <a href="">Liên hệ</a>
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
-                                    <a href="">Đăng xuất</a>
+                                    <a href="/customer/${khachHang.idkh}/logout">Đăng xuất</a>
                                     <a class="login" href="">Tài Khoản</a>
                                 </div>
                             </div>
                             <div class="row header-bottom">
                                 <div class="col-lg-2 offset-lg-1">
-                                    <a href="/">Trang chủ</a>
+                                    <a href="/customer/${khachHang.idkh}">Trang chủ</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="/cus-movie">Phim</a>
+                                    <a href="/customer/${khachHang.idkh}/cus-movie">Phim</a>
                                 </div>
                                 <div class="col-lg-1" style="width:12%">
                                     <a href="">Ưu đãi</a>
