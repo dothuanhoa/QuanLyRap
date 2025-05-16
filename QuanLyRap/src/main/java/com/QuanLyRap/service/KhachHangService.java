@@ -32,4 +32,11 @@ public class KhachHangService {
     public KhachHang findBySdt(String sdt) {
         return khachHangRepository.findBySdt(sdt);
     }
+
+    //update customer
+
+    public KhachHang findById(Long id) {
+        return khachHangRepository.findById(id).orElse(null);
+    }
+    
 }
