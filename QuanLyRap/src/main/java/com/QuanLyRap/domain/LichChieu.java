@@ -1,6 +1,7 @@
 package com.QuanLyRap.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,7 +11,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.CascadeType;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class LichChieu {
@@ -25,8 +29,8 @@ public class LichChieu {
     @JoinColumn(name = "idPhim") // Liên kết với Phim
     private Phim phim;
 
-    @OneToMany(mappedBy = "lichChieu", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SuatChieu> suatChieuList;
+    @OneToMany(mappedBy = "lichChieu", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<SuatChieu> suatChieuList;
 
     // Getters và Setters
     public int getIdLichChieu() {
@@ -53,11 +57,17 @@ public class LichChieu {
         this.phim = phim;
     }
 
-    public List<SuatChieu> getSuatChieuList() {
+    public Set<SuatChieu> getSuatChieuList() {
         return suatChieuList;
     }
 
-    public void setSuatChieuList(List<SuatChieu> suatChieuList) {
+    public void setSuatChieuList(Set<SuatChieu> suatChieuList) {
         this.suatChieuList = suatChieuList;
+    }
+
+    public List<SuatChieu> getSortedSuatChieuList() {
+        List<SuatChieu> list = new ArrayList<>(this.suatChieuList);
+        list.sort(Comparator.comparing(SuatChieu::getThoiGianBatDau));
+        return list;
     }
 }

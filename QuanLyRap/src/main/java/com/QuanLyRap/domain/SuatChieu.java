@@ -1,6 +1,7 @@
 package com.QuanLyRap.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,7 +23,7 @@ public class SuatChieu {
     @JoinColumn(name = "idLichChieu") // Liên kết với LichChieu
     private LichChieu lichChieu;
 
-    @OneToMany(mappedBy = "suatChieu", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "suatChieu", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ghe> gheList;
 
     // Getters và Setters

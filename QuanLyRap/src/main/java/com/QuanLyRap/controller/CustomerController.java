@@ -5,6 +5,8 @@ import com.QuanLyRap.domain.Phim;
 import com.QuanLyRap.service.KhachHangService;
 import com.QuanLyRap.service.PhimService;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -82,15 +84,29 @@ public class CustomerController {
     }
 
     // Trang danh sách phim
+    // @RequestMapping("/{id}/cus-movie")
+    // public String showMovie(@PathVariable int id, Model model, HttpSession
+    // session) {
+    // KhachHang loggedInUser = (KhachHang) session.getAttribute("loggedInUser");
+    // if (loggedInUser == null || loggedInUser.getIdkh() != id) {
+    // return "redirect:/login";
+    // }
+
+    // model.addAttribute("khachHang", loggedInUser);
+    // List<Phim> movies = phimService.getAllMoviesWithLichChieuAndSuatChieu();
+    // model.addAttribute("movies", movies);
+    // return "user/cus-movie";
+    // }
+
     @RequestMapping("/{id}/cus-movie")
     public String showMovie(@PathVariable int id, Model model, HttpSession session) {
         KhachHang loggedInUser = (KhachHang) session.getAttribute("loggedInUser");
         if (loggedInUser == null || loggedInUser.getIdkh() != id) {
             return "redirect:/login";
         }
-
         model.addAttribute("khachHang", loggedInUser);
-        model.addAttribute("movies", phimService.getAllMovies());
+        // List<Phim> movies = phimService.getAllMoviesWithLichChieuAndSuatChieu();
+        model.addAttribute("movies", phimService.getAllMoviesWithLichChieuAndSuatChieu());
         return "user/cus-movie";
     }
 

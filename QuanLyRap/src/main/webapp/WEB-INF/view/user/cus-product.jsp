@@ -87,15 +87,15 @@
                     <div class="movie-screening-name"><strong>Lịch chiếu -&nbsp;</strong><span
                             id="movie-screening-name"><Strong>${phim.tenPhim}</Strong></span></div>
                     <div class="movie-screening-container" id="movie-screening">
-                        <c:forEach var="lichChieu" items="${phim.lichChieuList}">
+                        <c:forEach var="lichChieu" items="${phim.sortedLichChieuList}">
                             <div class="date">Ngày ${lichChieu.ngayChieu}</div>
                             <span class="format">2D PHỤ ĐỀ / SUB</span>
                             <br />
 
-                            <c:forEach var="suatChieu" items="${lichChieu.suatChieuList}">
+                            <c:forEach var="suatChieu" items="${lichChieu.sortedSuatChieuList}">
                                 <div class="time" style="display: inline-block;margin-top: 20px;">
                                     <a style="background-color: 5AC5FF; color: black; border: none;padding: 5px 10px;"
-                                        href="/customer/${khachHang.idkh}/cus-pick-chair?phim=${phim.idPhim}&date=${lichChieu.ngayChieu}&showtime=${suatChieu.thoiGianBatDau}">
+                                        href="/customer/${khachHang.idkh}/cus-pick-chair?phim=${phim.idPhim}&date=${lichChieu.ngayChieu}&showtime=${suatChieu.thoiGianBatDau}&idLichChieu=${lichChieu.idLichChieu}">
                                         ${suatChieu.thoiGianBatDau}
                                     </a>
                                 </div>
@@ -134,7 +134,8 @@
                     <div class="footer-bottom">
                         <strong>CÔNG TY TNHH OCEAN CINEMAS</strong><br />
                         Địa chỉ: 180 Cao Lỗ, Phường 4, Quận 8, TP.HCM / Email: contact@stu.edu.vn<br />
-                        Số ĐKKD: 03126xxxxx - Ngày cấp: 26/04/2025 (Đăng ký thay đổi lần 1) / Nơi cấp: Sở kế hoạch và
+                        Số ĐKKD: 03126xxxxx - Ngày cấp: 26/04/2025 (Đăng ký thay đổi lần 1) / Nơi cấp: Sở kế hoạch
+                        và
                         đầu
                         tư<br />
                         thành phố Hồ Chí Minh<br />

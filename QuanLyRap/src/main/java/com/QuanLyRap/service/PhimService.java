@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -28,6 +29,10 @@ public class PhimService {
 
     public List<Phim> getAllMovies() {
         return phimRepository.findAll();
+    }
+
+    public List<Phim> getAllMoviesWithLichChieuAndSuatChieu() {
+        return phimRepository.findAllWithLichChieuAndSuatChieu();
     }
 
     public Phim getPhimById(int id) {

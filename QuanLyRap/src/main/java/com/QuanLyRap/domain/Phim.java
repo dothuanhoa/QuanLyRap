@@ -1,12 +1,16 @@
 package com.QuanLyRap.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -37,8 +41,8 @@ public class Phim {
     @JoinColumn(name = "idTheLoai") // idTheLoai là khóa ngoại liên kết với TheLoai
     private TheLoai theLoai;
 
-    @OneToMany(mappedBy = "phim", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<LichChieu> lichChieuList;
+    @OneToMany(mappedBy = "phim", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private Set<LichChieu> lichChieuList;
 
     @OneToOne
     @JoinColumn(name = "idPhongChieu") // Liên kết với PhongChieu
@@ -129,11 +133,11 @@ public class Phim {
         this.theLoai = theLoai;
     }
 
-    public List<LichChieu> getLichChieuList() {
+    public Set<LichChieu> getLichChieuList() {
         return lichChieuList;
     }
 
-    public void setLichChieuList(List<LichChieu> lichChieuList) {
+    public void setLichChieuList(Set<LichChieu> lichChieuList) {
         this.lichChieuList = lichChieuList;
     }
 
@@ -159,5 +163,12 @@ public class Phim {
 
     public void setNgayChieu(LocalDate ngayChieu) {
         this.ngayChieu = ngayChieu;
+    }
+
+    public List<LichChieu> getSortedLichChieuList() {
+        List<LichChieu> list = new ArrayList<>(this.lichChieuList);
+        // Sắp xếp tăng dần (ngày nhỏ lên đầu)
+        list.sort(Comparator.comparing(LichChieu::getNgayChieu));
+        return list;
     }
 }
