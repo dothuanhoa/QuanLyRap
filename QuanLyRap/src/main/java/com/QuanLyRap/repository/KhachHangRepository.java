@@ -11,4 +11,7 @@ public interface KhachHangRepository extends JpaRepository<KhachHang, Long> {
 
     KhachHang findByEmailAndMatkhau(String email, String matkhau);
 
+    KhachHang findByEmail(String email);
+
+    KhachHang findBySdt(String sdt);
 }

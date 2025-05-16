@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.QuanLyRap.domain.KhachHang;
 import com.QuanLyRap.service.KhachHangService;
+import com.QuanLyRap.util.PasswordUtil;
 
 @Controller
 public class LoginController {
@@ -25,19 +26,38 @@ public class LoginController {
         return "user/login"; // Trả về trang đăng nhập
     }
 
+    // @RequestMapping(value = "/login/verify", method = RequestMethod.POST)
+    // public String handleLogin(@ModelAttribute("khachHang") KhachHang khachHang,
+    // Model model, HttpSession session) {
+    // // Kiểm tra trong bảng KhachHang
+    // KhachHang existingKhachHang =
+    // khachHangService.findByEmailAndPassword(khachHang.getEmail(),
+    // khachHang.getMatkhau());
+    // if (existingKhachHang != null) {
+    // session.setAttribute("loggedInUser", existingKhachHang); // Lưu thông tin
+    // khách hàng vào session
+    // // Chuyển hướng đến trang khách hàng với id trong URL
+    // return "redirect:/customer/" + existingKhachHang.getIdkh();
+    // }
+
+    // // Nếu không tìm thấy tài khoản hoặc thông tin không đúng
+    // model.addAttribute("error", "Email hoặc mật khẩu không đúng!");
+    // return "user/login"; // Quay lại trang đăng nhập
+    // }
+
+    // ...existing code...
+    // ...existing code...
+
     @RequestMapping(value = "/login/verify", method = RequestMethod.POST)
     public String handleLogin(@ModelAttribute("khachHang") KhachHang khachHang, Model model, HttpSession session) {
-        // Kiểm tra trong bảng KhachHang
-        KhachHang existingKhachHang = khachHangService.findByEmailAndPassword(khachHang.getEmail(),
-                khachHang.getMatkhau());
+        String hashedPassword = PasswordUtil.hashPassword(khachHang.getMatkhau());
+        KhachHang existingKhachHang = khachHangService.findByEmailAndPassword(
+                khachHang.getEmail(), hashedPassword);
         if (existingKhachHang != null) {
-            session.setAttribute("loggedInUser", existingKhachHang); // Lưu thông tin khách hàng vào session
-            // Chuyển hướng đến trang khách hàng với id trong URL
+            session.setAttribute("loggedInUser", existingKhachHang);
             return "redirect:/customer/" + existingKhachHang.getIdkh();
         }
-
-        // Nếu không tìm thấy tài khoản hoặc thông tin không đúng
         model.addAttribute("error", "Email hoặc mật khẩu không đúng!");
-        return "user/login"; // Quay lại trang đăng nhập
+        return "user/login";
     }
 }

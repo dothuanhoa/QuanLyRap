@@ -24,4 +24,12 @@ public class KhachHangService {
     public KhachHang findByEmailAndPassword(String email, String matkhau) {
         return khachHangRepository.findByEmailAndMatkhau(email, matkhau);
     }
+
+    public KhachHang findByEmail(String email) {
+        return khachHangRepository.findByEmail(email);
+    }
+
+    public KhachHang findBySdt(String sdt) {
+        return khachHangRepository.findBySdt(sdt);
+    }
 }

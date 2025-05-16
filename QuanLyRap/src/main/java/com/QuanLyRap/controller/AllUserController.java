@@ -12,6 +12,7 @@ import com.QuanLyRap.domain.KhachHang;
 import com.QuanLyRap.domain.Phim;
 import com.QuanLyRap.service.KhachHangService;
 import com.QuanLyRap.service.PhimService;
+import com.QuanLyRap.util.PasswordUtil;
 
 @Controller
 public class AllUserController {
@@ -61,8 +62,27 @@ public class AllUserController {
         return "user/registered";
     }
 
+    // @RequestMapping(value = "/registered/save", method = RequestMethod.POST)
+    // public String getRegister(Model model, @ModelAttribute("newKhachHang")
+    // KhachHang khachHang) {
+    // this.khachHangService.saveKhachHang(khachHang);
+    // return "redirect:/login";
+    // }
+
     @RequestMapping(value = "/registered/save", method = RequestMethod.POST)
     public String getRegister(Model model, @ModelAttribute("newKhachHang") KhachHang khachHang) {
+        // Kiểm tra email đã tồn tại
+        KhachHang byEmail = khachHangService.findByEmail(khachHang.getEmail());
+        // Kiểm tra số điện thoại đã tồn tại
+        KhachHang byPhone = khachHangService.findBySdt(khachHang.getSdt());
+
+        if (byEmail != null || byPhone != null) {
+            model.addAttribute("newKhachHang", khachHang);
+            model.addAttribute("error", "Email hoặc số điện thoại đã được sử dụng. Vui lòng nhập thông tin khác.");
+            return "user/registered";
+        }
+
+        khachHang.setMatkhau(PasswordUtil.hashPassword(khachHang.getMatkhau()));
         this.khachHangService.saveKhachHang(khachHang);
         return "redirect:/login";
     }

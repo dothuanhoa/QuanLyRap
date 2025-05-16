@@ -95,7 +95,7 @@
                             <c:forEach var="suatChieu" items="${lichChieu.suatChieuList}">
                                 <div class="time" style="display: inline-block;margin-top: 20px;">
                                     <a style="background-color: 5AC5FF; color: black; border: none;padding: 5px 10px;"
-                                        href="/pick-chair?phim=${phim.idPhim}&date=${lichChieu.ngayChieu}&showtime=${suatChieu.thoiGianBatDau}">
+                                        href="/login">
                                         ${suatChieu.thoiGianBatDau}
                                     </a>
                                 </div>

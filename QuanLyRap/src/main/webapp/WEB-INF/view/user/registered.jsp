@@ -97,6 +97,9 @@
                                 <div class="accept">
                                     <input type="checkbox" id="accept" required />
                                     <label for="accept">Tôi đồng ý với Điều khoản & Điều kiện của chương trình</label>
+                                    <c:if test="${not empty error}">
+                                        <p style="color: red;">${error}</p>
+                                    </c:if>
                                 </div>
                                 <button type="submit" class="registered-btn" id="registered"
                                     style="background-color: aqua;">ĐĂNG KÝ</button>

@@ -1,9 +1,13 @@
 package com.QuanLyRap.controller;
 
+import com.QuanLyRap.domain.KhachHang;
 import com.QuanLyRap.domain.Phim;
 import com.QuanLyRap.domain.TheLoai;
 import com.QuanLyRap.service.PhimService;
 import com.QuanLyRap.service.TheLoaiService;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +25,21 @@ public class PhimController {
     private TheLoaiService theLoaiService;
 
     @GetMapping
-    public String listPhim(Model model) {
+    public String listPhim(Model model, HttpSession session) {
+        KhachHang user = (KhachHang) session.getAttribute("loggedInUser");
+        if (user == null || user.getRole().getIdRole() != 1) {
+            return "error/access-denied";
+        }
         model.addAttribute("phims", phimService.getAllMovies());
         return "admin/list-phim";
     }
 
     @GetMapping("/create")
-    public String showForm(Model model) {
+    public String showForm(Model model, HttpSession session) {
+        KhachHang user = (KhachHang) session.getAttribute("loggedInUser");
+        if (user == null || user.getRole().getIdRole() != 1) {
+            return "error/access-denied";
+        }
         model.addAttribute("phim", new Phim());
         model.addAttribute("theLoaiList", theLoaiService.findAll()); // Truyền danh sách thể loại vào form
         return "admin/create-phim";
@@ -35,7 +47,12 @@ public class PhimController {
 
     // Phương thức thêm mới phim
     @PostMapping("/save")
-    public String savePhim(@ModelAttribute("phim") Phim phim, @RequestParam("tenTheLoai") String tenTheLoai) {
+    public String savePhim(@ModelAttribute("phim") Phim phim, @RequestParam("tenTheLoai") String tenTheLoai,
+            HttpSession session) {
+        KhachHang user = (KhachHang) session.getAttribute("loggedInUser");
+        if (user == null || user.getRole().getIdRole() != 1) {
+            return "error/access-denied";
+        }
         // Tìm TheLoai theo tên
         TheLoai theLoai = theLoaiService.findByTenTheLoai(tenTheLoai);
         if (theLoai == null) {
@@ -54,7 +71,11 @@ public class PhimController {
     // Phương thức cập nhật phim
     @PostMapping("/update")
     public String updatePhim(@ModelAttribute("phim") Phim phim, BindingResult result,
-            @RequestParam("tenTheLoai") String tenTheLoai) {
+            @RequestParam("tenTheLoai") String tenTheLoai, HttpSession session) {
+        KhachHang user = (KhachHang) session.getAttribute("loggedInUser");
+        if (user == null || user.getRole().getIdRole() != 1) {
+            return "error/access-denied";
+        }
         if (result.hasErrors()) {
             return "admin/edit"; // Trả về form nếu có lỗi
         }
@@ -75,7 +96,11 @@ public class PhimController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editPhim(@PathVariable("id") int id, Model model) {
+    public String editPhim(@PathVariable("id") int id, Model model, HttpSession session) {
+        KhachHang user = (KhachHang) session.getAttribute("loggedInUser");
+        if (user == null || user.getRole().getIdRole() != 1) {
+            return "error/access-denied";
+        }
         Phim phim = phimService.getPhimById(id);
         if (phim == null) {
             return "error/404"; // Nếu không tìm thấy phim, chuyển đến trang lỗi
@@ -85,7 +110,11 @@ public class PhimController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deletePhim(@PathVariable int id) {
+    public String deletePhim(@PathVariable int id, HttpSession session) {
+        KhachHang user = (KhachHang) session.getAttribute("loggedInUser");
+        if (user == null || user.getRole().getIdRole() != 1) {
+            return "error/access-denied";
+        }
         phimService.deletePhim(id);
         return "redirect:/admin/phim";
     }

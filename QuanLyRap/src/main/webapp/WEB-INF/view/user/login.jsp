@@ -81,6 +81,10 @@
                                             class="form-control" required="required" />
                                         <div id="errorMessage" style="color: red;"></div>
 
+                                        <c:if test="${not empty error}">
+                                            <p style="color: red;">${error}</p>
+                                        </c:if>
+
                                         <div class="remember">
                                             <input type="checkbox" id="remember">
                                             <label for="remember">Lưu mật khẩu đăng nhập</label>
@@ -149,9 +153,7 @@
                         <img src="/img/footer-logo.png" class="footer-logo">
                     </div>
                 </footer>
-                <c:if test="${not empty error}">
-                    <p style="color: red;">${error}</p>
-                </c:if>
+
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 <script src="/js/login.js" defer></script>
