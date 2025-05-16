@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="col-lg-2 offset-lg-2">
                                     <a href="/customer/${khachHang.idkh}/logout">Đăng xuất</a>
-                                    <a class="login" href="">Tài Khoản</a>
+                                    <a class="login" href="/customer/edit-profile">Tài Khoản</a>
                                 </div>
                             </div>
                             <div class="row header-bottom">

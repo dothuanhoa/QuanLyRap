@@ -82,7 +82,7 @@
                                     <div class="self-info">
                                         <form:input type="name" id="name" placeholder="Tên" path="tenkh" />
                                         <form:input type="lastname" id="lastname" placeholder="Họ" path="ho" />
-                                        <form:input type="phone" placeholder="DD/MM/YYYY" onfocus="(this.type='date')"
+                                        <form:input type="date" placeholder="DD/MM/YYYY" onfocus="(this.type='date')"
                                             onclick="(this.type='date')" onblur="if(!this.value)this.type='text'"
                                             class="custom-date" path="ngaysinh" />
                                         <form:select id="sex" placeholder="Giới tính" path="gioitinh">
