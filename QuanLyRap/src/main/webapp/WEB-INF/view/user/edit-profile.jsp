@@ -106,9 +106,7 @@
                                                 ", Suất"))}
                                             </td>
                                             <td>
-                                                ${fn:trim(fn:substringBefore(fn:substringAfter(hoaDon.ghiChu, "Phòng:
-                                                "), ", Phim:"))}
-
+                                                ${fn:trim(fn:substringBefore(fn:substringAfter(hoaDon.ghiChu, "Phòng: "), ", Phim:"))}
                                             </td>
                                             <td>
                                                 ${fn:trim(fn:substringAfter(hoaDon.ghiChu, "Ghế: "))}
