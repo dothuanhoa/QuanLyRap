@@ -53,7 +53,8 @@
                     <div class="movie">
                         <div><a href="/admin/phim" style="color:#5AC5FF;"><img src="/img/movie-icon.png">&nbsp;PHIM
                         </div></a>
-                        <div><img src="/img/percent-icon.png">&nbsp;KHUYẾN MÃI</div>
+                        <div><a href="/admin/quangcao" style="color:#5AC5FF;"><img
+                                    src="/img/percent-icon.png">&nbsp;KHUYẾN MÃI</a></div>
                     </div>
                 </div>
                 <div class="col-lg-10 right">

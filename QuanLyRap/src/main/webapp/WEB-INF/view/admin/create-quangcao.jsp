@@ -1,9 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<!-- filepath: d:\Luyen Mai Thanh Tai\CNPM\QuanLyRap\QuanLyRap\src\main\webapp\WEB-INF\view\admin\create-quangcao.jsp -->
+<%@ page contentType="text/html;charset=UTF-8" %>
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-        <html lang="en">
+        <html>
 
         <head>
+            <title>Thêm Quảng Cáo</title>
             <meta charset="UTF__8">
             <title>Ocean Cinema</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,9 @@
         </head>
 
         <body>
+
+
+
             <div class="row main">
                 <div class="col-lg-2 left">
                     <div class="oceancinema">OCEAN CINEMA</div>
@@ -59,34 +63,23 @@
                 </div>
                 <div class="col-lg-10 right">
                     <div class="create-phim">
-                        <h2>Tạo Phim Mới</h2>
-                        <form:form action="/admin/phim/save" modelAttribute="phim" method="post">
-                            <form:hidden path="idPhim" />
-                            <span>Tên phim:</span>
-                            <form:input path="tenPhim" /><br />
-                            <span>Nội dung:</span>
-                            <form:input path="noiDung" /><br />
-                            <span>Thời lượng (phút):</span>
-                            <form:input path="thoiLuong" /><br />
-                            <span>Ngày chiếu:</span>
-                            <form:input path="ngayChieu" type="date" /><br />
-                            <span>Đạo diễn:</span>
-                            <form:input path="daoDien" /><br />
-                            <span>Diễn viên:</span>
-                            <form:input path="dienVien" /><br />
-                            <span>Ngôn ngữ:</span>
-                            <form:input path="ngonNgu" /><br />
-                            <span>Thể Loại:</span>
-                            <input type="text" name="tenTheLoai" /><br />
-                            <input type="submit" value="Lưu" />
+                        <h2>Thêm Quảng Cáo</h2>
+                        <form:form method="post" action="/admin/quangcao/save" modelAttribute="quangCao">
+                            <div>
+                                <label>Tên Quảng Cáo:</label>
+                                <form:input path="tenqc" />
+                            </div>
+                            <div>
+                                <label>Số lượng giảm:</label>
+                                <form:input path="slgiam" type="number" />
+                            </div>
+                            <button type="submit">Lưu</button>
                         </form:form>
-                        <a href="/admin/phim">Về danh sách</a>
+                        <a href="/admin/quangcao">Quay lại</a>
                     </div>
                 </div>
                 <div class="help"><img src="/img/circle-question-regular.png">&nbsp;Trợ giúp</div>
             </div>
-
-
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 

@@ -1,8 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- filepath: d:\Luyen Mai Thanh Tai\CNPM\QuanLyRap\QuanLyRap\src\main\webapp\WEB-INF\view\admin\list-quangcao.jsp -->
+<%@ page contentType="text/html;charset=UTF-8" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-        <html lang="en">
+        <html>
 
         <head>
+            <title>Danh sách Quảng Cáo</title>
             <meta charset="UTF__8">
             <title>Ocean Cinema</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,34 +31,32 @@
                     <div class="oceancinema">OCEAN CINEMA</div>
                     <div class="movie">
                         <div><a href="/admin/phim" style="color:#5AC5FF;"><img src="/img/movie-icon.png">&nbsp;PHIM
-                            </a></div>
+                        </div></a>
                         <div><a href="/admin/quangcao" style="color:#5AC5FF;"><img
                                     src="/img/percent-icon.png">&nbsp;KHUYẾN MÃI</a></div>
                     </div>
                 </div>
                 <div class="col-lg-10 right">
                     <div class="list-phim">
-                        <h1 style="margin: 5vh 0;">Danh sách phim</h1>
-
-                        <a href="/admin/phim/create">Tạo phim mới</a>
-                        <p style="font-size: 15px; margin-top: 15px;">Với hình ảnh của phim quản lý hãy tự thêm vào thư
-                            mục
-                            img/product với tên là movie+id phim (ví dụ: movie1.png) và
-                            img/product-banner với tên là id phim (ví dụ: 1.png)</p>
-                        <table border="1" style="margin: 2vh 0 0.7vh 0; text-align: center;">
+                        <h1 style="margin: 5vh 0;">Danh sách Quảng Cáo</h1>
+                        <a href="/admin/quangcao/create">Thêm Quảng Cáo</a>
+                        <div style="padding-top: 15px;"></div>
+                        <table border="1">
                             <tr>
                                 <th>ID</th>
-                                <th>Tên phim</th>
-                                <th>Sửa</th>
+                                <th>Tên Quảng Cáo</th>
+                                <th>Số lượng giảm</th>
                                 <th>Xóa</th>
                             </tr>
-                            <c:forEach var="phim" items="${phims}">
+                            <c:forEach var="qc" items="${quangcaos}">
                                 <tr>
-                                    <td>${phim.idPhim}</td>
-                                    <td>${phim.tenPhim}</td>
-                                    <td><a href="/admin/phim/edit/${phim.idPhim}">Sửa</a></td>
-                                    <td><a href="/admin/phim/delete/${phim.idPhim}"
-                                            onclick="return confirm('Xóa phim này?')">Xóa</a></td>
+                                    <td>${qc.idqc}</td>
+                                    <td>${qc.tenqc}</td>
+                                    <td>${qc.slgiam}</td>
+                                    <td>
+                                        <a href="/admin/quangcao/delete/${qc.idqc}"
+                                            onclick="return confirm('Xóa quảng cáo này?')">Xóa</a>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </table>
