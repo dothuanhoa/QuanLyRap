@@ -1,7 +1,9 @@
 package com.QuanLyRap.controller;
 
+import com.QuanLyRap.domain.HoaDon;
 import com.QuanLyRap.domain.KhachHang;
 import com.QuanLyRap.domain.Phim;
+import com.QuanLyRap.service.HoaDonService;
 import com.QuanLyRap.service.KhachHangService;
 import com.QuanLyRap.service.PhimService;
 import com.QuanLyRap.util.PasswordUtil;
@@ -25,10 +27,13 @@ public class CustomerController {
 
     private final KhachHangService khachHangService;
     private final PhimService phimService;
+    private final HoaDonService hoaDonService;
 
-    public CustomerController(KhachHangService khachHangService, PhimService phimService) {
+    public CustomerController(KhachHangService khachHangService, PhimService phimService,
+            HoaDonService hoaDonService) {
         this.khachHangService = khachHangService;
         this.phimService = phimService;
+        this.hoaDonService = hoaDonService;
     }
 
     // Trang chủ khách hàng
@@ -130,6 +135,9 @@ public class CustomerController {
         // Lấy lại thông tin mới nhất từ DB
         KhachHang khachHang = khachHangService.findById(loggedInUser.getIdkh());
         model.addAttribute("khachHang", khachHang);
+        List<HoaDon> hoaDonList = hoaDonService.findByKhachHang(khachHang);
+        model.addAttribute("hoaDonList", hoaDonList);
+
         return "user/edit-profile";
     }
 

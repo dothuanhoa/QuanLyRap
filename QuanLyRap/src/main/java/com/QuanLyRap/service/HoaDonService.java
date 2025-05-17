@@ -4,6 +4,7 @@ import com.QuanLyRap.domain.Ghe;
 import com.QuanLyRap.domain.HoaDon;
 import com.QuanLyRap.domain.KhachHang;
 import com.QuanLyRap.domain.LichChieu;
+import com.QuanLyRap.domain.SuatChieu;
 import com.QuanLyRap.domain.Ve;
 import com.QuanLyRap.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -46,38 +48,57 @@ public class HoaDonService {
                 hoaDon.setNgaylaphd(LocalDate.now());
                 hoaDon.setKhachHang(khachHang);
 
-                // Tạo ghi chú
-                String ghiChu = String.format("Phòng: %s, Phim: %s, Suất: %s, Ngày: %s",
-                                lichChieu.getPhim().getPhongChieu().getTenPhongChieu(),
-                                lichChieu.getPhim().getTenPhim(),
-                                lichChieu.getSuatChieuList().iterator().next().getThoiGianBatDau(),
-                                lichChieu.getNgayChieu());
-                hoaDon.setGhiChu(ghiChu);
+                // Lưu hóa đơn TRƯỚC để có ID
+                hoaDon = hoaDonRepository.save(hoaDon);
 
-                hoaDonRepository.save(hoaDon);
+                // Lấy suất chiếu từ lịch chiếu
+                SuatChieu suatChieu = lichChieu.getSuatChieuList().iterator().next();
+                StringBuilder selectedSeatsInfo = new StringBuilder();
+                int totalPrice = 0;
 
-                // Lấy thông tin suất chiếu từ lịch chiếu
-                int idSuatChieu = lichChieu.getSuatChieuList().iterator().next().getIdSuatChieu();
-
-                // Tạo vé và cập nhật trạng thái ghế
                 for (String seatId : selectedSeats) {
-                        // Tìm ghế theo tên ghế (A1, B2, ...) và suất chiếu
-                        Ghe ghe = gheRepository.findByTenGheAndSuatChieu_IdSuatChieu(seatId, idSuatChieu)
+                        Ghe ghe = gheRepository.findByTenGheAndSuatChieu_IdSuatChieu(seatId, suatChieu.getIdSuatChieu())
                                         .orElseThrow(() -> new RuntimeException("Không tìm thấy ghế: " + seatId));
-
-                        // Tạo vé
-                        Ve ve = new Ve();
-                        ve.setHoaDon(hoaDon);
-                        ve.setGhe(ghe);
-                        ve.setKhachHang(khachHang);
-                        ve.setPhim(lichChieu.getPhim());
-                        veRepository.save(ve);
 
                         // Cập nhật trạng thái ghế
                         ghe.setTrangThai(true);
                         gheRepository.save(ghe);
+
+                        // Tạo vé với reference tới hóa đơn đã được lưu
+                        Ve ve = new Ve();
+                        ve.setHoaDon(hoaDon); // Bây giờ hoaDon đã có ID
+                        ve.setGhe(ghe);
+                        ve.setKhachHang(khachHang);
+                        ve.setPhim(lichChieu.getPhim());
+                        ve.setLichChieu(lichChieu);
+                        ve.setThoiGianMua(LocalDateTime.now());
+                        ve.setGiaVe(ghe.getLoaiGhe().getGia());
+                        veRepository.save(ve);
+
+                        selectedSeatsInfo.append(ghe.getTenGhe()).append(", ");
+                        totalPrice += ghe.getLoaiGhe().getGia();
                 }
 
-                return hoaDon;
+                // Xóa dấu phẩy và khoảng trắng cuối cùng
+                if (selectedSeatsInfo.length() > 0) {
+                        selectedSeatsInfo.setLength(selectedSeatsInfo.length() - 2);
+                }
+
+                // Tạo ghi chú với thông tin đầy đủ
+                String ghiChu = String.format("Phòng: %s, Phim: %s, Suất: %s, Ngày: %s, Ghế: %s",
+                                lichChieu.getPhim().getPhongChieu().getTenPhongChieu(),
+                                lichChieu.getPhim().getTenPhim(),
+                                suatChieu.getThoiGianBatDau(),
+                                lichChieu.getNgayChieu(),
+                                selectedSeatsInfo.toString());
+
+                // Cập nhật hóa đơn với thông tin cuối
+                hoaDon.setGhiChu(ghiChu);
+                hoaDon.setTongtien(totalPrice);
+                return hoaDonRepository.save(hoaDon);
+        }
+
+        public List<HoaDon> findByKhachHang(KhachHang khachHang) {
+                return hoaDonRepository.findByKhachHangOrderByNgaylaphdDesc(khachHang);
         }
 }

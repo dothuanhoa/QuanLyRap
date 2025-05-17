@@ -3,6 +3,7 @@ package com.QuanLyRap.domain;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,7 +32,7 @@ public class HoaDon {
     @JoinColumn(name = "idkh")
     private KhachHang khachHang;
 
-    @OneToMany(mappedBy = "hoaDon")
+    @OneToMany(mappedBy = "hoaDon", cascade = CascadeType.ALL)
     private List<Ve> veList;
 
     public HoaDon() {

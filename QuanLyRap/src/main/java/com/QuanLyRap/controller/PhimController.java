@@ -1,6 +1,5 @@
 package com.QuanLyRap.controller;
 
-import com.QuanLyRap.domain.KhachHang;
 import com.QuanLyRap.domain.NhanVien;
 import com.QuanLyRap.domain.Phim;
 import com.QuanLyRap.domain.TheLoai;
