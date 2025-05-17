@@ -8,16 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.QuanLyRap.domain.KhachHang;
+import com.QuanLyRap.domain.NhanVien;
 import com.QuanLyRap.service.KhachHangService;
+import com.QuanLyRap.service.NhanVienService;
 import com.QuanLyRap.util.PasswordUtil;
 
 @Controller
 public class LoginController {
     private final KhachHangService khachHangService;
+    private final NhanVienService nhanVienService; // Thêm NhanVienService
 
     // Constructor injection
-    public LoginController(KhachHangService khachHangService) {
+    public LoginController(KhachHangService khachHangService, NhanVienService nhanVienService) {
         this.khachHangService = khachHangService;
+        this.nhanVienService = nhanVienService;
     }
 
     @RequestMapping("/login")
@@ -26,37 +30,32 @@ public class LoginController {
         return "user/login"; // Trả về trang đăng nhập
     }
 
-    // @RequestMapping(value = "/login/verify", method = RequestMethod.POST)
-    // public String handleLogin(@ModelAttribute("khachHang") KhachHang khachHang,
-    // Model model, HttpSession session) {
-    // // Kiểm tra trong bảng KhachHang
-    // KhachHang existingKhachHang =
-    // khachHangService.findByEmailAndPassword(khachHang.getEmail(),
-    // khachHang.getMatkhau());
-    // if (existingKhachHang != null) {
-    // session.setAttribute("loggedInUser", existingKhachHang); // Lưu thông tin
-    // khách hàng vào session
-    // // Chuyển hướng đến trang khách hàng với id trong URL
-    // return "redirect:/customer/" + existingKhachHang.getIdkh();
-    // }
-
-    // // Nếu không tìm thấy tài khoản hoặc thông tin không đúng
-    // model.addAttribute("error", "Email hoặc mật khẩu không đúng!");
-    // return "user/login"; // Quay lại trang đăng nhập
-    // }
-
-    // ...existing code...
-    // ...existing code...
-
     @RequestMapping(value = "/login/verify", method = RequestMethod.POST)
     public String handleLogin(@ModelAttribute("khachHang") KhachHang khachHang, Model model, HttpSession session) {
         String hashedPassword = PasswordUtil.hashPassword(khachHang.getMatkhau());
+
+        // Kiểm tra trong bảng nhân viên trước (admin)
+        NhanVien admin = nhanVienService.findByEmailAndPasswordAndRole(
+                khachHang.getEmail(),
+                hashedPassword,
+                1 // idRole = 1 cho admin
+        );
+
+        if (admin != null) {
+            session.setAttribute("loggedInAdmin", admin);
+            return "redirect:/admin"; // Chuyển đến trang admin
+        }
+
+        // Nếu không phải admin, kiểm tra trong bảng khách hàng
         KhachHang existingKhachHang = khachHangService.findByEmailAndPassword(
-                khachHang.getEmail(), hashedPassword);
+                khachHang.getEmail(),
+                hashedPassword);
+
         if (existingKhachHang != null) {
             session.setAttribute("loggedInUser", existingKhachHang);
             return "redirect:/customer/" + existingKhachHang.getIdkh();
         }
+
         model.addAttribute("error", "Email hoặc mật khẩu không đúng!");
         return "user/login";
     }

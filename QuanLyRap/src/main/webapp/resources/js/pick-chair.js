@@ -87,7 +87,10 @@ function renderSeats() {
       selectedSeats.delete(selectedSeatId);
       btn.classList.remove("bg-black", "text-white");
       btn.classList.add("bg-white", "border");
-
+      price = selectedSeats.size * 50000;
+      const formattedPrice = price.toLocaleString("vi-VN");
+      console.log(price);
+      document.getElementById("price").textContent = formattedPrice + " VNĐ";
     } else {
       if (selectedSeats.size >= maxSelection) {
         alert("Bạn chỉ được chọn tối đa 10 ghế!");

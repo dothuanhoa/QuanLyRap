@@ -18,7 +18,7 @@ public class HoaDon {
     private Long idhoadon;
 
     private LocalDate ngaylaphd;
-    private String loaiThanhToan;
+    private String ghiChu;
 
     @ManyToOne
     @JoinColumn(name = "idnv")
@@ -50,14 +50,6 @@ public class HoaDon {
         this.ngaylaphd = ngaylaphd;
     }
 
-    public String getLoaiThanhToan() {
-        return loaiThanhToan;
-    }
-
-    public void setLoaiThanhToan(String loaiThanhToan) {
-        this.loaiThanhToan = loaiThanhToan;
-    }
-
     public NhanVien getNhanVien() {
         return nhanVien;
     }
@@ -84,10 +76,16 @@ public class HoaDon {
 
     @Override
     public String toString() {
-        return "HoaDon [idhoadon=" + idhoadon + ", ngaylaphd=" + ngaylaphd + ", loaiThanhToan=" + loaiThanhToan
+        return "HoaDon [idhoadon=" + idhoadon + ", ngaylaphd=" + ngaylaphd + ", ghiChu=" + ghiChu
                 + ", nhanVien=" + nhanVien + ", khachHang=" + khachHang + ", veList=" + veList + "]";
     }
 
-    
+    public String getGhiChu() {
+        return ghiChu;
+    }
+
+    public void setGhiChu(String ghiChu) {
+        this.ghiChu = ghiChu;
+    }
 
 }

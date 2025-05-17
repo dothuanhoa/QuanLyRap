@@ -16,4 +16,8 @@ public class NhanVienService {
     public NhanVien findByEmailAndPassword(String email, String matkhau) {
         return nhanVienRepository.findByEmailAndMatkhau(email, matkhau);
     }
+
+    public NhanVien findByEmailAndPasswordAndRole(String email, String hashedPassword, int idRole) {
+        return nhanVienRepository.findByEmailAndMatkhauAndRole_IdRole(email, hashedPassword, idRole);
+    }
 }
