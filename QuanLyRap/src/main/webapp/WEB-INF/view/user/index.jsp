@@ -102,14 +102,14 @@
                         <!-- Phim 1 -->
                         <div class="col-lg-3">
                             <div class="movie-card">
-                                <a href="/product?movie=1"><img src="/img/product/movie1.png"></a>
+                                <a href="/product?movie=1"><img src="/img/product/movie2.png"></a>
                                 <div class="movie-tags my-2">
                                     <span class="badge bg-danger">T16</span>
                                     <span class="badge bg-warning text-dark">Phụ đề</span>
                                     <span class="badge bg-info">2D</span>
                                 </div>
                                 <a href="#">
-                                    <h4>THÁM TỬ KÈN: KỲ ÁN KHÔNG ĐẦU</h4>
+                                    <h4>THÁM TỬ KIÊN: KỲ ÁN KHÔNG ĐẦU</h4>
                                 </a>
                                 <div class="movie-category">Thể loại phim: <span>Thriller</span></div>
                             </div>
@@ -117,7 +117,7 @@
                         <!-- Phim 2 -->
                         <div class="col-lg-3">
                             <div class="movie-card">
-                                <a href=""><img src="/img/product/movie2.png"></a>
+                                <a href=""><img src="/img/product/movie3.png"></a>
                                 <div class="movie-tags my-2">
                                     <span class="badge bg-danger">T16</span>
                                     <span class="badge bg-warning text-dark">Phụ đề</span>
@@ -132,7 +132,7 @@
                         <!-- Phim 3 -->
                         <div class="col-lg-3">
                             <div class="movie-card">
-                                <a href=""><img src="/img/product/movie3.png"></a>
+                                <a href=""><img src="/img/product/movie5.png"></a>
                                 <div class="movie-tags my-2">
                                     <span class="badge bg-danger">T16</span>
                                     <span class="badge bg-warning text-dark">Phụ đề</span>

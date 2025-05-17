@@ -39,7 +39,39 @@ public class PhimService {
     }
 
     public void deletePhim(int id) {
-        phimRepository.deleteById(id);
+        Phim phim = phimRepository.findById(id).orElse(null);
+        if (phim != null) {
+            try {
+                // Check if there are Ve records associated
+                if (phim.getVeList() != null && !phim.getVeList().isEmpty()) {
+                    throw new IllegalStateException("Không thể xóa phim vì có vé đã được bán");
+                }
+
+                // Clear relationships to avoid foreign key constraint violations
+                if (phim.getLichChieuList() != null) {
+                    // Clear all SuatChieu and Ghe associations first
+                    for (LichChieu lichChieu : phim.getLichChieuList()) {
+                        if (lichChieu.getSuatChieuList() != null) {
+                            lichChieu.getSuatChieuList().clear();
+                        }
+                    }
+                    // Clear the LichChieu list
+                    phim.getLichChieuList().clear();
+                    phimRepository.save(phim);
+                }
+
+                // Unset PhongChieu if it exists
+                if (phim.getPhongChieu() != null) {
+                    phim.setPhongChieu(null);
+                    phimRepository.save(phim);
+                }
+
+                // Now safe to delete
+                phimRepository.deleteById(id);
+            } catch (Exception e) {
+                throw new IllegalStateException("Không thể xóa phim: " + e.getMessage(), e);
+            }
+        }
     }
 
     public void createPhimWithDefaults(Phim phim) {
@@ -78,7 +110,21 @@ public class PhimService {
 
     public void updatePhim(Phim phim) {
         if (phimRepository.existsById(phim.getIdPhim())) {
-            phimRepository.save(phim); // Cập nhật phim
+            // Get the existing movie to preserve relationships
+            Phim existingPhim = phimRepository.findById(phim.getIdPhim()).orElse(null);
+            if (existingPhim != null) {
+                // Update fields but maintain relationships
+                existingPhim.setTenPhim(phim.getTenPhim());
+                existingPhim.setNoiDung(phim.getNoiDung());
+                existingPhim.setThoiLuong(phim.getThoiLuong());
+                existingPhim.setNgayChieu(phim.getNgayChieu());
+                existingPhim.setDaoDien(phim.getDaoDien());
+                existingPhim.setDienVien(phim.getDienVien());
+                existingPhim.setNgonNgu(phim.getNgonNgu());
+                existingPhim.setTheLoai(phim.getTheLoai());
+
+                phimRepository.save(existingPhim); // Cập nhật phim
+            }
         } else {
             throw new IllegalArgumentException("Phim không tồn tại để cập nhật.");
         }

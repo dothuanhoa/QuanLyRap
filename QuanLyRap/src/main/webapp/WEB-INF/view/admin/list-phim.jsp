@@ -38,6 +38,13 @@
                     <div class="list-phim">
                         <h1 style="margin: 5vh 0;">Danh sách phim</h1>
 
+                        <!-- Error message display -->
+                        <c:if test="${not empty errorMessage}">
+                            <div class="alert alert-danger" role="alert">
+                                ${errorMessage}
+                            </div>
+                        </c:if>
+
                         <a href="/admin/phim/create">Tạo phim mới</a>
                         <p style="font-size: 15px; margin-top: 15px;">Với hình ảnh của phim quản lý hãy tự thêm vào thư
                             mục

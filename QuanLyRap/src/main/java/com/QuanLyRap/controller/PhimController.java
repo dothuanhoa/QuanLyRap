@@ -80,19 +80,35 @@ public class PhimController {
                 return "admin/edit"; // Trả về form nếu có lỗi
             }
 
-            // Xử lý thể loại
-            TheLoai theLoai = theLoaiService.findByTenTheLoai(tenTheLoai);
-            if (theLoai == null) {
-                theLoai = new TheLoai();
-                theLoai.setTenTheLoai(tenTheLoai);
-                theLoaiService.save(theLoai);
+            try {
+                // Get the existing movie first to ensure it exists
+                Phim existingPhim = phimService.getPhimById(phim.getIdPhim());
+                if (existingPhim == null) {
+                    return "error/404";
+                }
+
+                // Xử lý thể loại
+                TheLoai theLoai = theLoaiService.findByTenTheLoai(tenTheLoai);
+                if (theLoai == null) {
+                    theLoai = new TheLoai();
+                    theLoai.setTenTheLoai(tenTheLoai);
+                    theLoaiService.save(theLoai);
+                }
+                phim.setTheLoai(theLoai);
+
+                // Cập nhật phim
+                phimService.updatePhim(phim);
+
+                return "redirect:/admin/phim";
+            } catch (Exception e) {
+                // Log the exception
+                System.err.println("Error updating movie: " + e.getMessage());
+                e.printStackTrace();
+
+                // Add error message to the model
+                result.rejectValue("tenPhim", "error.phim", "Có lỗi xảy ra khi cập nhật phim.");
+                return "admin/edit";
             }
-            phim.setTheLoai(theLoai);
-
-            // Cập nhật phim
-            phimService.updatePhim(phim);
-
-            return "redirect:/admin/phim";
         }
         return "error/access-denied";
     }
@@ -112,13 +128,28 @@ public class PhimController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deletePhim(@PathVariable int id, HttpSession session) {
+    public String deletePhim(@PathVariable int id, HttpSession session, Model model) {
         NhanVien admin = (NhanVien) session.getAttribute("loggedInAdmin");
         if (admin != null && admin.getRole().getIdRole() == 1) {
-            phimService.deletePhim(id);
-            return "redirect:/admin/phim";
+            try {
+                // Check if the movie exists first
+                Phim phim = phimService.getPhimById(id);
+                if (phim == null) {
+                    return "error/404"; // Movie not found
+                }
+                phimService.deletePhim(id);
+                return "redirect:/admin/phim";
+            } catch (Exception e) {
+                // Log the error
+                System.err.println("Error deleting movie: " + e.getMessage());
+                e.printStackTrace();
+
+                // Add an error message
+                model.addAttribute("errorMessage", "Không thể xóa phim này. Có thể có dữ liệu liên quan.");
+                model.addAttribute("phims", phimService.getAllMovies());
+                return "admin/list-phim";
+            }
         }
         return "error/access-denied";
-
     }
 }
