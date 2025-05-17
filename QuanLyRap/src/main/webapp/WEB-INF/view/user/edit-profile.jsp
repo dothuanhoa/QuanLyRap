@@ -102,30 +102,32 @@
                                         <tr>
                                             <td>${hoaDon.idhoadon}</td>
                                             <td>
-                                                <c:set var="phimInfo"
-                                                    value="${fn:substringBetween(hoaDon.ghiChu, 'Phim: ', ', Suất:')}" />
-                                                ${fn:trim(phimInfo)}
+                                                ${fn:trim(fn:substringBefore(fn:substringAfter(hoaDon.ghiChu, "Phim: "),
+                                                ", Suất"))}
                                             </td>
                                             <td>
-                                                <c:set var="phongInfo"
-                                                    value="${fn:substringBetween(hoaDon.ghiChu, 'Phòng: ', ', Phim:')}" />
-                                                ${fn:trim(phongInfo)}
+                                                ${fn:trim(fn:substringBefore(fn:substringAfter(hoaDon.ghiChu, "Phòng:
+                                                "), ", Phim:"))}
+
                                             </td>
                                             <td>
-                                                <c:set var="gheInfo"
-                                                    value="${fn:substringAfter(hoaDon.ghiChu, 'Ghế: ')}" />
-                                                ${fn:trim(gheInfo)}
+                                                ${fn:trim(fn:substringAfter(hoaDon.ghiChu, "Ghế: "))}
                                             </td>
                                             <td>
                                                 <fmt:formatNumber value="${hoaDon.tongtien}" type="currency"
                                                     currencySymbol="VNĐ" />
                                             </td>
                                             <td>
-                                                <c:set var="suatInfo"
-                                                    value="${fn:substringBetween(hoaDon.ghiChu, 'Suất: ', ', Ngày:')}" />
-                                                ${fn:trim(suatInfo)}
+                                                ${fn:trim(fn:substringBefore(fn:substringAfter(hoaDon.ghiChu, "Suất: "),
+                                                ", Ngày"))}
+                                                -
+                                                ${fn:trim(fn:substringBefore(fn:substringAfter(hoaDon.ghiChu, "Ngày: "),
+                                                ", Ghế"))}
                                             </td>
                                         </tr>
+
+
+
                                     </c:forEach>
                                 </tbody>
                             </table>
