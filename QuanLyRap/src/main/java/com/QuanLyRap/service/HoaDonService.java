@@ -17,63 +17,67 @@ import java.util.List;
 @Transactional
 public class HoaDonService {
 
-    @Autowired
-    private HoaDonRepository hoaDonRepository;
+        @Autowired
+        private HoaDonRepository hoaDonRepository;
 
-    @Autowired
-    private GheRepository gheRepository;
+        @Autowired
+        private GheRepository gheRepository;
 
-    @Autowired
-    private LichChieuRepository lichChieuRepository;
+        @Autowired
+        private LichChieuRepository lichChieuRepository;
 
-    @Autowired
-    private KhachHangRepository khachHangRepository;
+        @Autowired
+        private KhachHangRepository khachHangRepository;
 
-    @Autowired
-    private VeRepository veRepository;
+        @Autowired
+        private VeRepository veRepository;
 
-    public HoaDon createHoaDon(List<String> selectedSeats, int idLichChieu, Long khachHangId) {
-        // Lấy thông tin lịch chiếu
-        LichChieu lichChieu = lichChieuRepository.findById(idLichChieu)
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy lịch chiếu"));
+        public HoaDon createHoaDon(List<String> selectedSeats, int idLichChieu, Long khachHangId) {
+                // Lấy thông tin lịch chiếu
+                LichChieu lichChieu = lichChieuRepository.findById(idLichChieu)
+                                .orElseThrow(() -> new RuntimeException("Không tìm thấy lịch chiếu"));
 
-        // Lấy thông tin khách hàng
-        KhachHang khachHang = khachHangRepository.findById(khachHangId)
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy khách hàng"));
+                // Lấy thông tin khách hàng
+                KhachHang khachHang = khachHangRepository.findById(khachHangId)
+                                .orElseThrow(() -> new RuntimeException("Không tìm thấy khách hàng"));
 
-        // Tạo hóa đơn mới
-        HoaDon hoaDon = new HoaDon();
-        hoaDon.setNgaylaphd(LocalDate.now());
-        hoaDon.setKhachHang(khachHang);
+                // Tạo hóa đơn mới
+                HoaDon hoaDon = new HoaDon();
+                hoaDon.setNgaylaphd(LocalDate.now());
+                hoaDon.setKhachHang(khachHang);
 
-        // Tạo ghi chú
-        String ghiChu = String.format("Phòng: %s, Phim: %s, Suất: %s, Ngày: %s",
-                lichChieu.getPhim().getPhongChieu().getTenPhongChieu(),
-                lichChieu.getPhim().getTenPhim(),
-                lichChieu.getSuatChieuList().iterator().next().getThoiGianBatDau(),
-                lichChieu.getNgayChieu());
-        hoaDon.setGhiChu(ghiChu);
+                // Tạo ghi chú
+                String ghiChu = String.format("Phòng: %s, Phim: %s, Suất: %s, Ngày: %s",
+                                lichChieu.getPhim().getPhongChieu().getTenPhongChieu(),
+                                lichChieu.getPhim().getTenPhim(),
+                                lichChieu.getSuatChieuList().iterator().next().getThoiGianBatDau(),
+                                lichChieu.getNgayChieu());
+                hoaDon.setGhiChu(ghiChu);
 
-        hoaDonRepository.save(hoaDon);
+                hoaDonRepository.save(hoaDon);
 
-        // Tạo vé và cập nhật trạng thái ghế
-        for (String seatId : selectedSeats) {
-            Ghe ghe = gheRepository.findById(Integer.parseInt(seatId))
-                    .orElseThrow(() -> new RuntimeException("Không tìm thấy ghế"));
+                // Lấy thông tin suất chiếu từ lịch chiếu
+                int idSuatChieu = lichChieu.getSuatChieuList().iterator().next().getIdSuatChieu();
 
-            // Tạo vé
-            Ve ve = new Ve();
-            ve.setHoaDon(hoaDon);
-            ve.setGhe(ghe);
-            ve.setKhachHang(khachHang);
-            ve.setPhim(lichChieu.getPhim());
-            veRepository.save(ve);
+                // Tạo vé và cập nhật trạng thái ghế
+                for (String seatId : selectedSeats) {
+                        // Tìm ghế theo tên ghế (A1, B2, ...) và suất chiếu
+                        Ghe ghe = gheRepository.findByTenGheAndSuatChieu_IdSuatChieu(seatId, idSuatChieu)
+                                        .orElseThrow(() -> new RuntimeException("Không tìm thấy ghế: " + seatId));
 
-            // Cập nhật trạng thái ghế
-            ghe.setTrangThai(true);
-            gheRepository.save(ghe);
+                        // Tạo vé
+                        Ve ve = new Ve();
+                        ve.setHoaDon(hoaDon);
+                        ve.setGhe(ghe);
+                        ve.setKhachHang(khachHang);
+                        ve.setPhim(lichChieu.getPhim());
+                        veRepository.save(ve);
+
+                        // Cập nhật trạng thái ghế
+                        ghe.setTrangThai(true);
+                        gheRepository.save(ghe);
+                }
+
+                return hoaDon;
         }
-
-        return hoaDon;
-    }
 }

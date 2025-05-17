@@ -104,9 +104,9 @@
                         <div class="session">
                             <h1>2</h1><span>THÔNG TIN THANH TOÁN</span>
                         </div>
-                        <input type="fullname" id="fullname" placeholder="Họ Tên"><br />
+                        <input type="text" id="fullname" placeholder="Họ Tên"><br />
                         <input type="email" id="email" placeholder="Email"><br />
-                        <input type="phone" id="repassword" placeholder="Số điện thoại">
+                        <input type="tel" id="phone" placeholder="Số điện thoại">
                         <div class="price">Thành tiền:&nbsp;<span id="price"></span></div>
                     </div>
                     <div class="cash-out-right col-lg-6">

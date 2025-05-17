@@ -18,6 +18,9 @@ public class HoaDon {
     private Long idhoadon;
 
     private LocalDate ngaylaphd;
+
+    private int tongtien;
+
     private String ghiChu;
 
     @ManyToOne
@@ -88,4 +91,11 @@ public class HoaDon {
         this.ghiChu = ghiChu;
     }
 
+    public int getTongtien() {
+        return tongtien;
+    }
+
+    public void setTongtien(int tongtien) {
+        this.tongtien = tongtien;
+    }
 }

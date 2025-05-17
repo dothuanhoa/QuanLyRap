@@ -1,6 +1,8 @@
 let seatData = {};
 const urlParams = new URLSearchParams(window.location.search);
 const idLichChieu = urlParams.get('idLichChieu');
+
+// Lấy thông tin ghế đã đặt
 fetch('/api/seats/booked?idLichChieu=' + idLichChieu)
   .then(response => response.json())
   .then(data => {
@@ -109,4 +111,83 @@ function renderSeats() {
   });
 
   document.getElementById("cancel-btn").addEventListener("click", closeModal);
+}
+
+// Thêm xử lý sự kiện cho nút thanh toán
+document.querySelector('.buy').addEventListener('click', processPayment);
+
+// Hàm xử lý thanh toán
+async function processPayment() {
+  // Kiểm tra nếu chưa chọn ghế
+  const selectedSeatElements = document.querySelectorAll('.seat.bg-black');
+  if (selectedSeatElements.length === 0) {
+    alert('Vui lòng chọn ít nhất một ghế trước khi thanh toán!');
+    return;
+  }
+
+  // Kiểm tra các trường thông tin
+  const fullname = document.getElementById('fullname').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const termsAccepted = document.querySelector('.terms input[type="checkbox"]').checked;
+
+  if (!fullname || !email || !phone) {
+    alert('Vui lòng điền đầy đủ thông tin để tiếp tục!');
+    return;
+  }
+
+  if (!termsAccepted) {
+    alert('Vui lòng đồng ý với điều khoản thanh toán!');
+    return;
+  }
+
+  // Lấy ID của khách hàng từ input hidden
+  const khachHangId = document.getElementById('khachHangId').value;
+
+  // Lấy danh sách ID ghế đã chọn
+  const selectedSeatIds = Array.from(selectedSeatElements).map(elem => {
+    return elem.getAttribute('data-id');
+  });
+
+  // Hiển thị thông báo đang xử lý
+  const buyButton = document.querySelector('.buy');
+  const originalText = buyButton.textContent;
+  buyButton.textContent = 'Đang xử lý...';
+  buyButton.disabled = true;
+
+  try {
+    // Gọi API thanh toán
+    const response = await fetch('/api/seats/payment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        selectedSeatIds: selectedSeatIds,
+        idLichChieu: idLichChieu,
+        khachHangId: khachHangId
+      })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      // Hiển thị thông báo thành công
+      alert(`Thanh toán thành công! Mã hóa đơn: ${result.invoiceId}\n${result.invoiceDetails}\nVui lòng kiểm tra email của bạn.`);
+
+      // Chuyển hướng về trang chủ sau 2 giây
+      setTimeout(() => {
+        window.location.href = `/customer/${khachHangId}`;
+      }, 2000);
+    } else {
+      alert('Lỗi thanh toán: ' + result.message);
+      buyButton.textContent = originalText;
+      buyButton.disabled = false;
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Đã xảy ra lỗi khi thanh toán. Vui lòng thử lại!');
+    buyButton.textContent = originalText;
+    buyButton.disabled = false;
+  }
 }
